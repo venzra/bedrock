@@ -1,0 +1,6 @@
+@mixin bedrock-font($size, $weight: 400, $color: null) {
+    font-size: $size;
+    font-weight: $weight;
+    line-height: $size * 1.2;
+    color: $color;
+}

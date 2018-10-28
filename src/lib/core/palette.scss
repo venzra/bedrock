@@ -1,0 +1,28 @@
+$bedrock: (
+    font: (
+        dark: #321321,
+        light: #fcfafc
+    ),
+    brand:(
+        primary: (
+            light: lighten(#673ab7, 30),
+            dark: #673ab7
+        ),
+        accent: (
+            light: lighten(#b7af3a, 30),
+            dark: #b7af3a
+        ),
+    ),
+    success: (
+        light: lighten(#3a94b7, 30),
+        dark: #3a94b7
+    ),
+    warning: (
+        light: lighten(#b7703a, 30),
+        dark: #b7703a
+    ),
+    error: (
+        light: lighten(#b73a67, 30),
+        dark: #b73a67
+    )
+)

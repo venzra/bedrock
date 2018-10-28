@@ -1,0 +1,12 @@
+package-lock.json
+/dist
+
+/node_modules
+
+/.idea
+/.vscode
+
+/npm-debug.log
+
+.DS_Store
+Thumbs.db

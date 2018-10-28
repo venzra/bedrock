@@ -1,0 +1,71 @@
+<h2>Input</h2>
+
+<section>
+    <h3>Import Module</h3>
+    <p>To use the components here you first need to include this module in your application @NgModule</p>
+    <pre>
+        <span>import {{ '{' }} rockInputModule {{ '}' }} from '@venzra/bedrock';</span>
+        <span></span>
+        <span>@NgModule({{ '{' }}</span>
+        <span>    imports: [</span>
+        <span>        rockInputModule</span>
+        <span>    ]</span>
+        <span>{{ '}' }})</span>
+        <span>export class ModuleName {{ '{ }' }}</span>
+    </pre>
+</section>
+
+<section>
+    <h3>Examples</h3>
+    <p>Use the following examples to build your form.</p>
+</section>
+
+<section>
+    <h4>Simple form fields</h4>
+    <pre>
+        <span>&lt;rock-input label="First name"&gt;</span>
+        <span>    &lt;input rockInput id="firstName" type="text" formControlName="firstName"&gt;</span>
+        <span>&lt;/rock-input&gt;</span>
+        <span></span>
+        <span>&lt;rock-input label="Last name"&gt;</span>
+        <span>    &lt;input rockInput id="lastName" type="text" formControlName="lastName"&gt;</span>
+        <span>&lt;/rock-input&gt;</span>
+    </pre>
+
+    <form [formGroup]="basicForm">
+        <rock-input label="First name">
+            <input rockInput id="firstName" type="text" formControlName="firstName">
+        </rock-input>
+
+        <rock-input label="Last name">
+            <input rockInput id="lastName" type="text" formControlName="lastName">
+        </rock-input>
+    </form>
+</section>
+
+<section>
+    <h4>Form fields with error messages</h4>
+    <pre>
+        <span>&lt;rock-input label="Email address"&gt;</span>
+        <span>    &lt;input rockInput id="email" type="text" formControlName="email"&gt;</span>
+        <span>    &lt;rock-input-error&gt;&lt;/rock-input-error&gt;</span>
+        <span>&lt;/rock-input&gt;</span>
+        <span></span>
+        <span>&lt;rock-input label="Password"&gt;</span>
+        <span>    &lt;input rockInput id="password" type="password" formControlName="password"&gt;</span>
+        <span>    &lt;rock-input-error&gt;&lt;/rock-input-error&gt;</span>
+        <span>&lt;/rock-input&gt;</span>
+    </pre>
+
+    <form [formGroup]="intermediateForm">
+        <rock-input label="Email address">
+            <input rockInput id="email" type="text" formControlName="email">
+            <rock-input-error></rock-input-error>
+        </rock-input>
+
+        <rock-input label="Password">
+            <input rockInput id="password" type="password" formControlName="password">
+            <rock-input-error></rock-input-error>
+        </rock-input>
+    </form>
+</section>
