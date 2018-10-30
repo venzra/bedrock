@@ -3,6 +3,7 @@
 <section>
     <h3>Import Module</h3>
     <p>To use the components here you first need to include this module in your application @NgModule</p>
+    
     <pre>
         <span>import {{ '{' }} rockInputModule {{ '}' }} from '@venzra/bedrock';</span>
         <span></span>
@@ -22,6 +23,7 @@
 
 <section>
     <h4>Simple form fields</h4>
+    
     <pre>
         <span>&lt;rock-input label="First name"&gt;</span>
         <span>    &lt;input rockInput id="firstName" type="text" formControlName="firstName"&gt;</span>
@@ -45,6 +47,7 @@
 
 <section>
     <h4>Form fields with error messages</h4>
+    
     <pre>
         <span>&lt;rock-input label="Email address"&gt;</span>
         <span>    &lt;input rockInput id="email" type="text" formControlName="email"&gt;</span>
@@ -65,6 +68,34 @@
 
         <rock-input label="Password">
             <input rockInput id="password" type="password" formControlName="password">
+            <rock-input-error></rock-input-error>
+        </rock-input>
+    </form>
+</section>
+
+<section>
+    <h4>Textarea input example</h4>
+    
+    <pre>
+        <span>&lt;rock-input label="Your name"&gt;</span>
+        <span>    &lt;input rockInput id="alias" type="text" formControlName="alias"&gt;</span>
+        <span>    &lt;rock-input-error&gt;&lt;/rock-input-error&gt;</span>
+        <span>&lt;/rock-input&gt;</span>
+        <span></span>
+        <span>&lt;rock-input label="Feedback"&gt;</span>
+        <span>    &lt;textarea rockInput id="feedback" rows="8" formControlName="feedback"&gt;&lt;/textarea&gt;</span>
+        <span>    &lt;rock-input-error&gt;&lt;/rock-input-error&gt;</span>
+        <span>&lt;/rock-input&gt;</span>
+    </pre>
+
+    <form [formGroup]="textForm">
+        <rock-input label="Your name">
+            <input rockInput id="alias" type="text" formControlName="alias">
+            <rock-input-error></rock-input-error>
+        </rock-input>
+
+        <rock-input label="Feedback">
+            <textarea rockInput id="feedback" rows="8" formControlName="feedback"></textarea>
             <rock-input-error></rock-input-error>
         </rock-input>
     </form>
