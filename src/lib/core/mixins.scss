@@ -1,6 +1,37 @@
-@mixin bedrock-font($size, $weight: 400, $color: null) {
+@mixin bedrock-font($size, $weight: 500, $color: null) {
     font-size: $size;
     font-weight: $weight;
     line-height: $size * 1.2;
     color: $color;
+}
+
+@mixin bedrock-button-reset {
+    border: none;
+    margin: 0;
+    padding: 0;
+    width: auto;
+    overflow: visible;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    line-height: normal;
+    -webkit-font-smoothing: inherit;
+    -moz-osx-font-smoothing: inherit;
+    -webkit-appearance: none;
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    &:active {
+        cursor: pointer;
+    }
+
+    &:focus {
+        outline: none;
+    }
+
+    &:disabled:hover {
+        cursor: default;
+    }
 }
