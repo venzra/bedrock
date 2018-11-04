@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 
-import { RockButtonModule, RockInputModule } from '@bedrock';
+import { RockButtonModule, RockCardModule, RockInputModule } from '@bedrock';
 
 import { ComponentsComponent } from './components.component';
 import { ButtonComponent } from './button/button.component';
+import { CardComponent } from './card/card.component';
 import { InputComponent } from './input/input.component';
 import { LandingComponent } from './landing.component';
 
@@ -14,13 +15,15 @@ import { ComponentsRoutingModule } from './components-routing.module';
     declarations: [
         ComponentsComponent,
         ButtonComponent,
+        CardComponent,
         InputComponent,
-        LandingComponent
+        LandingComponent,
     ],
     imports: [
         ComponentsRoutingModule,
         ReactiveFormsModule,
         RockButtonModule,
+        RockCardModule,
         RockInputModule,
     ],
     exports: [

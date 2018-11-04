@@ -1,9 +1,29 @@
-<div>
+<section>
     <h2>Form Components</h2>
     <p>Use these to build your forms in a consistent manner.</p>
 
-    <div class="card" [routerLink]="['/components', 'input']">
+    <rock-card [routerLink]="['/components', 'input']">
         <h3>Input</h3>
-        <p>Used to display text, password and textfield inputs.</p>
-    </div>
-</div>
+        <div>The most basic of form fields, used to display several input types `text`, `password` and `textarea` inputs.</div>
+    </rock-card>
+</section>
+
+<section>
+    <h2>Action Components</h2>
+    <p>Use these to enable user interactions.</p>
+
+    <rock-card [routerLink]="['/components', 'button']">
+        <h3>Button</h3>
+        <div>Buttons that can be used to create links, submit forms or enable temporary functionality.</div>
+    </rock-card>
+</section>
+
+<section>
+    <h2>Layout Components</h2>
+    <p>Use these to add some positioning and style to your content.</p>
+
+    <rock-card [routerLink]="['/components', 'card']">
+        <h3>Card</h3>
+        <div>A card is used to highlight potentially important information or even to enable a complex action when used with a router link.</div>
+    </rock-card>
+</section>

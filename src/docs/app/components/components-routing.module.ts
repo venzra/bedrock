@@ -5,6 +5,7 @@ import { ComponentsComponent } from './components.component';
 import { LandingComponent } from './landing.component';
 
 import { ButtonComponent } from './button/button.component';
+import { CardComponent } from './card/card.component';
 import { InputComponent } from './input/input.component';
 
 const routes: Routes = [{
@@ -14,6 +15,10 @@ const routes: Routes = [{
         {
             path: 'button',
             component: ButtonComponent,
+        },
+        {
+            path: 'card',
+            component: CardComponent,
         },
         {
             path: 'input',
