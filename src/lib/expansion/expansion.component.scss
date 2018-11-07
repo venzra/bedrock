@@ -10,7 +10,7 @@
     color: map-deep-get($bedrock, 'font', 'dark');
     font-size: 1rem;
 
-    &.rock-expansion-button-icon {
+    .rock-expansion-button-icon {
         display: inline-block;
 
         + .rock-expansion-button-text {
@@ -18,7 +18,7 @@
         }
     }
 
-    &.rock-expansion-button-text {
+    .rock-expansion-button-text {
         line-height: 1rem;
     }
 
