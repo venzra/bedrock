@@ -19,7 +19,7 @@ import { AppRoutingModule } from './app-routing.module';
         ReactiveFormsModule,
         AppRoutingModule,
     ],
-    bootstrap: [AppComponent],
+    bootstrap: [ AppComponent ],
 })
 export class AppModule {
 }

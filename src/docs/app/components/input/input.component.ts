@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
-    templateUrl: './input.component.html'
+    templateUrl: './input.component.html',
 })
 export class InputComponent implements OnInit {
 
@@ -11,23 +11,23 @@ export class InputComponent implements OnInit {
     public textForm: FormGroup;
 
     constructor(
-        private form: FormBuilder
+        private form: FormBuilder,
     ) { }
 
     ngOnInit(): void {
         this.basicForm = this.form.group({
-            firstName: [undefined, []],
-            lastName: [undefined, []]
+            firstName: [ undefined, [] ],
+            lastName: [ undefined, [] ],
         });
 
         this.intermediateForm = this.form.group({
-            email: [undefined, [Validators.required, Validators.email]],
-            password: [undefined, [Validators.required]]
+            email: [ undefined, [ Validators.required, Validators.email ] ],
+            password: [ undefined, [ Validators.required ] ],
         });
 
         this.textForm = this.form.group({
-            alias: [undefined, [Validators.required]],
-            feedback: [undefined, [Validators.required]]
+            alias: [ undefined, [ Validators.required ] ],
+            feedback: [ undefined, [ Validators.required ] ],
         });
     }
 

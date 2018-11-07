@@ -5,7 +5,7 @@ import { RockInputControl } from './input.control';
 
 @Directive({
     selector: 'input[rockInput]',
-    providers: [{ provide: RockInputControl, useExisting: RockInputDirective }]
+    providers: [ { provide: RockInputControl, useExisting: RockInputDirective } ],
 })
 export class RockInputDirective implements RockInputControl {
 
@@ -20,7 +20,8 @@ export class RockInputDirective implements RockInputControl {
     public required: boolean;
 
     constructor(
-        @Optional() @Self() public ngControl: NgControl
-    ) { }
+        @Optional() @Self() public ngControl: NgControl,
+    ) {
+    }
 
 }

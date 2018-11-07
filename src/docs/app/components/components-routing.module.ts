@@ -9,36 +9,38 @@ import { CardComponent } from './card/card.component';
 import { ExpansionComponent } from './expansion/expansion.component';
 import { InputComponent } from './input/input.component';
 
-const routes: Routes = [{
-    path: '',
-    component: ComponentsComponent,
-    children: [
-        {
-            path: 'button',
-            component: ButtonComponent,
-        },
-        {
-            path: 'card',
-            component: CardComponent,
-        },
-        {
-            path: 'expansion',
-            component: ExpansionComponent,
-        },
-        {
-            path: 'input',
-            component: InputComponent,
-        },
-        {
-            path: '',
-            component: LandingComponent,
-        },
-    ],
-}];
+const routes: Routes = [
+    {
+        path: '',
+        component: ComponentsComponent,
+        children: [
+            {
+                path: 'button',
+                component: ButtonComponent,
+            },
+            {
+                path: 'card',
+                component: CardComponent,
+            },
+            {
+                path: 'expansion',
+                component: ExpansionComponent,
+            },
+            {
+                path: 'input',
+                component: InputComponent,
+            },
+            {
+                path: '',
+                component: LandingComponent,
+            },
+        ],
+    },
+];
 
 @NgModule({
-    imports: [RouterModule.forChild(routes)],
-    exports: [RouterModule],
+    imports: [ RouterModule.forChild(routes) ],
+    exports: [ RouterModule ],
 })
 export class ComponentsRoutingModule {
 }

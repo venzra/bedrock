@@ -4,14 +4,14 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
 @Component({
     selector: 'rock-expansion-panel, [rock-expansion-panel]',
     templateUrl: './expansion-panel.component.html',
-    styleUrls: ['./expansion-panel.component.scss'],
+    styleUrls: [ './expansion-panel.component.scss' ],
     animations: [
         trigger('arrow', [
             state('open', style({
-                transform: 'rotate(180deg)'
+                transform: 'rotate(180deg)',
             })),
             state('closed', style({
-                transform: 'rotate(0deg)'
+                transform: 'rotate(0deg)',
             })),
             transition('open <=> closed', [
                 animate('250ms cubic-bezier(0.4,0.0,0.2,1)'),

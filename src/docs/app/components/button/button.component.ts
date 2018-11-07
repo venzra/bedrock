@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
     templateUrl: './button.component.html',
-    styleUrls: ['./button.component.scss']
+    styleUrls: [ './button.component.scss' ],
 })
 export class ButtonComponent {
 }

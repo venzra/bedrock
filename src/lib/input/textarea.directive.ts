@@ -5,7 +5,7 @@ import { RockInputControl } from './input.control';
 
 @Directive({
     selector: 'textarea[rockInput]',
-    providers: [{ provide: RockInputControl, useExisting: RockTextAreaDirective }]
+    providers: [ { provide: RockInputControl, useExisting: RockTextAreaDirective } ],
 })
 export class RockTextAreaDirective implements RockInputControl {
 
@@ -16,7 +16,7 @@ export class RockTextAreaDirective implements RockInputControl {
     public required: boolean;
 
     constructor(
-        @Optional() @Self() public ngControl: NgControl
+        @Optional() @Self() public ngControl: NgControl,
     ) { }
 
 }
