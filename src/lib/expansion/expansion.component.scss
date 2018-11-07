@@ -1,0 +1,51 @@
+@import '../core/functions';
+@import '../core/mixins';
+@import '../core/palette';
+
+.rock-expansion-button {
+    @include bedrock-button-reset();
+
+    display: block;
+    padding: 0.25rem 0;
+    color: map-deep-get($bedrock, 'font', 'dark');
+    font-size: 1rem;
+
+    & .rock-expansion-button-icon {
+        display: inline-block;
+
+        +.rock-expansion-button-text {
+            margin-left: 0.8rem;
+        }
+    }
+
+    & .rock-expansion-button-text {
+        line-height: 1rem;
+    }
+
+    &:hover, &:active {
+        color: map-deep-get($bedrock, 'brand', 'primary', 'dark');
+    }
+
+    > *:first-child {
+        margin-top: 0;
+        padding-top: 0;
+    }
+
+    > *:last-child {
+        margin-bottom: 0;
+        padding-bottom: 0;
+    }
+}
+
+.rock-expansion-content {
+    display: none;
+    padding: 1rem;
+    margin: 0.5rem 0;
+    border-left: 2px solid map-deep-get($bedrock, 'brand', 'primary', 'dark');
+}
+
+.expanded {
+    .rock-expansion-content {
+        display: block;
+    }
+}

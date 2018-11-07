@@ -1,0 +1,12 @@
+<div [ngClass]="{'expanded': !collapsed}">
+    <button (click)="toggle()" type="button" class="rock-expansion-button">
+
+        <span [@arrow]="collapsed ? 'closed' : 'open'" class="rock-expansion-button-icon">
+            <fa-icon icon="caret-right"></fa-icon>
+        </span>
+        <span class="rock-expansion-button-text">{{ label }}</span>
+    </button>
+    <div [@fade]="collapsed ? 'closed' : 'open'" class="rock-expansion-content">
+        <ng-content></ng-content>
+    </div>
+</div>

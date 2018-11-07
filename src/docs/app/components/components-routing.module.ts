@@ -6,6 +6,7 @@ import { LandingComponent } from './landing.component';
 
 import { ButtonComponent } from './button/button.component';
 import { CardComponent } from './card/card.component';
+import { ExpansionComponent } from './expansion/expansion.component';
 import { InputComponent } from './input/input.component';
 
 const routes: Routes = [{
@@ -19,6 +20,10 @@ const routes: Routes = [{
         {
             path: 'card',
             component: CardComponent,
+        },
+        {
+            path: 'expansion',
+            component: ExpansionComponent,
         },
         {
             path: 'input',
