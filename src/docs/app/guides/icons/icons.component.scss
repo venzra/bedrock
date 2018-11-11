@@ -1,0 +1,13 @@
+.example-icons {
+    > * {
+        margin-left: 1rem;
+
+        &:first-child {
+            margin-left: 0;
+        }
+    }
+
+    fa-layers-counter {
+        font-size: 1.35em;
+    }
+}

@@ -1,0 +1,103 @@
+<h2>Icons</h2>
+
+<section>
+    <h3>Import Module</h3>
+    <p>While FontAwesome is a dependency for Bedrock, to use the full range of icons you need to import the library into your own project module to use them. Note: We only have a dependency on the solid icons for the regular, branding or pro icons you will need to add these dependencies accordingly.</p>
+
+    <pre>
+        <span>import {{ '{' }} library {{ '}' }} from '@fortawesome/fontawesome-svg-core';</span>
+        <span>import {{ '{' }}</span>
+        <span>    faArrowUp,</span>
+        <span>    faArrowDown,</span>
+        <span>{{ '}' }} from '@fortawesome/free-solid-svg-icons';</span>
+        <span></span>
+        <span>@NgModule({{ '{' }}</span>
+        <span>    imports: [</span>
+        <span>        FontAwesomeModule,</span>
+        <span>    ],</span>
+        <span>{{ '}' }})</span>
+        <span>export class ModuleName {{ '{' }}</span>
+        <span>    constructor() {{ '{' }}</span>
+        <span>        library.add(</span>
+        <span>            faArrowUp,</span>
+        <span>            faArrowDown,</span>
+        <span>        );</span>
+        <span>    {{ '}' }}</span>
+        <span>{{ '}' }}</span>
+    </pre>
+</section>
+
+<section>
+    <h3>Examples</h3>
+    <p>The full set of icons available can be found on the <a href="https://fontawesome.com/icons" target="_blank">FontAwesome</a> website. Note that each icon you wish to use must be imported, the format to import is camelCase so <code>arrow-up</code> would be imported as <code>faArrowUp</code> this allows for the best efficiency as only those icons used will be compiled into your project, further information can be found on the <a href="https://github.com/FortAwesome/angular-fontawesome" target="_blank">FortAwesome</a> project. See a few example usages below.</p>
+</section>
+
+<section>
+    <h4>Basic usage (arrows)</h4>
+    
+    <pre>
+        <span>&lt;fa-icon icon="arrow-up"&gt;&lt;/fa-icon&gt;</span>
+        <span>&lt;fa-icon icon="arrow-left"&gt;&lt;/fa-icon&gt;</span>
+        <span>&lt;fa-icon icon="arrow-right"&gt;&lt;/fa-icon&gt;</span>
+        <span>&lt;fa-icon icon="arrow-down"&gt;&lt;/fa-icon&gt;</span>
+    </pre>
+
+    <div class="example-icons">
+        <fa-icon icon="arrow-up" size="lg"></fa-icon>
+        <fa-icon icon="arrow-left" size="lg"></fa-icon>
+        <fa-icon icon="arrow-right" size="lg"></fa-icon>
+        <fa-icon icon="arrow-down" size="lg"></fa-icon>
+    </div>
+</section>
+
+<section>
+    <h4>Icon sizes</h4>
+
+    <pre>
+        <span>&lt;fa-icon icon="square" size="1x"&gt;&lt;/fa-icon&gt;</span>
+        <span>&lt;fa-icon icon="square" size="2x"&gt;&lt;/fa-icon&gt;</span>
+        <span>&lt;fa-icon icon="square" size="3x""&gt;&lt;/fa-icon&gt;</span>
+        <span>&lt;fa-icon icon="square" size="4x"&gt;&lt;/fa-icon&gt;</span>
+        <span>&lt;fa-icon icon="square" size="5x"&gt;&lt;/fa-icon&gt;</span>
+    </pre>
+
+    <div class="example-icons">
+        <fa-icon icon="square" size="1x"></fa-icon>
+        <fa-icon icon="square" size="2x"></fa-icon>
+        <fa-icon icon="square" size="3x"></fa-icon>
+        <fa-icon icon="square" size="4x"></fa-icon>
+        <fa-icon icon="square" size="5x"></fa-icon>
+    </div>
+</section>
+
+<section>
+    <h4>Advanced options</h4>
+
+    <pre>
+        <span>&lt;fa-icon icon="spinner" [spin]="true" size="2x"&gt;&lt;/fa-icon&gt;</span>
+        <span>&lt;fa-icon [icon]="['fab', 'angular']" rotate="180" size="2x"&gt;&lt;/fa-icon&gt;</span>
+        <span></span>
+        <span>&lt;fa-layers size="2x"&gt;</span>
+        <span>    &lt;fa-icon icon="square"&gt;&lt;/fa-icon&gt;</span>
+        <span>    &lt;fa-icon [icon]="['fab', 'angular']" [inverse]="true" transform="shrink-4"&gt;&lt;/fa-icon&gt;</span>
+        <span>&lt;/fa-layers&gt;</span>
+        <span></span>
+        <span>&lt;fa-layers [fixedWidth]="true" size="2x"&gt;</span>
+        <span>    &lt;fa-icon icon="envelope"&gt;&lt;/fa-icon&gt;</span>
+        <span>    &lt;fa-layers-counter content="99+"&gt;&lt;/fa-layers-counter&gt;</span>
+        <span>&lt;/fa-layers&gt;</span>
+    </pre>
+
+    <div class="example-icons">
+        <fa-icon icon="spinner" [spin]="true" size="2x"></fa-icon>
+        <fa-icon [icon]="['fab', 'angular']" rotate="180" size="2x"></fa-icon>
+        <fa-layers size="2x">
+            <fa-icon icon="square"></fa-icon>
+            <fa-icon [icon]="['fab', 'angular']" [inverse]="true" transform="shrink-4"></fa-icon>
+        </fa-layers>
+        <fa-layers [fixedWidth]="true" size="2x">
+            <fa-icon icon="envelope"></fa-icon>
+            <fa-layers-counter content="99+"></fa-layers-counter>
+        </fa-layers>
+    </div>
+</section>

@@ -1,0 +1,42 @@
+.layout {
+    display: flex;
+    height: 100%;
+
+    .menu {
+        display: flex;
+        flex-direction: column;
+        min-width: 10rem;
+        max-width: 10rem;
+        margin: 1rem 0 1rem 1rem;
+        padding: 0.2rem;
+        background-color: #eaeaea;
+
+        .subheader {
+            font-size: 0.8rem;
+            font-weight: 700;
+            padding: 0.2rem 0.4rem;
+        }
+
+        a {
+            color: #444444;
+            font-size: 0.8rem;
+            text-decoration: none;
+            padding: 0.2rem 0.4rem;
+
+            &:hover, &.active {
+                color: #673ab7;
+                font-weight: 500;
+            }
+        }
+    }
+
+    .content {
+        margin: 1.5rem;
+        width: 100%;
+        max-width: 1000px;
+
+        @media (max-width: 1000px) {
+            min-width: calc(100% - 15rem);
+        }
+    }
+}
