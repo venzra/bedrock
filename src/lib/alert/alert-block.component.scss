@@ -1,0 +1,51 @@
+@import '../core/functions';
+@import '../core/mixins';
+@import '../core/palette';
+
+.rock-alert-block {
+    display: grid;
+    grid-gap: 0.75rem;
+    grid-template-columns: auto;
+    grid-auto-flow: column;
+    grid-auto-columns: min-content;
+    align-items: center;
+    padding: 0.75rem;
+
+    &.success {
+        color: map-deep-get($bedrock, 'success', 'dark');
+        background-color: lighten(map-deep-get($bedrock, 'success', 'light'), 40%);
+        border: 1px solid map-deep-get($bedrock, 'success', 'light');
+    }
+
+    &.info {
+        color: map-deep-get($bedrock, 'brand', 'primary', 'dark');
+        background-color: lighten(map-deep-get($bedrock, 'brand', 'primary', 'light'), 40%);
+        border: 1px solid map-deep-get($bedrock, 'brand', 'primary', 'light');
+    }
+
+    &.warning {
+         color: map-deep-get($bedrock, 'warning', 'dark');
+         background-color: lighten(map-deep-get($bedrock, 'warning', 'light'), 40%);
+         border: 1px solid map-deep-get($bedrock, 'warning', 'light');
+    }
+
+    &.error {
+        color: map-deep-get($bedrock, 'error', 'dark');
+        background-color: lighten(map-deep-get($bedrock, 'error', 'light'), 40%);
+        border: 1px solid map-deep-get($bedrock, 'error', 'light');
+    }
+
+    button {
+        @include bedrock-button-reset();
+        font-weight: 700;
+        white-space: nowrap;
+
+        &:active:not([disabled]) {
+            opacity: 0.8;
+        }
+
+        &:disabled {
+            opacity: 0.6;
+        }
+    }
+}

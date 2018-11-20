@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { ComponentsComponent } from './components.component';
 import { LandingComponent } from './landing.component';
 
+import { AlertComponent } from './alert/alert.component';
 import { ButtonComponent } from './button/button.component';
 import { CardComponent } from './card/card.component';
 import { ExpansionComponent } from './expansion/expansion.component';
@@ -14,6 +15,10 @@ const routes: Routes = [
         path: '',
         component: ComponentsComponent,
         children: [
+            {
+                path: 'alert',
+                component: AlertComponent,
+            },
             {
                 path: 'button',
                 component: ButtonComponent,

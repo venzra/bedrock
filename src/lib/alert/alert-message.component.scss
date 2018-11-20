@@ -1,0 +1,17 @@
+@import '../core/functions';
+@import '../core/palette';
+
+.rock-alert-message {
+    display: grid;
+    grid-gap: 0.75rem;
+    grid-template-columns: min-content auto;
+    align-items: center;
+
+    &.error fa-icon {
+        color: map-deep-get($bedrock, 'error', 'dark');
+    }
+
+    &.warning fa-icon {
+        color: map-deep-get($bedrock, 'warning', 'dark');
+    }
+}

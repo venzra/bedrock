@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 
-import { RockButtonModule, RockCardModule, RockExpansionModule, RockInputModule } from '@bedrock';
+import { RockAlertModule, RockButtonModule, RockCardModule, RockExpansionModule, RockInputModule } from '@bedrock';
 
 import { ComponentsComponent } from './components.component';
+import { AlertComponent } from './alert/alert.component';
 import { ButtonComponent } from './button/button.component';
 import { CardComponent } from './card/card.component';
 import { ExpansionComponent } from './expansion/expansion.component';
@@ -15,6 +16,7 @@ import { ComponentsRoutingModule } from './components-routing.module';
 @NgModule({
     declarations: [
         ComponentsComponent,
+        AlertComponent,
         ButtonComponent,
         CardComponent,
         ExpansionComponent,
@@ -24,6 +26,7 @@ import { ComponentsRoutingModule } from './components-routing.module';
     imports: [
         ComponentsRoutingModule,
         ReactiveFormsModule,
+        RockAlertModule,
         RockButtonModule,
         RockCardModule,
         RockExpansionModule,

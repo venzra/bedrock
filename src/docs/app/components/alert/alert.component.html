@@ -1,0 +1,116 @@
+<h2>Alert</h2>
+
+<section>
+    <h3>Import Module</h3>
+    <p>To use the components here you first need to include this module in your application @NgModule</p>
+
+    <pre>
+        <span>import {{ '{' }} RockAlertModule {{ '}' }} from '@venzra/bedrock';</span>
+        <span></span>
+        <span>@NgModule({{ '{' }}</span>
+        <span>    imports: [</span>
+        <span>        RockAlertModule</span>
+        <span>    ]</span>
+        <span>{{ '}' }})</span>
+        <span>export class ModuleName {{ '{ }' }}</span>
+    </pre>
+</section>
+
+<section>
+    <h3>Examples</h3>
+    <p>The following are alerts that can be used to provide warnings or additional information to users.</p>
+</section>
+
+<section>
+    <h4>Alert messages</h4>
+
+    <pre>
+        <span>&lt;rock-alert-message severity="warning"&gt;</span>
+        <span>    Lorem ipsum dolor sit amet....</span>
+        <span>&lt;/rock-alert-message&gt;</span>
+        <span>&lt;rock-alert-message severity="error"&gt;</span>
+        <span>    Lorem ipsum dolor sit amet....</span>
+        <span>&lt;/rock-alert-message&gt;</span>
+    </pre>
+
+    <div class="example-alerts">
+        <rock-alert-message severity="warning">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua.
+        </rock-alert-message>
+        <rock-alert-message severity="error">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+            ea commodo consequat.
+        </rock-alert-message>
+    </div>
+</section>
+
+<section>
+    <h4>Alert blocks</h4>
+
+    <pre>
+        <span>&lt;rock-alert-block severity="success"&gt;</span>
+        <span>    Lorem ipsum dolor sit amet....</span>
+        <span>&lt;/rock-alert-block&gt;</span>
+        <span>&lt;rock-alert-block severity="info"&gt;</span>
+        <span>    Lorem ipsum dolor sit amet....</span>
+        <span>&lt;/rock-alert-block&gt;</span>
+        <span>&lt;rock-alert-block severity="warning"&gt;</span>
+        <span>    Lorem ipsum dolor sit amet....</span>
+        <span>&lt;/rock-alert-block&gt;</span>
+        <span>&lt;rock-alert-block severity="error"&gt;</span>
+        <span>    Lorem ipsum dolor sit amet....</span>
+        <span>&lt;/rock-alert-block&gt;</span>
+    </pre>
+
+    <div class="example-alerts">
+        <rock-alert-block severity="success">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua.
+        </rock-alert-block>
+        <rock-alert-block severity="info">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+            ea commodo consequat.
+        </rock-alert-block>
+        <rock-alert-block severity="warning">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua.
+        </rock-alert-block>
+        <rock-alert-block severity="error">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+            ea commodo consequat.
+        </rock-alert-block>
+    </div>
+</section>
+
+<section>
+    <h4>Alert blocks with buttons</h4>
+
+    <pre>
+        <span>&lt;rock-alert-block severity="warning"&gt;</span>
+        <span>    Lorem ipsum dolor sit amet....</span>
+        <span>    &lt;button type="button"&gt;Action&lt;/button&gt;</span>
+        <span>&lt;/rock-alert-block&gt;</span>
+        <span>&lt;rock-alert-block severity="warning"&gt;</span>
+        <span>    Lorem ipsum dolor sit amet....</span>
+        <span>    &lt;button type="button" [disabled]="true"&gt;Action&lt;/button&gt;</span>
+        <span>&lt;/rock-alert-block&gt;</span>
+    </pre>
+
+    <div class="example-alerts">
+        <rock-alert-block severity="warning">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua.
+            <button type="button">Action</button>
+        </rock-alert-block>
+        <rock-alert-block severity="warning">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+            ea commodo consequat.
+            <button type="button" [disabled]="true">Action</button>
+        </rock-alert-block>
+    </div>
+</section>
