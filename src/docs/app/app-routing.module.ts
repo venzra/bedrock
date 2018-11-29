@@ -11,6 +11,10 @@ const routes: Routes = [
         loadChildren: './components/components.module#ComponentsModule',
     },
     {
+        path: 'directives',
+        loadChildren: './directives/directives.module#DirectivesModule',
+    },
+    {
         path: 'guides',
         loadChildren: './guides/guides.module#GuidesModule',
     },

@@ -1,0 +1,56 @@
+<h2>Markdown</h2>
+
+<section>
+    <h3>Include 3rd party library</h3>
+    <p>To use the markdown module an additional library must be installed and included within the scripts section of your <code>angular.json</code>.</p>
+
+    <pre>
+        <span>npm i marked</span>
+    </pre>
+
+    <pre>
+        <span>"scripts": [</span>
+        <span>    "./node_modules/marked/lib/marked.js"</span>
+        <span>]</span>
+    </pre>
+    <h3>Import Module</h3>
+    <p>To use the components here you first need to include this module in your application @NgModule</p>
+
+    <pre>
+        <span>import {{ '{' }} RockMarkdownModule {{ '}' }} from '@venzra/bedrock';</span>
+        <span></span>
+        <span>@NgModule({{ '{' }}</span>
+        <span>    imports: [</span>
+        <span>        RockMarkdownModule</span>
+        <span>    ]</span>
+        <span>{{ '}' }})</span>
+        <span>export class ModuleName {{ '{ }' }}</span>
+    </pre>
+</section>
+
+<section>
+    <h3>Examples</h3>
+    <p>The following are some examples of using markdown on a page. They are using the following markdown text;</p>
+
+    <code>{{ markdownContent }}</code>
+</section>
+
+<section>
+    <h4>Basic usage</h4>
+    
+    <pre>
+        <span>&lt;div [rockMarkdown]="markdownContent"&gt;&lt;/div&gt;</span>
+    </pre>
+
+    <div class="example-markdown" [rockMarkdown]="markdownContent">Markdown renderer not available</div>
+</section>
+
+<section>
+    <h4>Formatting options</h4>
+
+    <pre>
+        <span>&lt;div [rockMarkdown]="markdownContent" headers="simple"&gt;&lt;/div&gt;</span>
+    </pre>
+
+    <div class="example-markdown" [rockMarkdown]="markdownContent" headers="simple">Markdown renderer not available</div>
+</section>
