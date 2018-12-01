@@ -1,8 +1,11 @@
 <h2>Icons</h2>
+<p>The full set of icons available can be found on the <a href="https://fontawesome.com/icons" target="_blank">FontAwesome</a> website.</p>
 
 <section>
     <h3>Import Module</h3>
-    <p>While FontAwesome is a dependency for Bedrock, to use the full range of icons you need to import the library into your own project module to use them. Note: We only have a dependency on the solid icons for the regular, branding or pro icons you will need to add these dependencies accordingly.</p>
+    <p>While FontAwesome is a dependency for Bedrock, to use the full range of icons you need to import the library into your own project module to use them.</p>
+    <p>Each icon you wish to use must be imported, the format to import is camelCase so <code>arrow-up</code> would be imported as <code>faArrowUp</code> this allows for the best efficiency as only those icons used will be compiled into your project, further information can be found on the <a href="https://github.com/FortAwesome/angular-fontawesome" target="_blank">FortAwesome</a> project.</p>
+    <p>Note: We only have a dependency on the solid icons for the regular, branding or pro icons you will need to add these dependencies accordingly.</p>
 
     <pre>
         <span>import {{ '{' }} library {{ '}' }} from '@fortawesome/fontawesome-svg-core';</span>
@@ -25,11 +28,6 @@
         <span>    {{ '}' }}</span>
         <span>{{ '}' }}</span>
     </pre>
-</section>
-
-<section>
-    <h3>Examples</h3>
-    <p>The full set of icons available can be found on the <a href="https://fontawesome.com/icons" target="_blank">FontAwesome</a> website. Note that each icon you wish to use must be imported, the format to import is camelCase so <code>arrow-up</code> would be imported as <code>faArrowUp</code> this allows for the best efficiency as only those icons used will be compiled into your project, further information can be found on the <a href="https://github.com/FortAwesome/angular-fontawesome" target="_blank">FortAwesome</a> project. See a few example usages below.</p>
 </section>
 
 <section>
