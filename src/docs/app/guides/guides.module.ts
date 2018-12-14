@@ -21,6 +21,7 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 
 import { GuidesComponent } from './guides.component';
+import { GettingStartedComponent } from './getting-started/getting-started.component';
 import { IconsComponent } from './icons/icons.component';
 import { LandingComponent } from './landing.component';
 
@@ -29,6 +30,7 @@ import { GuidesRoutingModule } from './guides-routing.module';
 @NgModule({
     declarations: [
         GuidesComponent,
+        GettingStartedComponent,
         IconsComponent,
         LandingComponent,
     ],

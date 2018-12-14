@@ -1,0 +1,146 @@
+<h2>Getting Started</h2>
+<p>This three step guide will get you up and running with your Angular Project and Bedrock in less than 5 minutes.</p>
+
+<section>
+    <h3>Step One: Installation</h3>
+    <p>
+        Firstly setup your Angular Project as usual via the CLI <code>npm i --global @angular/cli</code> and <code>ng
+        new</code>. Select how you want your project to be managed with / without routing, use of SCSS etc....
+    </p>
+
+    <h4>Dependencies</h4>
+    <p>
+        Add Bedrock to your project plus the dependencies we require to enable all the associated features. Example
+        using <code>npm</code> however you may wish to use <code>yarn</code> as an alternative.
+    </p>
+
+    <pre>
+        <span>npm i @venzra/bedrock</span>
+        <span></span>
+        <span>npm i @angular/cdk</span>
+        <span>npm i @fortawesome/angular-fontawesome</span>
+        <span>npm i @fortawesome/fontawesome-svg-core</span>
+        <span>npm i @fortawesome/free-solid-svg-icons</span>
+        <span>npm i marked</span>
+    </pre>
+</section>
+
+<section>
+    <h3>Step Two: Configuration</h3>
+    <p>
+        We have a minimal footprint regarding the configuration of your Angular project. However to ensure that
+        everything is working please add the following.
+    </p>
+
+    <h4>Enable Animations</h4>
+    <p>
+        At this time we only support Animations. Ensure that the animations package is installed in your <code>package.json</code>,
+        if not do so with <code>npm i @angular/animations</code>. To then enable this you must include <code>BrowserAnimationsModule</code>
+        in your projects primary App module (if using the base project this would be the
+        <code>src/app/app.module.ts</code> file).
+    </p>
+
+    <pre>
+        <span>import {{ '{' }} BrowserAnimationsModule {{ '}' }} from '@angular/platform-browser/animations';</span>
+        <span></span>
+        <span>@NgModule({{ '{' }}</span>
+        <span>    imports: [ BrowserAnimationsModule ],</span>
+        <span>    bootstrap: [ AppComponentName ],</span>
+        <span>{{ '}' }})</span>
+        <span>export class AppModuleName {{ '{ }' }}</span>
+    </pre>
+</section>
+
+<section>
+    <h3>Step Three: Build</h3>
+    <p>Create a component using any of the available design components / directives that you require.</p>
+
+    <h4>example.module.ts</h4>
+    <p>Module using the basic component that you can then add to the <code>imports</code> in your <code>app.module.ts</code>.</p>
+
+    <pre>
+        <span>import {{ '{' }} NgModule {{ '}' }} from '@angular/core';</span>
+        <span>import {{ '{' }} ReactiveFormsModule {{ '}' }} from '@angular/forms';</span>
+        <span></span>
+        <span>import {{ '{' }}</span>
+        <span>    RockCardModule,</span>
+        <span>    RockButtonModule, </span>
+        <span>    RockInputModule,</span>
+        <span>{{ '}' }} from '@venzra/bedrock';</span>
+        <span></span>
+        <span>import {{ '{' }} ExampleComponent {{ '}' }} from './example.component';</span>
+        <span></span>
+        <span>@NgModule({{ '{' }}</span>
+        <span>    declarations: [</span>
+        <span>        ExampleComponent,</span>
+        <span>    ],</span>
+        <span>    imports: [</span>
+        <span>        ReactiveFormsModule,</span>
+        <span>        RockCardModule,</span>
+        <span>        RockButtonModule,</span>
+        <span>        RockInputModule,</span>
+        <span>    ],</span>
+        <span>{{ '}' }})</span>
+        <span>export class ModuleName {{ '{ }' }}</span>
+    </pre>
+
+    <h4>example.component.ts</h4>
+    <p>An basic example component you could use.</p>
+
+    <pre>
+        <span>import {{ '{' }} Component, OnInit {{ '}' }} from '@angular/core';</span>
+        <span>import {{ '{' }} FormBuilder, FormGroup, Validators {{ '}' }} from '@angular/forms';</span>
+        <span></span>
+        <span>@Component({{ '{' }}</span>
+        <span>    templateUrl: './example.component.html',</span>
+        <span>{{ '}' }})</span>
+        <span>export class ExampleComponent implements OnInit {{ '{' }}</span>
+        <span></span>
+        <span>    public loginForm: FormGroup;</span>
+        <span></span>
+        <span>    constructor (</span>
+        <span>        private form: FormBuilder,</span>
+        <span>    ) {{ '{' }} {{ '}' }}</span>
+        <span></span>
+        <span>    public ngOnInit(): void {{ '{' }}</span>
+        <span>        this.loginForm = this.form.group({{ '{' }}</span>
+        <span>            username: [ undefined, [ Validators.required ] ],</span>
+        <span>            password: [ undefined, [ Validators.required ] ],</span>
+        <span>        {{ '}' }});</span>
+        <span>    {{ '}' }}</span>
+        <span></span>
+        <span>    public performLogin(): void {{ '{' }}</span>
+        <span>        console.log(this.loginForm.getRawValue());</span>
+        <span>    {{ '}' }}</span>
+        <span>{{ '}' }}</span>
+    </pre>
+
+    <h4>example.component.html</h4>
+    <p>Applying a design component in the HTML for your page.</p>
+
+    <pre>
+        <span>&lt;rock-card&gt;</span>
+        <span>    &lt;h1&gt;Login&lt;/h1&gt;</span>
+        <span>    &lt;p&gt;Please provide your account credentials to login.&lt;/p&gt;</span>
+        <span></span>
+        <span>    &lt;form (submit)="performLogin()" [formGroup]="loginForm"&gt;</span>
+        <span>        &lt;rock-input label="Username"&gt;</span>
+        <span>            &lt;input rockInput id="username" type="text" formControlName="username"&gt;</span>
+        <span>            &lt;rock-input-error&gt;&lt;/rock-input-error&gt;</span>
+        <span>        &lt;/rock-input&gt;</span>
+        <span></span>
+        <span>        &lt;rock-input label="Password"&gt;</span>
+        <span>            &lt;input rockInput id="password" type="password" formControlName="password"&gt;</span>
+        <span>            &lt;rock-input-error&gt;&lt;/rock-input-error&gt;</span>
+        <span>        &lt;/rock-input&gt;</span>
+        <span></span>
+        <span>        &lt;button rock-raised-button [disabled]="loginForm.invalid"&gt;&lt;/button&gt;</span>
+        <span>    &lt;/form&gt;</span>
+        <span>&lt;/rock-card&gt;</span>
+    </pre>
+</section>
+
+<section>
+    <h3>Examples</h3>
+    <p>Check out our documentation which is using Bedrock.</p>
+</section>

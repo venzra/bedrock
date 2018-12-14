@@ -40,6 +40,10 @@ section {
     margin: 2em 0;
 }
 
+p {
+    line-height: 1.5em;
+}
+
 pre {
     color: #a63ab7;
     background-color: lighten(#a63ab7, 45);
@@ -66,4 +70,10 @@ pre {
             min-width: 28px;
         }
     }
+}
+
+code {
+    color: #a63ab7;
+    background-color: lighten(#a63ab7, 45);
+    padding: 0.1em 0.2em;
 }
