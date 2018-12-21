@@ -5,29 +5,13 @@
     <h3>Import Module</h3>
     <p>To use the components here you first need to include this module in your application @NgModule</p>
 
-    <pre>
-        <span>import {{ '{' }} RockAlertModule {{ '}' }} from '@venzra/bedrock';</span>
-        <span></span>
-        <span>@NgModule({{ '{' }}</span>
-        <span>    imports: [</span>
-        <span>        RockAlertModule</span>
-        <span>    ]</span>
-        <span>{{ '}' }})</span>
-        <span>export class ModuleName {{ '{ }' }}</span>
-    </pre>
+    <docs-code content="components/alert/import.md"></docs-code>
 </section>
 
 <section>
     <h4>Alert messages</h4>
 
-    <pre>
-        <span>&lt;rock-alert-message severity="warning"&gt;</span>
-        <span>    Lorem ipsum dolor sit amet....</span>
-        <span>&lt;/rock-alert-message&gt;</span>
-        <span>&lt;rock-alert-message severity="error"&gt;</span>
-        <span>    Lorem ipsum dolor sit amet....</span>
-        <span>&lt;/rock-alert-message&gt;</span>
-    </pre>
+    <docs-code content="components/alert/example-one.md"></docs-code>
 
     <div class="example-alerts">
         <rock-alert-message severity="warning">
@@ -45,20 +29,7 @@
 <section>
     <h4>Alert blocks</h4>
 
-    <pre>
-        <span>&lt;rock-alert-block severity="success"&gt;</span>
-        <span>    Lorem ipsum dolor sit amet....</span>
-        <span>&lt;/rock-alert-block&gt;</span>
-        <span>&lt;rock-alert-block severity="info"&gt;</span>
-        <span>    Lorem ipsum dolor sit amet....</span>
-        <span>&lt;/rock-alert-block&gt;</span>
-        <span>&lt;rock-alert-block severity="warning"&gt;</span>
-        <span>    Lorem ipsum dolor sit amet....</span>
-        <span>&lt;/rock-alert-block&gt;</span>
-        <span>&lt;rock-alert-block severity="error"&gt;</span>
-        <span>    Lorem ipsum dolor sit amet....</span>
-        <span>&lt;/rock-alert-block&gt;</span>
-    </pre>
+    <docs-code content="components/alert/example-two.md"></docs-code>
 
     <div class="example-alerts">
         <rock-alert-block severity="success">
@@ -85,16 +56,7 @@
 <section>
     <h4>Alert blocks with buttons</h4>
 
-    <pre>
-        <span>&lt;rock-alert-block severity="warning"&gt;</span>
-        <span>    Lorem ipsum dolor sit amet....</span>
-        <span>    &lt;button type="button"&gt;Action&lt;/button&gt;</span>
-        <span>&lt;/rock-alert-block&gt;</span>
-        <span>&lt;rock-alert-block severity="warning"&gt;</span>
-        <span>    Lorem ipsum dolor sit amet....</span>
-        <span>    &lt;button type="button" [disabled]="true"&gt;Action&lt;/button&gt;</span>
-        <span>&lt;/rock-alert-block&gt;</span>
-    </pre>
+    <docs-code content="components/alert/example-three.md"></docs-code>
 
     <div class="example-alerts">
         <rock-alert-block severity="warning">

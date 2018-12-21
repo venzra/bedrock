@@ -4,41 +4,16 @@
 <section>
     <h3>Import Module</h3>
     <p>While FontAwesome is a dependency for Bedrock, to use the full range of icons you need to import the library into your own project module to use them.</p>
-    <p>Each icon you wish to use must be imported, the format to import is camelCase so <code>arrow-up</code> would be imported as <code>faArrowUp</code> this allows for the best efficiency as only those icons used will be compiled into your project, further information can be found on the <a href="https://github.com/FortAwesome/angular-fontawesome" target="_blank">FortAwesome</a> project.</p>
+    <p>Each icon you wish to use must be imported, the format to import is camelCase so <span class="code">arrow-up</span> would be imported as <span class="code">faArrowUp</span> this allows for the best efficiency as only those icons used will be compiled into your project, further information can be found on the <a href="https://github.com/FortAwesome/angular-fontawesome" target="_blank">FortAwesome</a> project.</p>
     <p>Note: We only have a dependency on the solid icons for the regular, branding or pro icons you will need to add these dependencies accordingly.</p>
 
-    <pre>
-        <span>import {{ '{' }} library {{ '}' }} from '@fortawesome/fontawesome-svg-core';</span>
-        <span>import {{ '{' }}</span>
-        <span>    faArrowUp,</span>
-        <span>    faArrowDown,</span>
-        <span>{{ '}' }} from '@fortawesome/free-solid-svg-icons';</span>
-        <span></span>
-        <span>@NgModule({{ '{' }}</span>
-        <span>    imports: [</span>
-        <span>        FontAwesomeModule,</span>
-        <span>    ],</span>
-        <span>{{ '}' }})</span>
-        <span>export class ModuleName {{ '{' }}</span>
-        <span>    constructor() {{ '{' }}</span>
-        <span>        library.add(</span>
-        <span>            faArrowUp,</span>
-        <span>            faArrowDown,</span>
-        <span>        );</span>
-        <span>    {{ '}' }}</span>
-        <span>{{ '}' }}</span>
-    </pre>
+    <docs-code content="guides/icons/import.md"></docs-code>
 </section>
 
 <section>
     <h4>Basic usage (arrows)</h4>
-    
-    <pre>
-        <span>&lt;fa-icon icon="arrow-up"&gt;&lt;/fa-icon&gt;</span>
-        <span>&lt;fa-icon icon="arrow-left"&gt;&lt;/fa-icon&gt;</span>
-        <span>&lt;fa-icon icon="arrow-right"&gt;&lt;/fa-icon&gt;</span>
-        <span>&lt;fa-icon icon="arrow-down"&gt;&lt;/fa-icon&gt;</span>
-    </pre>
+
+    <docs-code content="guides/icons/example-one.md"></docs-code>
 
     <div class="example-icons">
         <fa-icon icon="arrow-up" size="lg"></fa-icon>
@@ -51,13 +26,7 @@
 <section>
     <h4>Icon sizes</h4>
 
-    <pre>
-        <span>&lt;fa-icon icon="square" size="1x"&gt;&lt;/fa-icon&gt;</span>
-        <span>&lt;fa-icon icon="square" size="2x"&gt;&lt;/fa-icon&gt;</span>
-        <span>&lt;fa-icon icon="square" size="3x""&gt;&lt;/fa-icon&gt;</span>
-        <span>&lt;fa-icon icon="square" size="4x"&gt;&lt;/fa-icon&gt;</span>
-        <span>&lt;fa-icon icon="square" size="5x"&gt;&lt;/fa-icon&gt;</span>
-    </pre>
+    <docs-code content="guides/icons/example-two.md"></docs-code>
 
     <div class="example-icons">
         <fa-icon icon="square" size="1x"></fa-icon>
@@ -71,20 +40,7 @@
 <section>
     <h4>Advanced options</h4>
 
-    <pre>
-        <span>&lt;fa-icon icon="spinner" [spin]="true" size="2x"&gt;&lt;/fa-icon&gt;</span>
-        <span>&lt;fa-icon [icon]="['fab', 'angular']" rotate="180" size="2x"&gt;&lt;/fa-icon&gt;</span>
-        <span></span>
-        <span>&lt;fa-layers size="2x"&gt;</span>
-        <span>    &lt;fa-icon icon="square"&gt;&lt;/fa-icon&gt;</span>
-        <span>    &lt;fa-icon [icon]="['fab', 'angular']" [inverse]="true" transform="shrink-4"&gt;&lt;/fa-icon&gt;</span>
-        <span>&lt;/fa-layers&gt;</span>
-        <span></span>
-        <span>&lt;fa-layers [fixedWidth]="true" size="2x"&gt;</span>
-        <span>    &lt;fa-icon icon="envelope"&gt;&lt;/fa-icon&gt;</span>
-        <span>    &lt;fa-layers-counter content="99+"&gt;&lt;/fa-layers-counter&gt;</span>
-        <span>&lt;/fa-layers&gt;</span>
-    </pre>
+    <docs-code content="guides/icons/example-three.md"></docs-code>
 
     <div class="example-icons">
         <fa-icon icon="spinner" [spin]="true" size="2x"></fa-icon>

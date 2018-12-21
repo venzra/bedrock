@@ -5,30 +5,13 @@
     <h3>Import Module</h3>
     <p>To use the components here you first need to include this module in your application @NgModule</p>
 
-    <pre>
-        <span>import {{ '{' }} RockInputModule {{ '}' }} from '@venzra/bedrock';</span>
-        <span></span>
-        <span>@NgModule({{ '{' }}</span>
-        <span>    imports: [</span>
-        <span>        RockInputModule</span>
-        <span>    ]</span>
-        <span>{{ '}' }})</span>
-        <span>export class ModuleName {{ '{ }' }}</span>
-    </pre>
+    <docs-code content="components/input/import.md"></docs-code>
 </section>
 
 <section>
     <h4>Simple form fields</h4>
 
-    <pre>
-        <span>&lt;rock-input label="First name"&gt;</span>
-        <span>    &lt;input rockInput id="firstName" type="text" formControlName="firstName"&gt;</span>
-        <span>&lt;/rock-input&gt;</span>
-        <span></span>
-        <span>&lt;rock-input label="Last name"&gt;</span>
-        <span>    &lt;input rockInput id="lastName" type="text" formControlName="lastName"&gt;</span>
-        <span>&lt;/rock-input&gt;</span>
-    </pre>
+    <docs-code content="components/input/example-one.md"></docs-code>
 
     <form [formGroup]="basicForm">
         <rock-input label="First name">
@@ -44,17 +27,7 @@
 <section>
     <h4>Form fields with error messages</h4>
 
-    <pre>
-        <span>&lt;rock-input label="Email address"&gt;</span>
-        <span>    &lt;input rockInput id="email" type="text" formControlName="email"&gt;</span>
-        <span>    &lt;rock-input-error&gt;&lt;/rock-input-error&gt;</span>
-        <span>&lt;/rock-input&gt;</span>
-        <span></span>
-        <span>&lt;rock-input label="Password"&gt;</span>
-        <span>    &lt;input rockInput id="password" type="password" formControlName="password"&gt;</span>
-        <span>    &lt;rock-input-error&gt;&lt;/rock-input-error&gt;</span>
-        <span>&lt;/rock-input&gt;</span>
-    </pre>
+    <docs-code content="components/input/example-two.md"></docs-code>
 
     <form [formGroup]="intermediateForm">
         <rock-input label="Email address">
@@ -72,17 +45,7 @@
 <section>
     <h4>Textarea input example</h4>
 
-    <pre>
-        <span>&lt;rock-input label="Your name"&gt;</span>
-        <span>    &lt;input rockInput id="alias" type="text" formControlName="alias"&gt;</span>
-        <span>    &lt;rock-input-error&gt;&lt;/rock-input-error&gt;</span>
-        <span>&lt;/rock-input&gt;</span>
-        <span></span>
-        <span>&lt;rock-input label="Feedback"&gt;</span>
-        <span>    &lt;textarea rockInput id="feedback" rows="8" formControlName="feedback"&gt;&lt;/textarea&gt;</span>
-        <span>    &lt;rock-input-error&gt;&lt;/rock-input-error&gt;</span>
-        <span>&lt;/rock-input&gt;</span>
-    </pre>
+    <docs-code content="components/input/example-three.md"></docs-code>
 
     <form [formGroup]="textForm">
         <rock-input label="Your name">

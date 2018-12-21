@@ -4,6 +4,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { RockCardModule, RockMarkdownModule } from '@bedrock';
 
+import { CodeModule } from '../../components/code/code.module';
+
 import { DirectivesComponent } from './directives.component';
 import { MarkdownComponent } from './markdown/markdown.component';
 import { LandingComponent } from './landing.component';
@@ -20,8 +22,9 @@ import { DirectivesRoutingModule } from './directives-routing.module';
         HttpClientModule,
         DirectivesRoutingModule,
         ReactiveFormsModule,
+        CodeModule,
         RockCardModule,
-        RockMarkdownModule
+        RockMarkdownModule,
     ],
     exports: [
         DirectivesComponent,

@@ -3,55 +3,45 @@
 
 <section>
     <h3>Include 3rd party library</h3>
-    <p>To use the markdown module an additional library must be installed and included within the scripts section of your <code>angular.json</code>.</p>
+    <p>To use the markdown module an additional library must be installed <span class="code">npm i marked</span> and included within the scripts section of your <span class="code">angular.json</span>.</p>
 
-    <pre>
-        <span>npm i marked</span>
-    </pre>
+    <docs-code content="directives/markdown/dependencies.md"></docs-code>
 
-    <pre>
-        <span>"scripts": [</span>
-        <span>    "./node_modules/marked/lib/marked.js"</span>
-        <span>]</span>
-    </pre>
     <h3>Import Module</h3>
     <p>To use the components here you first need to include this module in your application @NgModule</p>
 
-    <pre>
-        <span>import {{ '{' }} RockMarkdownModule {{ '}' }} from '@venzra/bedrock';</span>
-        <span></span>
-        <span>@NgModule({{ '{' }}</span>
-        <span>    imports: [</span>
-        <span>        RockMarkdownModule</span>
-        <span>    ]</span>
-        <span>{{ '}' }})</span>
-        <span>export class ModuleName {{ '{ }' }}</span>
-    </pre>
+    <docs-code content="directives/markdown/import.md"></docs-code>
 </section>
 
 <section>
     <h3>Markdown Text</h3>
     <p>This is the markdown text used in the below examples.</p>
 
-    <code>{{ markdownContent }}</code>
+    <div class="example-markdown">{{ markdownContent }}</div>
 </section>
 
 <section>
     <h4>Basic usage</h4>
-    
-    <pre>
-        <span>&lt;div [rockMarkdown]="markdownContent"&gt;&lt;/div&gt;</span>
-    </pre>
 
-    <div class="example-markdown" [rockMarkdown]="markdownContent">Markdown renderer not available</div>
+    <docs-code content="directives/markdown/example-one.md"></docs-code>
+
+    <div class="example-output" [rockMarkdown]="markdownContent">Markdown renderer not available</div>
 </section>
 
 <section>
     <h4>Formatting options</h4>
 
-    <pre>
-        <span>&lt;div [rockMarkdown]="markdownContent" headers="simple"&gt;&lt;/div&gt;</span>
-    </pre>
+    <docs-code content="directives/markdown/example-two.md"></docs-code>
 
-    <div class="example-markdown" [rockMarkdown]="markdownContent" headers="simple">Markdown renderer not available</div>
+    <div class="example-output" [rockMarkdown]="markdownContent" headers="simple">Markdown renderer not available</div>
+</section>
+
+<section>
+    <h4>Code highlighting (using highlight.js)</h4>
+
+    <docs-code content="directives/markdown/example-three.md"></docs-code>
+
+    <div class="example-output" [rockMarkdown]="markdownContent" [highlight]="highlight">Markdown renderer not available</div>
+
+    <p><strong>Note:</strong> You do not have to use highlight.js you can create your own custom function to provide, so long as it matches the signature used in this example.</p>
 </section>

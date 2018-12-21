@@ -4,14 +4,15 @@
         "directive-selector": [
             true,
             "attribute",
-            "app",
+            "docs",
             "camelCase"
         ],
         "component-selector": [
             true,
             "element",
-            "app",
+            "docs",
             "kebab-case"
-        ]
+        ],
+        "no-angle-bracket-type-assertion": false
     }
 }

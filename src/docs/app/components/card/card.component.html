@@ -5,26 +5,13 @@
     <h3>Import Module</h3>
     <p>To use the components here you first need to include this module in your application @NgModule</p>
 
-    <pre>
-        <span>import {{ '{' }} RockCardModule {{ '}' }} from '@venzra/bedrock';</span>
-        <span></span>
-        <span>@NgModule({{ '{' }}</span>
-        <span>    imports: [</span>
-        <span>        RockCardModule</span>
-        <span>    ]</span>
-        <span>{{ '}' }})</span>
-        <span>export class ModuleName {{ '{ }' }}</span>
-    </pre>
+    <docs-code content="components/card/import.md"></docs-code>
 </section>
 
 <section>
     <h4>Basic card</h4>
 
-    <pre>
-        <span>&lt;rock-card&gt;</span>
-        <span>    &lt;div&gt;Basic card with content only.&lt;/div&gt;</span>
-        <span>&lt;/rock-card&gt;</span>
-    </pre>
+    <docs-code content="components/card/example-one.md"></docs-code>
 
     <rock-card>
         <div>Basic card with content only.</div>
@@ -34,12 +21,7 @@
 <section>
     <h4>Card with title</h4>
 
-    <pre>
-        <span>&lt;rock-card&gt;</span>
-        <span>    &lt;h2&gt;Card title&lt;/h2&gt;</span>
-        <span>    &lt;div&gt;Content for card when using a title.&lt;/div&gt;</span>
-        <span>&lt;/rock-card&gt;</span>
-    </pre>
+    <docs-code content="components/card/example-two.md"></docs-code>
 
     <rock-card>
         <h2>Card title</h2>
@@ -50,12 +32,7 @@
 <section>
     <h4>Card with link</h4>
 
-    <pre>
-        <span>&lt;rock-card [routerLink]="['/components', 'card']"&gt;</span>
-        <span>    &lt;h2&gt;Card with link&lt;/h2&gt;</span>
-        <span>    &lt;div&gt;This card supports hover state for linking to other pages.&lt;/div&gt;</span>
-        <span>&lt;/rock-card&gt;</span>
-    </pre>
+    <docs-code content="components/card/example-three.md"></docs-code>
 
     <rock-card [routerLink]="['/components', 'card']">
         <h2>Card with link</h2>

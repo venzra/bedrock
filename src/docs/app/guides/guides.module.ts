@@ -20,6 +20,8 @@ import {
     faAngular,
 } from '@fortawesome/free-brands-svg-icons';
 
+import { CodeModule } from '../../components/code/code.module';
+
 import { GuidesComponent } from './guides.component';
 import { GettingStartedComponent } from './getting-started/getting-started.component';
 import { IconsComponent } from './icons/icons.component';
@@ -37,6 +39,7 @@ import { GuidesRoutingModule } from './guides-routing.module';
     imports: [
         GuidesRoutingModule,
         ReactiveFormsModule,
+        CodeModule,
         RockCardModule,
         FontAwesomeModule,
     ],

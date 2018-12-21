@@ -1,9 +1,12 @@
-code {
+.example-markdown {
+    display: block;
+    font-family: monospace;
     white-space: pre;
     word-break: break-word;
+    margin: 1em 0;
 }
 
-.example-markdown {
+.example-output {
     padding: 0.5rem;
     border: 1px solid #aaaaaa;
 }

@@ -5,26 +5,13 @@
     <h3>Import Module</h3>
     <p>To use the components here you first need to include this module in your application @NgModule</p>
 
-    <pre>
-        <span>import {{ '{' }} RockExpansionModule {{ '}' }} from '@venzra/bedrock';</span>
-        <span></span>
-        <span>@NgModule({{ '{' }}</span>
-        <span>    imports: [</span>
-        <span>        RockExpansionModule</span>
-        <span>    ]</span>
-        <span>{{ '}' }})</span>
-        <span>export class ModuleName {{ '{ }' }}</span>
-    </pre>
+    <docs-code content="components/expansion/import.md"></docs-code>
 </section>
 
 <section>
     <h4>Expansion area</h4>
 
-    <pre>
-        <span>&lt;rock-expansion label="Click to expand content"&gt;</span>
-        <span>    &lt;div&gt;Lorem ipsum dolor sit amet.....&lt;/div&gt;</span>
-        <span>&lt;/rock-expansion&gt;</span>
-    </pre>
+    <docs-code content="components/expansion/example-one.md"></docs-code>
 
     <rock-expansion label="Click to expand content">
         <div>
@@ -40,11 +27,7 @@
 <section>
     <h4>Expansion panel</h4>
 
-    <pre>
-        <span>&lt;rock-expansion-panel title="Panel" label="Click to expand panel content"&gt;</span>
-        <span>    &lt;div&gt;Lorem ipsum dolor sit amet.....&lt;/div&gt;</span>
-        <span>&lt;/rock-expansion-panel&gt;</span>
-    </pre>
+    <docs-code content="components/expansion/example-two.md"></docs-code>
 
     <rock-expansion-panel title="Panel" label="Click to expand panel content">
         <div>

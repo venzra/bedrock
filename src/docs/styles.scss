@@ -1,3 +1,5 @@
+@import '~highlight.js/styles/github.css';
+
 html, body {
     position: absolute;
     left: 0;
@@ -45,35 +47,12 @@ p {
 }
 
 pre {
-    color: #a63ab7;
-    background-color: lighten(#a63ab7, 45);
-    border-radius: 5px;
-    padding: 1.2em 1.6em;
-    overflow-x: auto;
-    counter-reset: line;
-    line-height: 0;
-    box-shadow: inset 0 0 5px -1px rgba(0, 0, 0, 0.2);
-
-    span {
-        display: block;
-        line-height: 1rem;
-
-        &:before {
-            counter-increment: line;
-            content: counter(line);
-            display: inline-block;
-            border-right: 1px solid #ddd;
-            padding: 0 0.5em;
-            margin-right: 0.5em;
-            color: #666666;
-            text-align: right;
-            min-width: 28px;
-        }
-    }
+    word-break: break-word;
 }
 
-code {
+.code {
     color: #a63ab7;
     background-color: lighten(#a63ab7, 45);
+    font-family: monospace;
     padding: 0.1em 0.2em;
 }

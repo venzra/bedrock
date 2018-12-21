@@ -2,7 +2,7 @@ import { Directive, ElementRef, Input, OnChanges } from '@angular/core';
 
 @Directive({
     selector: '[rockMarkdown]',
-    exportAs: 'markdown'
+    exportAs: 'markdown',
 })
 export class RockMarkdownDirective implements OnChanges {
 
@@ -12,16 +12,19 @@ export class RockMarkdownDirective implements OnChanges {
 
     @Input() rockMarkdown: string;
 
+    @Input() highlight: (text, lang) => string;
+
     @Input() headers: 'none' | 'simple' | 'full' = 'full';
 
     constructor(
-        protected element: ElementRef
+        protected element: ElementRef,
     ) { }
 
     ngOnChanges(): void {
         this.marked.setOptions({
             gfm: true,
-            sanitize: true
+            sanitize: true,
+            highlight: this.highlight,
         });
 
         if (!this.$original) {
