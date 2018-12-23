@@ -1,0 +1,35 @@
+@import '../core/functions';
+@import '../core/palette';
+
+:host {
+    display: grid;
+    grid-template-columns: min-content 0 auto;
+    grid-gap: 0.125em;
+    align-items: center;
+    margin: 1em 0;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.checkbox {
+    position: relative;
+    width: 1.4em;
+    height: 1.4em;
+    font-size: 1.2em;
+    color: map-deep-get($bedrock, 'brand', 'primary', 'dark');
+
+    &.disabled {
+        color: lighten(map-deep-get($bedrock, 'brand', 'primary', 'dark'), 20);
+    }
+
+    fa-icon {
+        position: absolute;
+    }
+}
+
+.input {
+    opacity: 0;
+    pointer-events: none;
+}

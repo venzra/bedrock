@@ -1,10 +1,10 @@
 import { AfterViewInit, Component, ContentChild, Input, ViewEncapsulation } from '@angular/core';
 
-import { RockInputControl } from './input.control';
+import { RockInputControl } from '../core/forms/input.control';
 import { RockInputErrorControl } from './input-error.control';
 
 @Component({
-    selector: 'rock-input, [rock-input]',
+    selector: 'rock-input',
     templateUrl: './input.component.html',
     styleUrls: [ './input.component.scss' ],
     encapsulation: ViewEncapsulation.None,

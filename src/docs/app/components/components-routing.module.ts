@@ -7,6 +7,7 @@ import { LandingComponent } from './landing.component';
 import { AlertComponent } from './alert/alert.component';
 import { ButtonComponent } from './button/button.component';
 import { CardComponent } from './card/card.component';
+import { CheckboxComponent } from './checkbox/checkbox.component';
 import { ExpansionComponent } from './expansion/expansion.component';
 import { InputComponent } from './input/input.component';
 
@@ -26,6 +27,10 @@ const routes: Routes = [
             {
                 path: 'card',
                 component: CardComponent,
+            },
+            {
+                path: 'checkbox',
+                component: CheckboxComponent,
             },
             {
                 path: 'expansion',

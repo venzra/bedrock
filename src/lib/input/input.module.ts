@@ -1,10 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
+import { RockInputDirective } from '../core/forms/input.directive';
+import { RockTextAreaDirective } from '../core/forms/textarea.directive';
 import { RockInputComponent } from './input.component';
-import { RockInputDirective } from './input.directive';
 import { RockInputErrorComponent } from './input-error.component';
-import { RockTextAreaDirective } from './textarea.directive';
 
 @NgModule({
     declarations: [

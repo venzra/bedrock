@@ -1,0 +1,8 @@
+<div class="checkbox" [ngClass]="{ 'disabled': isDisabled }">
+    <fa-icon [icon]="['far', 'square']" size="lg"></fa-icon>
+    <fa-icon [@check]="isChecked ? 'in' : 'out'" [icon]="['fas', 'check-square']" size="lg"></fa-icon>
+</div>
+<div class="input">
+    <ng-content select="input"></ng-content>
+</div>
+<ng-content></ng-content>

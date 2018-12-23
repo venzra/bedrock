@@ -4,7 +4,7 @@ export abstract class RockInputControl {
 
     public type?: string;
 
-    public required: boolean;
+    public disabled: boolean;
 
     readonly id: string;
 

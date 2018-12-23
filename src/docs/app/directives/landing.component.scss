@@ -3,7 +3,16 @@
     grid-gap: 1rem;
     grid-template-columns: 1fr 1fr;
 
+    > * {
+        display: flex;
+        flex: 1 1 auto;
+    }
+
     @media (max-width: 1000px) {
         grid-template-columns: 1fr;
+
+        > * {
+            flex-direction: column;
+        }
     }
 }

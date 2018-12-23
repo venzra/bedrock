@@ -13,7 +13,7 @@ export class RockTextAreaDirective implements RockInputControl {
     public id: string;
 
     @Input()
-    public required: boolean;
+    public disabled: boolean;
 
     constructor(
         @Optional() @Self() public ngControl: NgControl,
