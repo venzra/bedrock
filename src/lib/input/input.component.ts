@@ -1,4 +1,12 @@
-import { AfterViewInit, Component, ContentChild, Input, ViewEncapsulation } from '@angular/core';
+import {
+    AfterViewInit,
+    ChangeDetectionStrategy, ChangeDetectorRef,
+    Component,
+    ContentChild,
+    Input,
+    ViewEncapsulation,
+} from '@angular/core';
+import { coerceBooleanProperty } from '@angular/cdk/coercion';
 
 import { RockInputControl } from '../core/forms/input.control';
 import { RockInputErrorControl } from './input-error.control';
@@ -8,8 +16,11 @@ import { RockInputErrorControl } from './input-error.control';
     templateUrl: './input.component.html',
     styleUrls: [ './input.component.scss' ],
     encapsulation: ViewEncapsulation.None,
+    changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class RockInputComponent implements AfterViewInit {
+
+    public isDisabled = false;
 
     @ContentChild(RockInputControl)
     private input: RockInputControl;
@@ -26,12 +37,19 @@ export class RockInputComponent implements AfterViewInit {
         return this.input.id;
     }
 
+    constructor(
+        private changeDetector: ChangeDetectorRef,
+    ) { }
+
     ngAfterViewInit(): void {
-        if (!this.input) {
-            return;
-        }
+        this.isDisabled = coerceBooleanProperty(this.input.ngControl.disabled);
+        this.changeDetector.detectChanges();
 
         this.input.ngControl.statusChanges.subscribe((state) => {
+            if (!this.errorText) {
+                return;
+            }
+
             if (state === 'INVALID') {
                 this.errorText.triggerError(this.input.ngControl.errors);
             } else {

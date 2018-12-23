@@ -1,11 +1,18 @@
 ```code
-<rock-input label="Email address">
-    <input rockInput id="email" type="text" formControlName="email">
-    <rock-input-error></rock-input-error>
-</rock-input>
+this.disabledForm = this.form.group({
+    forename: [ { value: 'John', disabled: true }, [] ],
+    surname: [ { value: 'Smith', disabled: true }, [] ],
+});
+```
 
-<rock-input label="Password">
-    <input rockInput id="password" type="password" formControlName="password">
-    <rock-input-error></rock-input-error>
-</rock-input>
+```code
+<form [formGroup]="disabledForm">
+    <rock-input label="First name">
+        <input rockInput id="forename" type="text" formControlName="forename">
+    </rock-input>
+    
+    <rock-input label="Last name">
+        <input rockInput id="surname" type="text" formControlName="surname">
+    </rock-input>
+</form>
 ```

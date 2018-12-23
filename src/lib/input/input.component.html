@@ -1,4 +1,4 @@
-<div class="rock-input">
+<div class="rock-input" [ngClass]="{ disabled: isDisabled }">
     <label [for]="name">{{ label }}</label>
     <ng-content></ng-content>
 </div>

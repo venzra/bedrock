@@ -17,15 +17,15 @@ import { RockInputControl } from '../core/forms/input.control';
     styleUrls: [ './checkbox.component.scss' ],
     animations: [
         trigger('check', [
-            state('in', style({
+            state('on', style({
                 transform: 'scale(1)',
                 opacity: '1',
             })),
-            state('out', style({
+            state('off', style({
                 transform: 'scale(0)',
                 opacity: '0',
             })),
-            transition('out => in, in => out', [
+            transition('off => on, on => off', [
                 animate('100ms linear'),
             ]),
         ]),
@@ -53,7 +53,7 @@ export class RockCheckboxComponent implements AfterViewInit {
     }
 
     public ngAfterViewInit(): void {
-        this.isDisabled = coerceBooleanProperty(this.input.disabled);
+        this.isDisabled = coerceBooleanProperty(this.input.ngControl.disabled);
         this.isChecked = coerceBooleanProperty(this.input.ngControl.value);
         this.changeDetector.detectChanges();
 

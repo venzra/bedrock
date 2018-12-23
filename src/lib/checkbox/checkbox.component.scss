@@ -1,7 +1,7 @@
 @import '../core/functions';
 @import '../core/palette';
 
-:host {
+.rock-checkbox {
     display: grid;
     grid-template-columns: min-content 0 auto;
     grid-gap: 0.125em;
@@ -11,25 +11,31 @@
     &:hover {
         cursor: pointer;
     }
-}
 
-.checkbox {
-    position: relative;
-    width: 1.4em;
-    height: 1.4em;
-    font-size: 1.2em;
-    color: map-deep-get($bedrock, 'brand', 'primary', 'dark');
+    .icon {
+        position: relative;
+        width: 1.4em;
+        height: 1.4em;
+        font-size: 1.2em;
+        color: map-deep-get($bedrock, 'brand', 'primary', 'dark');
+
+        fa-icon {
+            position: absolute;
+        }
+    }
+
+    .input {
+        opacity: 0;
+        pointer-events: none;
+    }
 
     &.disabled {
-        color: lighten(map-deep-get($bedrock, 'brand', 'primary', 'dark'), 20);
-    }
+        &:hover {
+            cursor: initial;
+        }
 
-    fa-icon {
-        position: absolute;
+        .icon {
+            color: lighten(map-deep-get($bedrock, 'brand', 'primary', 'dark'), 20);
+        }
     }
-}
-
-.input {
-    opacity: 0;
-    pointer-events: none;
 }

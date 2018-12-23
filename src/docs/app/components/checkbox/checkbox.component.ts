@@ -20,8 +20,8 @@ export class CheckboxComponent implements OnInit {
         });
 
         this.exampleTwo = this.form.group({
-            first: [ undefined, [] ],
-            second: [ true, [] ],
+            first: [ { value: undefined, disabled: true }, [] ],
+            second: [ { value: true, disabled: true }, [] ],
         });
     }
 

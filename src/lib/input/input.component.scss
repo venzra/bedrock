@@ -23,15 +23,22 @@ $input-padding: 0.5rem;
         border: 1px solid map-deep-get($bedrock, 'brand', 'primary', 'light');
         @include bedrock-font(1em, 300, map-deep-get($bedrock, 'font', 'dark'));
 
-        &:focus, &:active {
-            outline: none;
-            margin-bottom: 0;
-            border-bottom-width: 2px;
-            border-color: map-deep-get($bedrock, 'brand', 'primary', 'dark');
-        }
-
         &:invalid, &.ng-dirty.ng-invalid {
             border-color: map-deep-get($bedrock, 'error', 'dark');
+        }
+
+        &:disabled {
+            background-color: map-deep-get($bedrock, 'background', 'light');
+            border-color: lighten(map-deep-get($bedrock, 'brand', 'primary', 'light'), 10);
+        }
+
+        &:not([disabled]) {
+            &:focus, &:active {
+                outline: none;
+                margin-bottom: 0;
+                border-bottom-width: 2px;
+                border-color: map-deep-get($bedrock, 'brand', 'primary', 'dark');
+            }
         }
     }
 

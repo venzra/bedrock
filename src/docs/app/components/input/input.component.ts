@@ -7,6 +7,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class InputComponent implements OnInit {
 
     public basicForm: FormGroup;
+    public disabledForm: FormGroup;
     public intermediateForm: FormGroup;
     public textForm: FormGroup;
 
@@ -18,6 +19,11 @@ export class InputComponent implements OnInit {
         this.basicForm = this.form.group({
             firstName: [ undefined, [] ],
             lastName: [ undefined, [] ],
+        });
+
+        this.disabledForm = this.form.group({
+            forename: [ { value: 'John', disabled: true }, [] ],
+            surname: [ { value: 'Smith', disabled: true }, [] ],
         });
 
         this.intermediateForm = this.form.group({

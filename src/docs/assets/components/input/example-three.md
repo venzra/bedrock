@@ -1,11 +1,20 @@
 ```code
-<rock-input label="Your name">
-    <input rockInput id="alias" type="text" formControlName="alias">
-    <rock-input-error></rock-input-error>
-</rock-input>
+this.intermediateForm = this.form.group({
+    email: [ undefined, [ Validators.required, Validators.email ] ],
+    password: [ undefined, [ Validators.required ] ],
+});
+```
 
-<rock-input label="Feedback">
-    <textarea rockInput id="feedback" rows="8" formControlName="feedback"></textarea>
-    <rock-input-error></rock-input-error>
-</rock-input>
+```code
+<form [formGroup]="intermediateForm">
+    <rock-input label="Email address">
+        <input rockInput id="email" type="text" formControlName="email">
+        <rock-input-error></rock-input-error>
+    </rock-input>
+    
+    <rock-input label="Password">
+        <input rockInput id="password" type="password" formControlName="password">
+        <rock-input-error></rock-input-error>
+    </rock-input>
+</form>
 ```
