@@ -9,6 +9,7 @@ import { ButtonComponent } from './button/button.component';
 import { CardComponent } from './card/card.component';
 import { CheckboxComponent } from './checkbox/checkbox.component';
 import { ExpansionComponent } from './expansion/expansion.component';
+import { ImageComponent } from './image/image.component';
 import { InputComponent } from './input/input.component';
 
 const routes: Routes = [
@@ -35,6 +36,10 @@ const routes: Routes = [
             {
                 path: 'expansion',
                 component: ExpansionComponent,
+            },
+            {
+                path: 'image',
+                component: ImageComponent,
             },
             {
                 path: 'input',

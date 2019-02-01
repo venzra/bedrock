@@ -1,4 +1,7 @@
 .rock-card {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
     padding: 1rem 0.8rem;
     border-radius: 10px;
     box-shadow: 2px 0 3px -2px rgba(50, 50, 50, 0.2), // left

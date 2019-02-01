@@ -30,7 +30,8 @@
                             "src/docs/styles.scss"
                         ],
                         "scripts": [
-                            "./node_modules/marked/lib/marked.js"
+                            "./node_modules/marked/lib/marked.js",
+                            "./node_modules/exif-js/exif.js"
                         ]
                     },
                     "configurations": {

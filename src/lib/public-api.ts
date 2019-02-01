@@ -8,6 +8,7 @@ export * from './button/button.module';
 export * from './card/card.module';
 export * from './checkbox/checkbox.module';
 export * from './expansion/expansion.module';
+export * from './image-input/image-input.module';
 export * from './input/input.module';
 
 // Directives

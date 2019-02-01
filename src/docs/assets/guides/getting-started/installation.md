@@ -6,4 +6,5 @@ npm i @fortawesome/angular-fontawesome
 npm i @fortawesome/fontawesome-svg-core
 npm i @fortawesome/free-solid-svg-icons
 npm i marked
+npm i exif-js
 ```

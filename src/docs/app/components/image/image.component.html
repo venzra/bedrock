@@ -1,0 +1,64 @@
+<h2>Image</h2>
+<p>Input to support image fields on a form, can automatically upload or submit with your form. This input uses HTML canvas to resize and reformat images, by default images will have a maximum of 250x250px (ratio is maintained) and converted to JPEG. This options can then be over-ridden, see the examples below.</p>
+
+<section>
+    <h3>Include 3rd party library</h3>
+    <p>This input field requires the inclusion of the <span class="code">EXIF</span> library within your project and included within the scripts section of your <span class="code">angular.json</span>.</p>
+
+    <docs-code content="components/image/dependencies.md"></docs-code>
+
+    <h3>Import Module</h3>
+    <p>To use the components here you first need to include this module in your application @NgModule</p>
+
+    <docs-code content="components/image/import.md"></docs-code>
+</section>
+
+<section>
+    <h4>Basic image input</h4>
+    <p>Any files that are dragged to the input will be available as blob data on the form. Also included in the form field is the file name, size and mime type (after any conversion).</p>
+
+    <docs-code content="components/image/example-one.md"></docs-code>
+
+    <form [formGroup]="basicForm">
+        <rock-image-input label="Example image">
+            <input rockImage formControlName="exampleImage">
+        </rock-image-input>
+    </form>
+</section>
+
+<section>
+    <h4>Extended attributes</h4>
+
+    <docs-code content="components/image/example-two.md"></docs-code>
+
+    <form [formGroup]="extendedForm">
+        <rock-image-input label="Larger PNG image" [height]="500" [width]="500" format="image/png">
+            <input rockImage formControlName="exampleImage">
+        </rock-image-input>
+    </form>
+</section>
+
+<section>
+    <h4>Populated image input</h4>
+    <p>When setting an existing value for an image, use a reference to an existing file viewable on the internet. This can be a fully qualified path or a relative path. Detection of a change and managing a change should be managed during form submission.</p>
+
+    <docs-code content="components/image/example-three.md"></docs-code>
+
+    <form [formGroup]="populatedForm">
+        <rock-image-input label="Example image (editable)" [height]="200" [width]="300" format="image/png">
+            <input rockImage formControlName="exampleImage">
+        </rock-image-input>
+    </form>
+</section>
+
+<section>
+    <h4>Disabled image input</h4>
+
+    <docs-code content="components/image/example-four.md"></docs-code>
+
+    <form [formGroup]="disabledForm">
+        <rock-image-input label="Disabled image input">
+            <input rockImage formControlName="exampleImage">
+        </rock-image-input>
+    </form>
+</section>

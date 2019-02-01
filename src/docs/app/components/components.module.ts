@@ -9,6 +9,7 @@ import {
     RockCheckboxModule,
     RockExpansionModule,
     RockInputModule,
+    RockImageInputModule,
     RockMarkdownModule,
 } from '@bedrock';
 
@@ -20,6 +21,7 @@ import { ButtonComponent } from './button/button.component';
 import { CardComponent } from './card/card.component';
 import { CheckboxComponent } from './checkbox/checkbox.component';
 import { ExpansionComponent } from './expansion/expansion.component';
+import { ImageComponent } from './image/image.component';
 import { InputComponent } from './input/input.component';
 import { LandingComponent } from './landing.component';
 
@@ -33,6 +35,7 @@ import { ComponentsRoutingModule } from './components-routing.module';
         CardComponent,
         CheckboxComponent,
         ExpansionComponent,
+        ImageComponent,
         InputComponent,
         LandingComponent,
     ],
@@ -46,6 +49,7 @@ import { ComponentsRoutingModule } from './components-routing.module';
         RockCardModule,
         RockCheckboxModule,
         RockExpansionModule,
+        RockImageInputModule,
         RockInputModule,
         RockMarkdownModule,
     ],

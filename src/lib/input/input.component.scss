@@ -21,6 +21,7 @@ $input-padding: 0.5rem;
         transition: border-color .3s ease-in-out;
         padding: $input-padding;
         border: 1px solid map-deep-get($bedrock, 'brand', 'primary', 'light');
+        background-color: lighten(map-deep-get($bedrock, 'background', 'light'), 5);
         @include bedrock-font(1em, 300, map-deep-get($bedrock, 'font', 'dark'));
 
         &:invalid, &.ng-dirty.ng-invalid {

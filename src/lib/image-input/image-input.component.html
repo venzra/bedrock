@@ -1,0 +1,15 @@
+<div class="rock-image-input" [ngClass]="{ disabled: isDisabled }">
+    <p>{{ label }}</p>
+    <div class="dropzone" [ngClass]="{ accent: state === 'accent', error: state === 'error' }">
+        <div *ngIf="imageData">
+            <div class="background" [style.background-image]="background"></div>
+        </div>
+        <div class="preview">
+            <img [src]="imageData" *ngIf="imageData">
+        </div>
+        <div class="message" *ngIf="isDisabled">Input is currently disabled.</div>
+        <div class="message" *ngIf="!isDisabled"><label [for]="name">Choose a file</label> or drag it here.</div>
+    </div>
+    <ng-content></ng-content>
+    <input [id]="name" type="file" accept="image/*" (change)="onDrop($event)" />
+</div>
