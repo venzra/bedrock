@@ -50,6 +50,25 @@ pre {
     word-break: break-word;
 }
 
+table {
+    border-collapse: collapse;
+
+    thead {
+        tr {
+            background-color: #dadada;
+        }
+    }
+    tbody {
+        tr:nth-of-type(even) {
+            background-color: #eaeaea;
+        }
+    }
+
+    th, td {
+        padding: 0.4rem;
+    }
+}
+
 .code {
     color: #666666;
     background-color: #eaeaea;

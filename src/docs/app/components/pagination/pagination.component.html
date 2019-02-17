@@ -1,0 +1,109 @@
+<h2>Pagination</h2>
+<p>Use this to manage multiple pages of content for example lists or tables of data.</p>
+
+<section>
+    <h3>Import Module</h3>
+    <p>To use the components here you first need to include this module in your application @NgModule</p>
+
+    <docs-code content="components/pagination/import.md"></docs-code>
+</section>
+
+<section>
+    <h3>Attributes</h3>
+    <p>The following table shows the various attribute bindings that can be used with this component.</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Binding</th>
+                <th>Default</th>
+                <th>Required</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>[records]</td>
+                <td>-</td>
+                <td>Yes</td>
+                <td>The total number of records that will be paginated through.</td>
+            </tr>
+            <tr>
+                <td>[skip]</td>
+                <td>-</td>
+                <td>Yes</td>
+                <td>How many records are being skipped over - where should the pagination start from, default is the first page (Record 0).</td>
+            </tr>
+            <tr>
+                <td>[limit]</td>
+                <td>20</td>
+                <td>No</td>
+                <td>How many records are being shown on each page that the pagination is managing.</td>
+            </tr>
+            <tr>
+                <td>[choices]</td>
+                <td>5</td>
+                <td>No</td>
+                <td>How many page choices should there be in the pagination, recommended that this is an odd number.</td>
+            </tr>
+            <tr>
+                <td>[controls]</td>
+                <td>true</td>
+                <td>No</td>
+                <td>Should the page jumping controls (previous, next, start, end) be shown to the user.</td>
+            </tr>
+            <tr>
+                <td>[icons]</td>
+                <td>true</td>
+                <td>No</td>
+                <td>When using the controls, should we show text or icons to the user.</td>
+            </tr>
+            <tr>
+                <td>[size]</td>
+                <td>normal</td>
+                <td>No</td>
+                <td>This allows limited control of the size for each pagination option, the sizes are: small, normal and large.</td>
+            </tr>
+            <tr>
+                <td>(change)</td>
+                <td>-</td>
+                <td>No</td>
+                <td>
+                    A function to be called when an pagination event is triggered. Event contains the following fields;
+                    <ul>
+                        <li>skip: number</li>
+                        <li>limit: number</li>
+                        <li>currentPage: number</li>
+                        <li>totalRecords: number</li>
+                        <li>selectedPage: number</li>
+                        <li>selectedSkip: number</li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+<section>
+    <h4>Simple pagination</h4>
+
+    <docs-code content="components/pagination/example-one.md"></docs-code>
+
+    <rock-pagination [records]="p1.records" [skip]="p1.skip" (change)="updatePage($event, p1)"></rock-pagination>
+</section>
+
+<section>
+    <h4>Pagination without controls</h4>
+
+    <docs-code content="components/pagination/example-two.md"></docs-code>
+
+    <rock-pagination [records]="p2.records" [skip]="p2.skip" [limit]="p2.limit" [choices]="p2.choices" [controls]="p2.controls" [icons]="p2.icons" (change)="updatePage($event, p2)"></rock-pagination>
+</section>
+
+<section>
+    <h4>Pagination with text controls</h4>
+
+    <docs-code content="components/pagination/example-three.md"></docs-code>
+
+    <rock-pagination [records]="p3.records" [skip]="p3.skip" [limit]="p3.limit" [choices]="p3.choices" [controls]="p3.controls" [icons]="p3.icons" (change)="updatePage($event, p3)"></rock-pagination>
+</section>

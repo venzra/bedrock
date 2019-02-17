@@ -1,0 +1,52 @@
+@import '../core/functions';
+@import '../core/mixins';
+@import '../core/palette';
+
+$button-primary: map-deep-get($bedrock, 'brand', 'primary', 'dark');
+$button-primary-disabled: map-deep-get($bedrock, 'brand', 'primary', 'light');
+
+.small {
+    button {
+        @include bedrock-font(0.8em, 300, map-deep-get($bedrock, 'font', 'light'));
+    }
+}
+.large {
+    button {
+        @include bedrock-font(1em, 300, map-deep-get($bedrock, 'font', 'light'));
+        padding: 0.6em 1em 0.4em;
+    }
+}
+
+button {
+    @include bedrock-button-reset();
+    @include bedrock-font(0.9em, 300, map-deep-get($bedrock, 'font', 'light'));
+
+    box-sizing: border-box;
+    padding: 0.5em 1em 0.4em;
+    border-right: 2px darken($button-primary, 5) solid;
+    background-image: linear-gradient(to top, lighten($button-primary, 10), darken($button-primary, 5));
+
+    &:active {
+        background-image: linear-gradient(to top, lighten($button-primary, 15), lighten($button-primary, 5));
+    }
+
+    &:first-of-type {
+        border-top-left-radius: 999px;
+        border-bottom-left-radius: 999px;
+    }
+
+    &:last-of-type {
+        border-top-right-radius: 999px;
+        border-bottom-right-radius: 999px;
+        border-right: 0;
+    }
+
+    &.selected {
+        background-image: linear-gradient(to top, lighten($button-primary-disabled, 10), darken($button-primary-disabled, 5));
+    }
+
+    fa-icon {
+        font-size: 0.9em;
+    }
+
+}

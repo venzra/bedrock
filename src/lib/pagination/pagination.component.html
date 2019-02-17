@@ -1,0 +1,23 @@
+<ng-container *ngIf="controls">
+    <button type="button" (click)="changePage(1)">
+        <fa-icon *ngIf="icons" icon="angle-double-left"></fa-icon>
+        <span *ngIf="!icons">Start</span>
+    </button>
+    <button type="button" (click)="changePage(currentPage() - 1)">
+        <fa-icon *ngIf="icons" icon="angle-left"></fa-icon>
+        <span *ngIf="!icons">Previous</span>
+    </button>
+</ng-container>
+<ng-container *ngFor="let page of pages()">
+    <button type="button" [ngClass]="{ selected: page  === currentPage() }" (click)="changePage(page)">{{ page }}</button>
+</ng-container>
+<ng-container *ngIf="controls">
+    <button type="button" (click)="changePage(currentPage() + 1)">
+        <fa-icon *ngIf="icons" icon="angle-right"></fa-icon>
+        <span *ngIf="!icons">Next</span>
+    </button>
+    <button type="button" (click)="changePage(pageCount)">
+        <fa-icon *ngIf="icons" icon="angle-double-right"></fa-icon>
+        <span *ngIf="!icons">End</span>
+    </button>
+</ng-container>

@@ -11,6 +11,7 @@ import { CheckboxComponent } from './checkbox/checkbox.component';
 import { ExpansionComponent } from './expansion/expansion.component';
 import { ImageComponent } from './image/image.component';
 import { InputComponent } from './input/input.component';
+import { PaginationComponent } from './pagination/pagination.component';
 
 const routes: Routes = [
     {
@@ -44,6 +45,10 @@ const routes: Routes = [
             {
                 path: 'input',
                 component: InputComponent,
+            },
+            {
+                path: 'pagination',
+                component: PaginationComponent,
             },
             {
                 path: '',
