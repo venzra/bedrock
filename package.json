@@ -1,6 +1,8 @@
 {
     "name": "bedrock",
+    "description": "Angular Design Components used to build Venzra",
     "version": "0.0.0",
+    "license": "MIT",
     "scripts": {
         "start": "ng serve --host 0.0.0.0 --port 4200 --disable-host-check --open",
         "build": "ng lint && ng build lib && ng build --prod"
