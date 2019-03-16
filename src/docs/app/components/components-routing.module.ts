@@ -12,6 +12,7 @@ import { ExpansionComponent } from './expansion/expansion.component';
 import { ImageComponent } from './image/image.component';
 import { InputComponent } from './input/input.component';
 import { PaginationComponent } from './pagination/pagination.component';
+import { SelectComponent } from './select/select.component';
 
 const routes: Routes = [
     {
@@ -49,6 +50,10 @@ const routes: Routes = [
             {
                 path: 'pagination',
                 component: PaginationComponent,
+            },
+            {
+                path: 'select',
+                component: SelectComponent,
             },
             {
                 path: '',

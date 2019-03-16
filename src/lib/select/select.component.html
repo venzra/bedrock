@@ -1,0 +1,17 @@
+<div class="overlay" [ngClass]="{ open: isOpen }"></div>
+<ng-content select="label"></ng-content>
+<div class="select-wrapper" [ngClass]="{ open: isOpen }">
+    <div class="selection" [ngClass]="{ focus: isOpen, disabled: isDisabled }">
+        <div>{{ getSelection() }}</div>
+        <span [@arrow]="isOpen ? 'closed' : 'open'">
+            <fa-icon icon="caret-up" [fixedWidth]="true"></fa-icon>
+        </span>
+    </div>
+    <div class="options" [ngClass]="{ open: isOpen }">
+        <cdk-virtual-scroll-viewport class="option-list" [itemSize]="options.length">
+            <div *cdkVirtualFor="let option of options.toArray()">
+                <button type="button" class="option" [ngClass]="{ selected: isSelected(option) }" (click)="changeSelection(option)">{{ option.getContent() }}</button>
+            </div>
+        </cdk-virtual-scroll-viewport>
+    </div>
+</div>

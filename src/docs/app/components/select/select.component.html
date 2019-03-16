@@ -1,0 +1,60 @@
+<h2>Select</h2>
+<p>Enrich forms with select boxes to speed up form completion and limit user choices.</p>
+
+<section>
+    <h3>Import Module</h3>
+    <p>To use the components here you first need to include this module in your application @NgModule</p>
+
+    <docs-code content="components/select/import.md"></docs-code>
+</section>
+
+<section>
+    <h4>Basic select input</h4>
+
+    <docs-code content="components/select/example-one.md"></docs-code>
+
+    <form [formGroup]="basicForm">
+        <rock-select formControlName="country">
+            <div rockOption *ngFor="let country of countries" [value]="country.value">{{ country.name }}</div>
+        </rock-select>
+    </form>
+</section>
+
+<section>
+    <h4>Disabled form fields</h4>
+
+    <docs-code content="components/select/example-two.md"></docs-code>
+
+    <form [formGroup]="disabledForm">
+        <rock-select formControlName="country">
+            <div rockOption *ngFor="let country of countries" [value]="country.value">{{ country.name }}</div>
+        </rock-select>
+    </form>
+</section>
+
+<section>
+    <h4>Form fields with error messages</h4>
+
+    <docs-code content="components/select/example-three.md"></docs-code>
+
+    <form [formGroup]="intermediateForm">
+        <rock-select placeholder="Choose a country" formControlName="country">
+            <label>Pick your favourite country</label>
+            <div rockOption *ngFor="let country of countries" [value]="country.value">{{ country.name }}</div>
+        </rock-select>
+    </form>
+</section>
+
+<section>
+    <h4>Capture input change events</h4>
+
+    <docs-code content="components/select/example-four.md"></docs-code>
+
+    <form [formGroup]="changeForm">
+        <rock-select (change)="setCountry($event)" formControlName="country">
+            <div rockOption *ngFor="let country of countries" [value]="country.value">{{ country.name }}</div>
+        </rock-select>
+    </form>
+
+    <p>Selection: <span *ngIf="!selection">n/a</span><span *ngIf="selection">{{ selection.getContent() }} ({{ selection.value }})</span></p>
+</section>

@@ -13,6 +13,8 @@ $input-padding: 0.5rem;
     }
 
     input, textarea {
+        @include bedrock-font(1em, 300, map-deep-get($bedrock, 'font', 'dark'));
+
         appearance: none;
         width: 100%;
         border-radius: 0;
@@ -22,7 +24,7 @@ $input-padding: 0.5rem;
         padding: $input-padding;
         border: 1px solid map-deep-get($bedrock, 'brand', 'primary', 'light');
         background-color: lighten(map-deep-get($bedrock, 'background', 'light'), 5);
-        @include bedrock-font(1em, 300, map-deep-get($bedrock, 'font', 'dark'));
+        line-height: inherit;
 
         &:invalid, &.ng-dirty.ng-invalid {
             border-color: map-deep-get($bedrock, 'error', 'dark');
@@ -46,6 +48,7 @@ $input-padding: 0.5rem;
     textarea {
         min-height: 5em;
         overflow: auto;
+        line-height: 1.1rem;
     }
 
 }

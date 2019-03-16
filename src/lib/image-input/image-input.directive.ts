@@ -1,4 +1,4 @@
-import { Directive, ElementRef, EventEmitter, HostBinding, Input, OnInit, Output, Self } from '@angular/core';
+import { Directive, ElementRef, HostBinding, Input, OnInit, Self } from '@angular/core';
 import { NgControl } from '@angular/forms';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 
@@ -27,9 +27,6 @@ export class ImageInputDirective implements OnInit, RockInputControl {
 
     @HostBinding()
     public accept = 'image/*';
-
-    @Output()
-    public event: EventEmitter<any>;
 
     constructor(
         protected element: ElementRef,

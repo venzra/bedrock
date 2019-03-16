@@ -1,0 +1,105 @@
+@import '../core/functions';
+@import '../core/mixins';
+@import '../core/palette';
+
+$input-padding: 0.5rem;
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: transparent;
+
+    &.open {
+        display: block;
+        z-index: 1000;
+    }
+}
+
+.select-wrapper {
+    position: relative;
+
+    &.open {
+        z-index: 1000;
+    }
+}
+
+label {
+    @include bedrock-font(1em, 300, map-deep-get($bedrock, 'font', 'dark'));
+    display: block;
+    margin: 0.375rem 0;
+}
+
+.selection {
+    @include bedrock-font(1em, 300, map-deep-get($bedrock, 'font', 'dark'));
+
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr min-content;
+    margin: 0;
+    padding: $input-padding;
+    cursor: pointer;
+    width: 100%;
+    max-width: 100%;
+    line-height: inherit;
+    box-sizing: border-box;
+    transition: border-color .3s ease-in-out;
+    border: 1px solid map-deep-get($bedrock, 'brand', 'primary', 'light');
+    background-color: lighten(map-deep-get($bedrock, 'background', 'light'), 5);
+
+    &.disabled {
+        cursor: default;
+        color: lighten(map-deep-get($bedrock, 'font', 'dark'), 30);
+        background-color: map-deep-get($bedrock, 'background', 'light');
+        border-color: lighten(map-deep-get($bedrock, 'brand', 'primary', 'light'), 10);
+    }
+
+    &.focus {
+        border-color: map-deep-get($bedrock, 'brand', 'primary', 'dark');
+    }
+}
+
+.options {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 2rem;
+    box-sizing: border-box;
+    border: 1px solid map-deep-get($bedrock, 'brand', 'primary', 'dark');
+    background-color: map-deep-get($bedrock, 'background', 'light');
+    box-shadow: 0 2px 4px -1px rgba(50, 50, 50, 0.2),
+                0 4px 5px 0 rgba(50, 50, 50, 0.1),
+                0 1px 10px 0 rgba(50, 50, 50, 0.2),
+                0 30px 20px -30px rgba(50, 50, 50, 0.3);
+
+    .option-list {
+        height: 10rem;
+
+        button {
+            @include bedrock-button-reset();
+            @include bedrock-font(1em, 300, map-deep-get($bedrock, 'font', 'dark'));
+
+            width: 100%;
+            padding: $input-padding;
+            text-align: left;
+
+            &:hover:not(.selected) {
+                background-color: map-deep-get($bedrock, 'background', 'dark');
+            }
+        }
+
+        .selected {
+            @include bedrock-font(1em, 300, map-deep-get($bedrock, 'font', 'light'));
+            background-color: map-deep-get($bedrock, 'brand', 'primary', 'dark');
+        }
+    }
+
+    &.open {
+        display: block;
+    }
+
+}

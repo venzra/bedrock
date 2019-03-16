@@ -11,6 +11,7 @@ export * from './expansion/expansion.module';
 export * from './image-input/image-input.module';
 export * from './input/input.module';
 export * from './pagination/pagination.module';
+export * from './select/select.module';
 
 // Directives
 export * from './markdown/markdown.module';

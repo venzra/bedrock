@@ -12,6 +12,7 @@ import {
     RockImageInputModule,
     RockMarkdownModule,
     RockPaginationModule,
+    RockSelectModule,
 } from '@bedrock';
 
 import { CodeModule } from '../../components/code/code.module';
@@ -26,6 +27,7 @@ import { ImageComponent } from './image/image.component';
 import { InputComponent } from './input/input.component';
 import { LandingComponent } from './landing.component';
 import { PaginationComponent } from './pagination/pagination.component';
+import { SelectComponent } from './select/select.component';
 
 import { ComponentsRoutingModule } from './components-routing.module';
 
@@ -41,6 +43,7 @@ import { ComponentsRoutingModule } from './components-routing.module';
         InputComponent,
         LandingComponent,
         PaginationComponent,
+        SelectComponent,
     ],
     imports: [
         CommonModule,
@@ -56,6 +59,7 @@ import { ComponentsRoutingModule } from './components-routing.module';
         RockInputModule,
         RockMarkdownModule,
         RockPaginationModule,
+        RockSelectModule,
     ],
     exports: [
         ComponentsComponent,
