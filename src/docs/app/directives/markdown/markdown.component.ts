@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import hljs from 'highlight.js/lib/highlight.js';
-import typescript from 'highlight.js/lib/languages/typescript';
+import typescript from 'highlight.js/lib/languages/typescript.js';
 
 @Component({
     templateUrl: './markdown.component.html',

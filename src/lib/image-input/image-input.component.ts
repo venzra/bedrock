@@ -20,7 +20,7 @@ export class ImageInputComponent implements AfterContentInit, AfterViewInit {
     public imageData: string;
     public isDisabled = false;
 
-    @ContentChild(RockInputControl)
+    @ContentChild(RockInputControl, { static: false })
     private input: RockInputControl;
 
     @Input()
@@ -36,7 +36,7 @@ export class ImageInputComponent implements AfterContentInit, AfterViewInit {
     public height = 250;
 
     @Input()
-    set name(value: string) {}
+    set name(value: string) { }
     get name(): string {
         return this.input.id;
     }

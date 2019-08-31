@@ -37,7 +37,7 @@ export class RockCheckboxComponent implements AfterViewInit {
     public isChecked = false;
     public isDisabled = false;
 
-    @ContentChild(RockInputControl)
+    @ContentChild(RockInputControl, { static: false })
     private input: RockInputControl;
 
     constructor(

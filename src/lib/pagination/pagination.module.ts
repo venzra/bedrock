@@ -1,11 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-
-import { library } from '@fortawesome/fontawesome-svg-core';
+import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import {
+    fas,
     faAngleDoubleLeft,
     faAngleDoubleRight,
     faAngleLeft,
@@ -27,8 +26,9 @@ import { RockPaginationComponent } from './pagination.component';
     ],
 })
 export class RockPaginationModule {
-    constructor() {
-        library.add(
+    constructor(library: FaIconLibrary) {
+        library.addIconPacks(fas);
+        library.addIcons(
             faAngleDoubleLeft,
             faAngleDoubleRight,
             faAngleLeft,

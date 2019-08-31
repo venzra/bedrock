@@ -3,10 +3,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { RockCardModule } from '@bedrock';
 
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
-import { library } from '@fortawesome/fontawesome-svg-core';
 import {
+    fas,
     faArrowDown,
     faArrowLeft,
     faArrowRight,
@@ -17,6 +17,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 import {
+    fab,
     faAngular,
 } from '@fortawesome/free-brands-svg-icons';
 
@@ -48,8 +49,9 @@ import { GuidesRoutingModule } from './guides-routing.module';
     ],
 })
 export class GuidesModule {
-    constructor() {
-        library.add(
+    constructor(library: FaIconLibrary) {
+        library.addIconPacks(fas, fab);
+        library.addIcons(
             faArrowDown,
             faArrowLeft,
             faArrowRight,

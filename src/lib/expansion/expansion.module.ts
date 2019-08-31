@@ -4,10 +4,10 @@ import { NgModule } from '@angular/core';
 import { RockExpansionComponent } from './expansion.component';
 import { RockExpansionPanelComponent } from './expansion-panel.component';
 
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
-import { library } from '@fortawesome/fontawesome-svg-core';
 import {
+    fas,
     faCaretRight,
     faChevronDown,
 } from '@fortawesome/free-solid-svg-icons';
@@ -27,8 +27,9 @@ import {
     ],
 })
 export class RockExpansionModule {
-    constructor() {
-        library.add(
+    constructor(library: FaIconLibrary) {
+        library.addIconPacks(fas);
+        library.addIcons(
             faCaretRight,
             faChevronDown,
         );

@@ -22,10 +22,10 @@ export class RockInputComponent implements AfterViewInit {
 
     public isDisabled = false;
 
-    @ContentChild(RockInputControl)
+    @ContentChild(RockInputControl, { static: false })
     private input: RockInputControl;
 
-    @ContentChild(RockInputErrorControl)
+    @ContentChild(RockInputErrorControl, { static: false })
     private errorText: RockInputErrorControl;
 
     @Input()

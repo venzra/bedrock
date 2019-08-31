@@ -2,10 +2,10 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
-import { library } from '@fortawesome/fontawesome-svg-core';
 import {
+    fas,
     faCaretUp,
 } from '@fortawesome/free-solid-svg-icons';
 
@@ -28,8 +28,9 @@ import { RockOptionDirective } from './option.directive';
     ],
 })
 export class RockSelectModule {
-    constructor() {
-        library.add(
+    constructor(library: FaIconLibrary) {
+        library.addIconPacks(fas);
+        library.addIcons(
             faCaretUp,
         );
     }

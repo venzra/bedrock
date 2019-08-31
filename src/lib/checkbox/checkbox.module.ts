@@ -1,14 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
-import { library } from '@fortawesome/fontawesome-svg-core';
 import {
+    far,
     faSquare,
 } from '@fortawesome/free-regular-svg-icons';
 
 import {
+    fas,
     faCheckSquare,
 } from '@fortawesome/free-solid-svg-icons';
 
@@ -27,8 +28,9 @@ import { RockCheckboxComponent } from './checkbox.component';
     ],
 })
 export class RockCheckboxModule {
-    constructor() {
-        library.add(
+    constructor(library: FaIconLibrary) {
+        library.addIconPacks(fas, far);
+        library.addIcons(
             faSquare,
             faCheckSquare,
         );

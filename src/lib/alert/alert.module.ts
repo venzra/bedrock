@@ -4,10 +4,10 @@ import { NgModule } from '@angular/core';
 import { RockAlertBlockComponent } from './alert-block.component';
 import { RockAlertMessageComponent } from './alert-message.component';
 
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
-import { library } from '@fortawesome/fontawesome-svg-core';
 import {
+    fas,
     faExclamationTriangle,
 } from '@fortawesome/free-solid-svg-icons';
 
@@ -26,8 +26,9 @@ import {
     ],
 })
 export class RockAlertModule {
-    constructor() {
-        library.add(
+    constructor(library: FaIconLibrary) {
+        library.addIconPacks(fas);
+        library.addIcons(
             faExclamationTriangle,
         );
     }
