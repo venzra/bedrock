@@ -15,6 +15,6 @@ public updatePage(event: PaginationEvent, paginator) {
 <rock-pagination
     [records]="p1.records"
     [skip]="p1.skip"
-    (change)="updatePage($event, p1)">
+    (pageChange)="updatePage($event, p1)">
 </rock-pagination>
 ```

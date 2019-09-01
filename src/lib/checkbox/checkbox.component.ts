@@ -44,14 +44,6 @@ export class RockCheckboxComponent implements AfterViewInit {
         private changeDetector: ChangeDetectorRef,
     ) { }
 
-    @HostListener('click')
-    public toggle(): void {
-        if (!this.isDisabled) {
-            this.isChecked = !this.isChecked;
-            this.input.ngControl.reset(this.isChecked);
-        }
-    }
-
     public ngAfterViewInit(): void {
         this.isDisabled = coerceBooleanProperty(this.input.ngControl.disabled);
         this.isChecked = coerceBooleanProperty(this.input.ngControl.value);
@@ -61,6 +53,14 @@ export class RockCheckboxComponent implements AfterViewInit {
             this.isChecked = coerceBooleanProperty(value);
             this.changeDetector.detectChanges();
         });
+    }
+
+    @HostListener('click')
+    public toggle(): void {
+        if (!this.isDisabled) {
+            this.isChecked = !this.isChecked;
+            this.input.ngControl.reset(this.isChecked);
+        }
     }
 
 }

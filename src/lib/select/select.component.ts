@@ -52,27 +52,18 @@ export class RockSelectComponent implements AfterViewInit, ControlValueAccessor 
     public isDisabled = false;
     public selection: Option;
 
-    private value: string;
-    private hasChange: (value: any) => void = () => {};
-    private isTouched = () => {};
+    @ContentChildren(RockOptionDirective)
+    public options: QueryList<RockOptionDirective>;
 
     @Input()
     public placeholder = 'Please choose an option';
 
     @Output()
-    public change: EventEmitter<Option> = new EventEmitter();
+    public selectionChange: EventEmitter<Option> = new EventEmitter();
 
-    @ContentChildren(RockOptionDirective)
-    public options: QueryList<RockOptionDirective>;
-
-    @HostListener('click')
-    public toggleOpen() {
-        if (!this.isDisabled) {
-            this.isOpen = !this.isOpen;
-        } else {
-            this.isOpen = false;
-        }
-    }
+    private value: string;
+    private hasChange: (value: any) => void = () => {};
+    private isTouched = () => {};
 
     constructor(
         private changeDetection: ChangeDetectorRef,
@@ -104,7 +95,7 @@ export class RockSelectComponent implements AfterViewInit, ControlValueAccessor 
         this.selection = choice;
         this.hasChange(this.selection.value);
         this.isTouched();
-        this.change.emit(this.selection);
+        this.selectionChange.emit(this.selection);
         this.changeDetection.markForCheck();
     }
 
@@ -123,6 +114,15 @@ export class RockSelectComponent implements AfterViewInit, ControlValueAccessor 
     public writeValue(value: string): void {
         if (value) {
             this.value = value;
+        }
+    }
+
+    @HostListener('click')
+    public toggleOpen() {
+        if (!this.isDisabled) {
+            this.isOpen = !this.isOpen;
+        } else {
+            this.isOpen = false;
         }
     }
 

@@ -16,7 +16,7 @@ public setCountry(event: Option) {
 
 ```code
 <form [formGroup]="changeForm">
-    <rock-select (change)="setCountry($event)" formControlName="country">
+    <rock-select (selectionChange)="setCountry($event)" formControlName="country">
         <div rockOption *ngFor="let country of countries" [value]="country.value">{{ country.name }}</div>
     </rock-select>
 </form>

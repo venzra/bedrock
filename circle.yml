@@ -1,0 +1,89 @@
+defaults: &defaults
+  working_directory: ~/project
+  docker:
+    - image: circleci/node:10
+      environment:
+          TERM: xterm
+
+version: 2
+
+jobs:
+  build:
+    <<: *defaults
+    steps:
+      - checkout
+      - run: npm install
+      - run: npm run build:lib
+      - run: npm run build:docs
+      - store_artifacts:
+          path: dist
+      - persist_to_workspace:
+          root: ./
+          paths:
+            - ./
+
+  deploy:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/project
+      - run: sudo apt-get update
+      - run: sudo apt-get install python3 python3-pip
+      - run: sudo pip3 install awscli --upgrade
+      - run:
+            name: Create or update S3 bucket
+            command: |
+                sed -i 's|{{ S3_BUCKET }}|'${DEPLOY_URI}'|g' .aws/config/s3.json
+                (aws cloudformation create-stack --stack-name "${DEPLOY_STACK}-s3" --template-body "file://.aws/templates/s3.template" --parameters "file://.aws/config/s3.json" --region eu-west-1 \
+                    && aws cloudformation wait stack-create-complete --stack-name "${DEPLOY_STACK}-s3" --region eu-west-1) \
+                || (aws cloudformation update-stack --stack-name "${DEPLOY_STACK}-s3" --template-body "file://.aws/templates/s3.template" --parameters "file://.aws/config/s3.json" --region eu-west-1 \
+                    && aws cloudformation wait stack-update-complete --stack-name "${DEPLOY_STACK}-s3" --region eu-west-1) \
+                || echo "SKIPPING create & update of 's3'"
+            no_output_timeout: 30m
+      - run:
+            name: Create or update CloudFront distribution
+            command: |
+                sed -i 's|{{ AWS_CERT }}|'${DEPLOY_CERT}'|g' .aws/config/cloudfront.json
+                sed -i 's|{{ S3_STACK }}|'${DEPLOY_STACK}-s3'|g' .aws/config/cloudfront.json
+                (aws cloudformation create-stack --stack-name "${DEPLOY_STACK}-cloudfront" --template-body "file://.aws/templates/cloudfront.template" --parameters "file://.aws/config/cloudfront.json" --region eu-west-1 \
+                    && aws cloudformation wait stack-create-complete --stack-name "${DEPLOY_STACK}-cloudfront" --region eu-west-1) \
+                || (aws cloudformation update-stack --stack-name "${DEPLOY_STACK}-cloudfront" --template-body "file://.aws/templates/cloudfront.template" --parameters "file://.aws/config/cloudfront.json" --region eu-west-1 \
+                    && aws cloudformation wait stack-update-complete --stack-name "${DEPLOY_STACK}-cloudfront" --region eu-west-1) \
+                || echo "SKIPPING create & update of 'cloudfront'"
+            no_output_timeout: 1h
+      - run:
+            name: Sync assets to S3
+            command: aws s3 sync dist/bedrock s3://${DEPLOY_URI} --delete --region eu-west-1 --cache-control max-age=2592000,public
+      - run:
+            name: Invalidate CloudFront caches
+            command: aws cloudfront create-invalidation --distribution-id `aws cloudformation list-stack-resources --stack-name "${DEPLOY_STACK}-cloudfront" --region eu-west-1 | python -c 'import sys; import json; res=json.loads(sys.stdin.read()); print(res["StackResourceSummaries"][0]["PhysicalResourceId"])'` --paths '/*'  --region eu-west-1
+
+  release:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/project
+      - run: npm install
+      - run: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
+      - run: npm run release
+
+workflows:
+  version: 2
+
+  docs-deploy:
+    jobs:
+      - build
+      - deploy:
+          context: bedrock-release
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
+      - release:
+          context: bedrock-release
+          requires:
+            - build
+          filters:
+            branches:
+              only: master

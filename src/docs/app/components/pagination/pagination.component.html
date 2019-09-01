@@ -89,7 +89,7 @@
 
     <docs-code content="components/pagination/example-one.md"></docs-code>
 
-    <rock-pagination [records]="p1.records" [skip]="p1.skip" (change)="updatePage($event, p1)"></rock-pagination>
+    <rock-pagination [records]="p1.records" [skip]="p1.skip" (pageChange)="updatePage($event, p1)"></rock-pagination>
 </section>
 
 <section>
@@ -97,7 +97,7 @@
 
     <docs-code content="components/pagination/example-two.md"></docs-code>
 
-    <rock-pagination [records]="p2.records" [skip]="p2.skip" [limit]="p2.limit" [choices]="p2.choices" [controls]="p2.controls" [icons]="p2.icons" (change)="updatePage($event, p2)"></rock-pagination>
+    <rock-pagination [records]="p2.records" [skip]="p2.skip" [limit]="p2.limit" [choices]="p2.choices" [controls]="p2.controls" [icons]="p2.icons" (pageChange)="updatePage($event, p2)"></rock-pagination>
 </section>
 
 <section>
@@ -105,5 +105,5 @@
 
     <docs-code content="components/pagination/example-three.md"></docs-code>
 
-    <rock-pagination [records]="p3.records" [skip]="p3.skip" [limit]="p3.limit" [choices]="p3.choices" [controls]="p3.controls" [icons]="p3.icons" (change)="updatePage($event, p3)"></rock-pagination>
+    <rock-pagination [records]="p3.records" [skip]="p3.skip" [limit]="p3.limit" [choices]="p3.choices" [controls]="p3.controls" [icons]="p3.icons" (pageChange)="updatePage($event, p3)"></rock-pagination>
 </section>

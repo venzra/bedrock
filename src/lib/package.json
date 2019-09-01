@@ -1,5 +1,5 @@
 {
-    "name": "bedrock",
+    "name": "@venzra/bedrock",
     "version": "0.1.0",
     "peerDependencies": {
         "@angular/common": "~8.0.0",

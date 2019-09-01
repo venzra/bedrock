@@ -5,7 +5,10 @@
     "license": "MIT",
     "scripts": {
         "start": "ng serve --host 0.0.0.0 --port 4200 --disable-host-check --open",
-        "build": "ng lint && ng build lib && ng build --prod"
+        "build:lib": "ng lint lib && ng build lib && ng build --prod",
+        "build:docs": "ng lint bedrock && ng build bedrock --prod",
+        "test:start": "serve -s -p 8080 dist/bedrock",
+        "release": "npm run build:lib && npm publish --access public dist/lib"
     },
     "private": true,
     "dependencies": {
@@ -40,6 +43,7 @@
         "@types/node": "12.7.3",
         "codelyzer": "5.1.0",
         "ng-packagr": "5.5.0",
+        "serve": "11.1.0",
         "ts-node": "8.3.0",
         "tsickle": "0.37.0",
         "tslib": "1.10.0",

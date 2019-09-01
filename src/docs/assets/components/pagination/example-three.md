@@ -23,6 +23,6 @@ public updatePage(event: PaginationEvent, paginator) {
     [choices]="p3.choices"
     [controls]="p3.controls"
     [icons]="p3.icons"
-    (change)="updatePage($event, p3)">
+    (pageChange)="updatePage($event, p3)">
 </rock-pagination>
 ```

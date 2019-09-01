@@ -33,7 +33,7 @@ export class RockPaginationComponent implements AfterViewInit {
     public icons = true;
 
     @Output()
-    private change: EventEmitter<PaginationEvent> = new EventEmitter();
+    private pageChange: EventEmitter<PaginationEvent> = new EventEmitter();
 
     public ngAfterViewInit(): void {
         this.pageCount = Math.ceil(this.records / this.limit);
@@ -53,7 +53,7 @@ export class RockPaginationComponent implements AfterViewInit {
                 selectedPage: page,
                 selectedSkip: (page - 1) * this.limit,
             };
-            this.change.emit(event);
+            this.pageChange.emit(event);
         }
     }
 
