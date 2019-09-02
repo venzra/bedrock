@@ -1,6 +1,5 @@
 import {
-    AfterViewInit,
-    ChangeDetectionStrategy, ChangeDetectorRef,
+    AfterContentInit,
     Component,
     ContentChild,
     Input,
@@ -16,9 +15,8 @@ import { RockInputErrorControl } from './input-error.control';
     templateUrl: './input.component.html',
     styleUrls: [ './input.component.scss' ],
     encapsulation: ViewEncapsulation.None,
-    changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class RockInputComponent implements AfterViewInit {
+export class RockInputComponent implements AfterContentInit {
 
     public isDisabled = false;
 
@@ -37,26 +35,24 @@ export class RockInputComponent implements AfterViewInit {
         return this.input.id;
     }
 
-    constructor(
-        private changeDetector: ChangeDetectorRef,
-    ) { }
-
-    ngAfterViewInit(): void {
-        if (this.input && this.input.ngControl) {
-            this.isDisabled = coerceBooleanProperty(this.input.ngControl.disabled);
-
-            this.input.ngControl.statusChanges.subscribe((state) => {
-                if (!this.errorText) {
-                    return;
-                }
-
-                if (state === 'INVALID') {
-                    this.errorText.triggerError(this.input.ngControl.errors);
-                } else {
-                    this.errorText.setValid();
-                }
-            });
+    ngAfterContentInit(): void {
+        if (!this.input || !this.input.ngControl) {
+            return;
         }
-        this.changeDetector.detectChanges();
+
+        this.isDisabled = coerceBooleanProperty(this.input.ngControl.disabled);
+
+        this.input.ngControl.statusChanges.subscribe((state) => {
+            if (!this.errorText) {
+                return;
+            }
+
+            if (state === 'INVALID') {
+                this.errorText.triggerError(this.input.ngControl.errors);
+            } else {
+                this.errorText.setValid();
+            }
+        });
     }
+
 }

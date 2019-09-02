@@ -1,7 +1,5 @@
 import {
-    AfterViewInit,
-    ChangeDetectionStrategy,
-    ChangeDetectorRef,
+    AfterContentInit,
     Component,
     ContentChild,
     HostListener,
@@ -30,9 +28,8 @@ import { RockInputControl } from '../core/forms/input.control';
             ]),
         ]),
     ],
-    changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class RockCheckboxComponent implements AfterViewInit {
+export class RockCheckboxComponent implements AfterContentInit {
 
     public isChecked = false;
     public isDisabled = false;
@@ -40,21 +37,16 @@ export class RockCheckboxComponent implements AfterViewInit {
     @ContentChild(RockInputControl, { static: false })
     private input: RockInputControl;
 
-    constructor(
-        private changeDetector: ChangeDetectorRef,
-    ) { }
-
-    public ngAfterViewInit(): void {
-        if (this.input && this.input.ngControl) {
-            this.isDisabled = coerceBooleanProperty(this.input.ngControl.disabled);
-            this.isChecked = coerceBooleanProperty(this.input.ngControl.value);
-
-            this.input.ngControl.valueChanges.subscribe((value) => {
-                this.isChecked = coerceBooleanProperty(value);
-                this.changeDetector.detectChanges();
-            });
+    public ngAfterContentInit(): void {
+        if (!this.input || !this.input.ngControl) {
+            return;
         }
-        this.changeDetector.detectChanges();
+        this.isDisabled = coerceBooleanProperty(this.input.ngControl.disabled);
+        this.isChecked = coerceBooleanProperty(this.input.ngControl.value);
+
+        this.input.ngControl.valueChanges.subscribe((value) => {
+            this.isChecked = coerceBooleanProperty(value);
+        });
     }
 
     @HostListener('click')
