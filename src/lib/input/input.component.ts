@@ -42,19 +42,21 @@ export class RockInputComponent implements AfterViewInit {
     ) { }
 
     ngAfterViewInit(): void {
-        this.isDisabled = coerceBooleanProperty(this.input.ngControl.disabled);
+        if (this.input && this.input.ngControl) {
+            this.isDisabled = coerceBooleanProperty(this.input.ngControl.disabled);
+
+            this.input.ngControl.statusChanges.subscribe((state) => {
+                if (!this.errorText) {
+                    return;
+                }
+
+                if (state === 'INVALID') {
+                    this.errorText.triggerError(this.input.ngControl.errors);
+                } else {
+                    this.errorText.setValid();
+                }
+            });
+        }
         this.changeDetector.detectChanges();
-
-        this.input.ngControl.statusChanges.subscribe((state) => {
-            if (!this.errorText) {
-                return;
-            }
-
-            if (state === 'INVALID') {
-                this.errorText.triggerError(this.input.ngControl.errors);
-            } else {
-                this.errorText.setValid();
-            }
-        });
     }
 }

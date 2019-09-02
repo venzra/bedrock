@@ -45,14 +45,16 @@ export class RockCheckboxComponent implements AfterViewInit {
     ) { }
 
     public ngAfterViewInit(): void {
-        this.isDisabled = coerceBooleanProperty(this.input.ngControl.disabled);
-        this.isChecked = coerceBooleanProperty(this.input.ngControl.value);
-        this.changeDetector.detectChanges();
+        if (this.input && this.input.ngControl) {
+            this.isDisabled = coerceBooleanProperty(this.input.ngControl.disabled);
+            this.isChecked = coerceBooleanProperty(this.input.ngControl.value);
 
-        this.input.ngControl.valueChanges.subscribe((value) => {
-            this.isChecked = coerceBooleanProperty(value);
-            this.changeDetector.detectChanges();
-        });
+            this.input.ngControl.valueChanges.subscribe((value) => {
+                this.isChecked = coerceBooleanProperty(value);
+                this.changeDetector.detectChanges();
+            });
+        }
+        this.changeDetector.detectChanges();
     }
 
     @HostListener('click')

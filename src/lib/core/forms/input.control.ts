@@ -7,4 +7,5 @@ export abstract class RockInputControl {
     readonly id: string;
 
     readonly ngControl?: NgControl;
+
 }

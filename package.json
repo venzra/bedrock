@@ -8,7 +8,7 @@
         "build:lib": "ng lint lib && ng build lib && ng build --prod",
         "build:docs": "ng lint bedrock && ng build bedrock --prod",
         "test:start": "serve -s -p 8080 dist/bedrock",
-        "release": "npm run build:lib && npm publish --access public dist/lib"
+        "release": "npm publish --access public dist/lib"
     },
     "private": true,
     "dependencies": {
