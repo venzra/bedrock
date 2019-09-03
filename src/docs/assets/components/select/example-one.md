@@ -25,7 +25,7 @@ public ngOnInit(): void {
 
 ```code
 <form [formGroup]="basicForm">
-    <rock-select formControlName="country">
+    <rock-select type="select" formControlName="country">
         <div rockOption *ngFor="let country of countries" [value]="country.value">{{ country.name }}</div>
     </rock-select>
 </form>

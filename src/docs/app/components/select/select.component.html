@@ -14,7 +14,7 @@
     <docs-code content="components/select/example-one.md"></docs-code>
 
     <form [formGroup]="basicForm">
-        <rock-select formControlName="country">
+        <rock-select type="select" formControlName="country">
             <div rockOption *ngFor="let country of countries" [value]="country.value">{{ country.name }}</div>
         </rock-select>
     </form>
@@ -26,7 +26,7 @@
     <docs-code content="components/select/example-two.md"></docs-code>
 
     <form [formGroup]="disabledForm">
-        <rock-select formControlName="country">
+        <rock-select type="select" formControlName="country">
             <div rockOption *ngFor="let country of countries" [value]="country.value">{{ country.name }}</div>
         </rock-select>
     </form>
@@ -38,7 +38,7 @@
     <docs-code content="components/select/example-three.md"></docs-code>
 
     <form [formGroup]="intermediateForm">
-        <rock-select placeholder="Choose a country" formControlName="country">
+        <rock-select placeholder="Choose a country" type="select" formControlName="country">
             <label>Pick your favourite country</label>
             <div rockOption *ngFor="let country of countries" [value]="country.value">{{ country.name }}</div>
         </rock-select>
@@ -51,7 +51,7 @@
     <docs-code content="components/select/example-four.md"></docs-code>
 
     <form [formGroup]="changeForm">
-        <rock-select (selectionChange)="setCountry($event)" formControlName="country">
+        <rock-select (selectionChange)="setCountry($event)" type="select" formControlName="country">
             <div rockOption *ngFor="let country of countries" [value]="country.value">{{ country.name }}</div>
         </rock-select>
     </form>

@@ -7,12 +7,18 @@ this.basicForm = this.form.group({
 
 ```code
 <form [formGroup]="basicForm">
-    <rock-input label="First name">
-        <input rockInput id="firstName" type="text" formControlName="firstName">
+    <rock-input
+        label="First name"
+        name="firstName"
+        type="text"
+        formControlName="firstName">
     </rock-input>
-    
-    <rock-input label="Last name">
-        <input rockInput id="lastName" type="text" formControlName="lastName">
+
+    <rock-input
+        label="Last name"
+        name="lastName"
+        type="text"
+        formControlName="lastName">
     </rock-input>
 </form>
 ```

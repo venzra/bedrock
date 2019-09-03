@@ -6,8 +6,10 @@ this.basicForm = this.forms.group({
 
 ```code
 <form [formGroup]="basicForm">
-    <rock-image-input label="Example image">
-        <input rockImage formControlName="exampleImage">
+    <rock-image-input
+        label="Example image"
+        type="image"
+        formControlName="exampleImage">
     </rock-image-input>
 </form>
 ```

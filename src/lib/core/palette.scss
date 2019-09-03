@@ -9,24 +9,24 @@ $bedrock: (
     ),
     brand:(
         primary: (
-            light: lighten(#673ab7, 20),
+            light: lighten(#673ab7, 15),
             dark: #673ab7
         ),
         accent: (
-            light: lighten(#b7af3a, 20),
+            light: lighten(#b7af3a, 15),
             dark: #b7af3a
         ),
     ),
     success: (
-        light: lighten(#3a94b7, 20),
+        light: lighten(#3a94b7, 15),
         dark: #3a94b7
     ),
     warning: (
-        light: lighten(#b7703a, 20),
+        light: lighten(#b7703a, 15),
         dark: #b7703a
     ),
     error: (
-        light: lighten(#b73a67, 20),
+        light: lighten(#b73a67, 15),
         dark: #b73a67
     )
 )

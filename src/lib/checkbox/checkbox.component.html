@@ -4,7 +4,7 @@
         <fa-icon [@check]="isChecked ? 'on' : 'off'" [icon]="['fas', 'check-square']" size="lg"></fa-icon>
     </div>
     <div class="input">
-        <ng-content select="input"></ng-content>
+        <input [(ngModel)]="value" type="checkbox">
     </div>
-    <ng-content></ng-content>
+    {{ label }}
 </div>

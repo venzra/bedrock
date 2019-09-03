@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
@@ -21,6 +22,7 @@ import { RockCheckboxComponent } from './checkbox.component';
     ],
     imports: [
         CommonModule,
+        FormsModule,
         FontAwesomeModule,
     ],
     exports: [

@@ -2,57 +2,79 @@ import {
     AfterContentInit,
     Component,
     ContentChild,
+    forwardRef,
     Input,
     ViewEncapsulation,
 } from '@angular/core';
-import { coerceBooleanProperty } from '@angular/cdk/coercion';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
-import { RockInputControl } from '../core/forms/input.control';
-import { RockInputErrorControl } from './input-error.control';
+import { RockErrorComponent } from '../error/error.component';
 
 @Component({
     selector: 'rock-input',
     templateUrl: './input.component.html',
     styleUrls: [ './input.component.scss' ],
+    providers: [
+        {
+            provide: NG_VALUE_ACCESSOR,
+            multi: true,
+            useExisting: forwardRef(() => RockInputComponent),
+        },
+    ],
     encapsulation: ViewEncapsulation.None,
 })
-export class RockInputComponent implements AfterContentInit {
+export class RockInputComponent implements AfterContentInit, ControlValueAccessor {
 
+    public hasError = false;
     public isDisabled = false;
-
-    @ContentChild(RockInputControl, { static: false })
-    private input: RockInputControl;
-
-    @ContentChild(RockInputErrorControl, { static: false })
-    private errorText: RockInputErrorControl;
+    public currentValue: string;
 
     @Input()
     public label: string;
 
     @Input()
-    set name(value: string) { }
-    get name(): string {
-        return this.input.id;
+    public type: 'text' | 'textarea';
+
+    @Input()
+    public name: string;
+
+    @ContentChild(RockErrorComponent, { static: false })
+    private error: RockErrorComponent;
+
+    private hasChange: (value: string) => void = () => { };
+    private isTouched = () => { };
+
+    set value(value: string) {
+        this.currentValue = value;
+        this.hasChange(this.currentValue);
+        this.isTouched();
+    }
+    get value(): string {
+        return this.currentValue;
     }
 
-    ngAfterContentInit(): void {
-        if (!this.input || !this.input.ngControl) {
-            return;
+    constructor() { }
+
+    public ngAfterContentInit(): void {
+        if (this.error) {
+            this.error.changes.subscribe((change) => this.hasError = !!change);
         }
+    }
 
-        this.isDisabled = coerceBooleanProperty(this.input.ngControl.disabled);
+    public registerOnChange(fn: (value: string) => void): void {
+        this.hasChange = fn;
+    }
 
-        this.input.ngControl.statusChanges.subscribe((state) => {
-            if (!this.errorText) {
-                return;
-            }
+    public registerOnTouched(fn: () => {}): void {
+        this.isTouched = fn;
+    }
 
-            if (state === 'INVALID') {
-                this.errorText.triggerError(this.input.ngControl.errors);
-            } else {
-                this.errorText.setValid();
-            }
-        });
+    public setDisabledState(isDisabled: boolean): void {
+        this.isDisabled = isDisabled;
+    }
+
+    public writeValue(value: string): void {
+        this.currentValue = value;
     }
 
 }

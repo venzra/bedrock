@@ -15,7 +15,7 @@ export class InputComponent implements OnInit {
         private form: FormBuilder,
     ) { }
 
-    ngOnInit(): void {
+    public ngOnInit(): void {
         this.basicForm = this.form.group({
             firstName: [ undefined, [] ],
             lastName: [ undefined, [] ],

@@ -7,14 +7,22 @@ this.textForm = this.form.group({
 
 ```code
 <form [formGroup]="textForm">
-    <rock-input label="Your name">
-        <input rockInput id="alias" type="text" formControlName="alias">
-        <rock-input-error></rock-input-error>
+    <rock-input
+        label="Your name"
+        name="alias"
+        type="text"
+        formControlName="alias"
+    >
+        <rock-error [control]="textForm.get('alias')"></rock-error>
     </rock-input>
-    
-    <rock-input label="Feedback">
-        <textarea rockInput id="feedback" rows="8" formControlName="feedback"></textarea>
-        <rock-input-error></rock-input-error>
+
+    <rock-input
+        label="Feedback"
+        name="feedback"
+        type="textarea"
+        formControlName="feedback"
+    >
+        <rock-error [control]="textForm.get('feedback')"></rock-error>
     </rock-input>
 </form>
 ```

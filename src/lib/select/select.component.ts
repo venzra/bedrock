@@ -1,5 +1,5 @@
 import {
-    AfterViewInit,
+    AfterContentInit,
     ChangeDetectionStrategy,
     ChangeDetectorRef,
     Component,
@@ -13,11 +13,11 @@ import {
     ViewEncapsulation,
 } from '@angular/core';
 import { animate, state, style, transition, trigger } from '@angular/animations';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 import { Option } from './option';
 
 import { RockOptionDirective } from './option.directive';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
     selector: 'rock-select',
@@ -46,7 +46,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
     encapsulation: ViewEncapsulation.None,
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class RockSelectComponent implements AfterViewInit, ControlValueAccessor {
+export class RockSelectComponent implements AfterContentInit, ControlValueAccessor {
 
     public isOpen = false;
     public isDisabled = false;
@@ -69,7 +69,7 @@ export class RockSelectComponent implements AfterViewInit, ControlValueAccessor 
         private changeDetection: ChangeDetectorRef,
     ) { }
 
-    public ngAfterViewInit(): void {
+    public ngAfterContentInit(): void {
         const optionList = this.options.toArray();
         if (this.value && optionList.length) {
             this.selection = optionList.find((option) => option.value === this.value);

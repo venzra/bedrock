@@ -3,12 +3,10 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 
 import { ImageInputComponent } from './image-input.component';
-import { ImageInputDirective } from './image-input.directive';
 
 @NgModule({
     declarations: [
         ImageInputComponent,
-        ImageInputDirective,
     ],
     imports: [
         CommonModule,
@@ -16,7 +14,6 @@ import { ImageInputDirective } from './image-input.directive';
     ],
     exports: [
         ImageInputComponent,
-        ImageInputDirective,
     ],
 })
 export class RockImageInputModule {

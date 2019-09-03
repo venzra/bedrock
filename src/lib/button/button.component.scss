@@ -19,8 +19,7 @@ $button-warning-disabled: map-deep-get($bedrock, 'warning', 'light');
     padding: 0.6875em 1.6875em;
 }
 
-.rock-button[rock-button],
-.rock-button[rock-raised-button] {
+.rock-button[rock-button] {
     background-color: $button-primary;
 
     &:active:not([disabled]) {
@@ -57,10 +56,38 @@ $button-warning-disabled: map-deep-get($bedrock, 'warning', 'light');
 }
 
 .rock-button[rock-raised-button] {
-    background-image: linear-gradient(to top, darken($button-primary, 5), lighten($button-primary, 5));
+    background-image: linear-gradient(to top, darken($button-primary, 15), lighten($button-primary, 15));
 
     &:active:not([disabled]) {
-        background-image: linear-gradient(to top, lighten($button-primary, 5), darken($button-primary, 5));
+        background-image: linear-gradient(to top, darken($button-primary, 5), lighten($button-primary, 5));
+    }
+
+    &:disabled {
+        background-image: linear-gradient(to top, darken($button-primary-disabled, 10), lighten($button-primary-disabled, 10));
+    }
+
+    &.accent {
+        background-image: linear-gradient(to top, darken($button-accent, 15), lighten($button-accent, 15));
+
+        &:active:not([disabled]) {
+            background-image: linear-gradient(to top, darken($button-accent, 5), lighten($button-accent, 5));
+        }
+
+        &:disabled {
+            background-image: linear-gradient(to top, darken($button-accent-disabled, 10), lighten($button-accent-disabled, 10));
+        }
+    }
+
+    &.warn {
+        background-image: linear-gradient(to top, darken($button-warning, 15), lighten($button-warning, 15));
+
+        &:active:not([disabled]) {
+            background-image: linear-gradient(to top, darken($button-warning, 5), lighten($button-warning, 5));
+        }
+
+        &:disabled {
+            background-image: linear-gradient(to top, darken($button-warning-disabled, 10), lighten($button-warning-disabled, 10));
+        }
     }
 }
 

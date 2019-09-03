@@ -1,8 +1,9 @@
 ```code
-import { RockInputModule } from '@venzra/bedrock';
+import { RockErrorModule, RockInputModule } from '@venzra/bedrock';
 
 @NgModule({
     imports: [
+        RockErrorModule,
         RockInputModule
     ]
 })

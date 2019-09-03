@@ -1,27 +1,40 @@
-import { AfterContentInit, AfterViewInit, ChangeDetectorRef, Component, ContentChild, HostListener, Input } from '@angular/core';
+import {
+    ChangeDetectorRef,
+    Component,
+    forwardRef,
+    HostListener,
+    Input,
+} from '@angular/core';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
-import { HttpClient } from '@angular/common/http';
 
 import { RockImage } from './image';
 import { ImageInputService } from './image-input.service';
-import { RockInputControl } from '../core/forms/input.control';
-import { coerceBooleanProperty } from '@angular/cdk/coercion';
+
+let uniqueId = 0;
 
 @Component({
     selector: 'rock-image-input',
     templateUrl: './image-input.component.html',
     styleUrls: [ './image-input.component.scss' ],
-    providers: [ ImageInputService ],
+    providers: [
+        {
+            provide: NG_VALUE_ACCESSOR,
+            multi: true,
+            useExisting: forwardRef(() => ImageInputComponent),
+        },
+        ImageInputService
+    ],
 })
-export class ImageInputComponent implements AfterContentInit, AfterViewInit {
+export class ImageInputComponent implements ControlValueAccessor {
 
     public state: 'accent' | 'error';
     public background: SafeStyle;
     public imageData: string;
     public isDisabled = false;
 
-    @ContentChild(RockInputControl, { static: false })
-    private input: RockInputControl;
+    @Input()
+    public id = `rock-image-${++uniqueId}`;
 
     @Input()
     public label: string;
@@ -36,21 +49,32 @@ export class ImageInputComponent implements AfterContentInit, AfterViewInit {
     public height = 250;
 
     @Input()
-    set name(value: string) { }
     get name(): string {
-        return this.input.id;
+        return this.id;
     }
 
+    private hasChange: (value: RockImage) => void = () => { };
+    private isTouched = () => { };
+
     constructor(
-        private http: HttpClient,
         private changeDetector: ChangeDetectorRef,
         private sanitizer: DomSanitizer,
         private imageService: ImageInputService,
     ) { }
 
-    public ngAfterContentInit(): void {
-        const value = this.input.ngControl.value;
+    public registerOnChange(fn: (value: RockImage) => void): void {
+        this.hasChange = fn;
+    }
 
+    public registerOnTouched(fn: () => {}): void {
+        this.isTouched = fn;
+    }
+
+    public setDisabledState(isDisabled: boolean): void {
+        this.isDisabled = isDisabled;
+    }
+
+    public writeValue(value: string): void {
         if (!value) {
             return;
         }
@@ -59,23 +83,13 @@ export class ImageInputComponent implements AfterContentInit, AfterViewInit {
             const name = value;
             this.imageData = canvas.toDataURL();
             this.background = this.sanitizer.bypassSecurityTrustStyle(`url(${this.imageData})`);
-            canvas.toBlob((data: Blob) => this.setValue({ name, data, size: data.size, type: data.type }), this.format);
+            canvas.toBlob((data: Blob) => this.setValue({ name, data }), this.format);
         });
     }
 
-    public ngAfterViewInit(): void {
-        this.isDisabled = coerceBooleanProperty(this.input.ngControl.disabled);
-        this.changeDetector.detectChanges();
-    }
-
     private setValue(value: RockImage) {
-        this.input.ngControl.reset(value);
-
-        if (value) {
-            this.input.ngControl.control.markAsDirty();
-            this.input.ngControl.control.markAsTouched();
-            this.input.ngControl.control.updateValueAndValidity();
-        }
+        this.hasChange(value);
+        this.isTouched();
     }
 
     @HostListener('dragenter', [ '$event' ])
@@ -119,7 +133,7 @@ export class ImageInputComponent implements AfterContentInit, AfterViewInit {
             this.imageService.optimiseOnCanvas(<string> reader.result, this.width, this.height).subscribe((canvas) => {
                 this.imageData = canvas.toDataURL();
                 this.background = this.sanitizer.bypassSecurityTrustStyle(`url(${this.imageData})`);
-                canvas.toBlob((data: Blob) => this.setValue({ name, data, size: data.size, type: data.type }), this.format);
+                canvas.toBlob((data: Blob) => this.setValue({ name, data }), this.format);
             });
         });
 

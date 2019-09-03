@@ -5,22 +5,18 @@
     <h3>Import Module</h3>
     <p>To use the components here you first need to include this module in your application @NgModule</p>
 
-    <docs-code content="components/input/import.md"></docs-code>
+     <docs-code content="components/input/import.md"></docs-code>
 </section>
 
 <section>
     <h4>Simple form fields</h4>
 
-    <docs-code content="components/input/example-one.md"></docs-code>
+     <docs-code content="components/input/example-one.md"></docs-code>
 
     <form [formGroup]="basicForm">
-        <rock-input label="First name">
-            <input rockInput id="firstName" type="text" formControlName="firstName">
-        </rock-input>
+        <rock-input label="First name" name="firstName" type="text" formControlName="firstName"></rock-input>
 
-        <rock-input label="Last name">
-            <input rockInput id="lastName" type="text" formControlName="lastName">
-        </rock-input>
+        <rock-input label="Last name" name="lastName" type="text" formControlName="lastName"></rock-input>
     </form>
 </section>
 
@@ -30,13 +26,9 @@
     <docs-code content="components/input/example-two.md"></docs-code>
 
     <form [formGroup]="disabledForm">
-        <rock-input label="First name">
-            <input rockInput id="forename" type="text" formControlName="forename">
-        </rock-input>
+        <rock-input label="First name" name="forename" type="text" formControlName="forename"></rock-input>
 
-        <rock-input label="Last name">
-            <input rockInput id="surname" type="text" formControlName="surname">
-        </rock-input>
+        <rock-input label="Last name" name="surname" type="text" formControlName="surname"></rock-input>
     </form>
 </section>
 
@@ -46,14 +38,12 @@
     <docs-code content="components/input/example-three.md"></docs-code>
 
     <form [formGroup]="intermediateForm">
-        <rock-input label="Email address">
-            <input rockInput id="email" type="text" formControlName="email">
-            <rock-input-error></rock-input-error>
+        <rock-input label="Email address" name="email" type="text" formControlName="email">
+            <rock-error [control]="intermediateForm.get('email')"></rock-error>
         </rock-input>
 
-        <rock-input label="Password">
-            <input rockInput id="password" type="password" formControlName="password">
-            <rock-input-error></rock-input-error>
+        <rock-input label="Password" name="password" type="password" formControlName="password">
+            <rock-error [control]="intermediateForm.get('password')"></rock-error>
         </rock-input>
     </form>
 </section>
@@ -64,14 +54,12 @@
     <docs-code content="components/input/example-four.md"></docs-code>
 
     <form [formGroup]="textForm">
-        <rock-input label="Your name">
-            <input rockInput id="alias" type="text" formControlName="alias">
-            <rock-input-error></rock-input-error>
+        <rock-input label="Your name" name="alias" type="text" formControlName="alias">
+            <rock-error [control]="textForm.get('alias')"></rock-error>
         </rock-input>
 
-        <rock-input label="Feedback">
-            <textarea rockInput id="feedback" rows="8" formControlName="feedback"></textarea>
-            <rock-input-error></rock-input-error>
+        <rock-input label="Feedback" name="feedback" type="textarea" formControlName="feedback">
+            <rock-error [control]="textForm.get('feedback')"></rock-error>
         </rock-input>
     </form>
 </section>

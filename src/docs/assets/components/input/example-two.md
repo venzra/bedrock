@@ -7,12 +7,18 @@ this.disabledForm = this.form.group({
 
 ```code
 <form [formGroup]="disabledForm">
-    <rock-input label="First name">
-        <input rockInput id="forename" type="text" formControlName="forename">
+    <rock-input
+        label="First name"
+        name="forename"
+        type="text"
+        formControlName="forename">
     </rock-input>
-    
-    <rock-input label="Last name">
-        <input rockInput id="surname" type="text" formControlName="surname">
+
+    <rock-input
+        label="Last name"
+        name="surname"
+        type="text"
+        formControlName="surname">
     </rock-input>
 </form>
 ```

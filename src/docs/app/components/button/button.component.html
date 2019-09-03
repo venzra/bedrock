@@ -18,40 +18,46 @@
         <button type="button" rock-button class="accent">Accent</button>
         <button type="button" rock-button class="warn">Warning</button>
     </div>
-</section>
-
-<section>
-    <h4>Disabled Buttons</h4>
-
-    <docs-code content="components/button/example-two.md"></docs-code>
 
     <div class="buttons">
-        <button type="button" rock-button [disabled]="true">Primary</button>
-        <button type="button" rock-button class="accent" [disabled]="true">Accent</button>
-        <button type="button" rock-button class="warn" [disabled]="true">Warning</button>
+        <button type="button" rock-button [disabled]="true">Disabled</button>
+        <button type="button" rock-button [disabled]="true" class="accent">Disabled</button>
+        <button type="button" rock-button [disabled]="true" class="warn">Disabled</button>
     </div>
 </section>
 
 <section>
     <h4>Raised Buttons</h4>
 
-    <docs-code content="components/button/example-three.md"></docs-code>
+    <docs-code content="components/button/example-two.md"></docs-code>
 
     <div class="buttons">
         <button type="button" rock-raised-button>Primary</button>
         <button type="button" rock-raised-button class="accent">Accent</button>
         <button type="button" rock-raised-button class="warn">Warning</button>
     </div>
+
+    <div class="buttons">
+        <button type="button" rock-raised-button [disabled]="true">Disabled</button>
+        <button type="button" rock-raised-button [disabled]="true" class="accent">Disabled</button>
+        <button type="button" rock-raised-button [disabled]="true" class="warn">Disabled</button>
+    </div>
 </section>
 
 <section>
     <h4>Stroked Buttons</h4>
 
-    <docs-code content="components/button/example-four.md"></docs-code>
+    <docs-code content="components/button/example-three.md"></docs-code>
 
     <div class="buttons">
         <button type="button" rock-stroked-button>Primary</button>
         <button type="button" rock-stroked-button class="accent">Accent</button>
         <button type="button" rock-stroked-button class="warn">Warning</button>
+    </div>
+
+    <div class="buttons">
+        <button type="button" rock-stroked-button [disabled]="true">Disabled</button>
+        <button type="button" rock-stroked-button [disabled]="true" class="accent">Disabled</button>
+        <button type="button" rock-stroked-button [disabled]="true" class="warn">Disabled</button>
     </div>
 </section>

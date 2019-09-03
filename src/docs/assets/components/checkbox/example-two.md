@@ -7,12 +7,7 @@ this.exampleForm = this.form.group({
 
 ```code
 <form [formGroup]="exampleForm">
-    <rock-checkbox>
-        <input rockInput type="checkbox" formControlName="first"> This is disabled
-    </rock-checkbox>
-    
-    <rock-checkbox>
-        <input rockInput type="checkbox" formControlName="second"> This is disabled and checked
-    </rock-checkbox>
+    <rock-checkbox label="This is disabled" type="checkbox" formControlName="first"></rock-checkbox>
+    <rock-checkbox label="This is disabled and checked" type="checkbox" formControlName="second"></rock-checkbox>
 </form>
 ```

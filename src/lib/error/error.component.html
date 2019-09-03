@@ -1,0 +1,9 @@
+<div [@transitionMessage]="control.touched && control.invalid ? 'enter' : 'hidden'">
+    <div *ngIf="control.hasError('maxlength')">Maximum content size is {{ control.getError('maxlength').requiredLength }} characters</div>
+    <div *ngIf="control.hasError('minlength')">Minimum content size is {{ control.getError('minlength').requiredLength }} characters</div>
+    <div *ngIf="control.hasError('max')">Value should be less than {{ control.getError('max').max }}</div>
+    <div *ngIf="control.hasError('min')">Value should be more than {{ control.getError('min').min }}</div>
+    <div *ngIf="control.hasError('url')">Enter a valid URL starting with http or https</div>
+    <div *ngIf="control.hasError('email')">Enter an email address in the correct format, like name@example.com</div>
+    <div *ngIf="control.hasError('required')">This is required</div>
+</div>

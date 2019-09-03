@@ -26,10 +26,6 @@ $input-padding: 0.5rem;
         background-color: lighten(map-deep-get($bedrock, 'background', 'light'), 5);
         line-height: inherit;
 
-        &:invalid, &.ng-dirty.ng-invalid {
-            border-color: map-deep-get($bedrock, 'error', 'dark');
-        }
-
         &:disabled {
             background-color: map-deep-get($bedrock, 'background', 'light');
             border-color: lighten(map-deep-get($bedrock, 'brand', 'primary', 'light'), 10);
@@ -42,6 +38,10 @@ $input-padding: 0.5rem;
                 border-bottom-width: 2px;
                 border-color: map-deep-get($bedrock, 'brand', 'primary', 'dark');
             }
+        }
+
+        &.ng-dirty.invalid {
+            border-color: map-deep-get($bedrock, 'error', 'dark');
         }
     }
 

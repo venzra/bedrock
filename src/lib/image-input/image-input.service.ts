@@ -34,8 +34,7 @@ export class ImageInputService {
                 image.src = URL.createObjectURL(data);
                 return fromEvent(image, 'load');
             }),
-            map((event) => {
-                console.log(event);
+            map(() => {
                 canvas.width = image.width;
                 canvas.height = image.height;
                 context.drawImage(image, 0, 0);

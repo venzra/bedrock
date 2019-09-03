@@ -6,6 +6,6 @@
     @include bedrock-font(0.9em, 400, map-deep-get($bedrock, 'error', 'dark'));
 
     > div {
-        margin: 0.375rem 0;
+        margin: 0.1rem 0 0.2rem;
     }
 }

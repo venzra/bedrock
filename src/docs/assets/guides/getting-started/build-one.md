@@ -5,6 +5,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {
     RockCardModule,
     RockButtonModule, 
+    RockErrorModule,
     RockInputModule,
 } from '@venzra/bedrock';
 
@@ -18,6 +19,7 @@ import { ExampleComponent } from './example.component';
         ReactiveFormsModule,
         RockCardModule,
         RockButtonModule,
+        RockErrorModule,
         RockInputModule,
     ],
 })
