@@ -1,5 +1,5 @@
 <div class="overlay" [ngClass]="{ open: isOpen }"></div>
-<ng-content select="label"></ng-content>
+<label>{{ label }}</label>
 <div class="select-wrapper" [ngClass]="{ open: isOpen }">
     <div class="selection" [ngClass]="{ focus: isOpen, disabled: isDisabled }">
         <div>{{ getSelection() }}</div>
@@ -14,4 +14,5 @@
             </div>
         </cdk-virtual-scroll-viewport>
     </div>
+    <ng-content select="rock-error"></ng-content>
 </div>

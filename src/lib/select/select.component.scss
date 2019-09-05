@@ -21,6 +21,7 @@ $input-padding: 0.5rem;
 
 .select-wrapper {
     position: relative;
+    margin-bottom: 1.4rem;
 
     &.open {
         z-index: 1000;
@@ -69,6 +70,7 @@ label {
     left: 0;
     right: 2rem;
     box-sizing: border-box;
+    z-index: 1000;
     border: 1px solid map-deep-get($bedrock, 'brand', 'primary', 'dark');
     background-color: map-deep-get($bedrock, 'background', 'light');
     box-shadow: 0 2px 4px -1px rgba(50, 50, 50, 0.2),

@@ -3,6 +3,7 @@ import {
     ChangeDetectionStrategy,
     ChangeDetectorRef,
     Component,
+    ContentChild,
     ContentChildren,
     EventEmitter,
     forwardRef,
@@ -18,6 +19,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { Option } from './option';
 
 import { RockOptionDirective } from './option.directive';
+import { RockErrorComponent } from '../error/error.component';
 
 @Component({
     selector: 'rock-select',
@@ -48,12 +50,19 @@ import { RockOptionDirective } from './option.directive';
 })
 export class RockSelectComponent implements AfterContentInit, ControlValueAccessor {
 
+    public hasError = false;
     public isOpen = false;
     public isDisabled = false;
     public selection: Option;
 
     @ContentChildren(RockOptionDirective)
     public options: QueryList<RockOptionDirective>;
+
+    @ContentChild(RockErrorComponent, { static: false })
+    private error: RockErrorComponent;
+
+    @Input()
+    public label: string;
 
     @Input()
     public placeholder = 'Please choose an option';
@@ -74,6 +83,11 @@ export class RockSelectComponent implements AfterContentInit, ControlValueAccess
         if (this.value && optionList.length) {
             this.selection = optionList.find((option) => option.value === this.value);
         }
+
+        if (this.error) {
+            this.error.changes.subscribe((change) => this.hasError = !!change);
+        }
+
         this.changeDetection.detectChanges();
     }
 
@@ -123,6 +137,10 @@ export class RockSelectComponent implements AfterContentInit, ControlValueAccess
             this.isOpen = !this.isOpen;
         } else {
             this.isOpen = false;
+        }
+
+        if (!this.isOpen) {
+            this.isTouched();
         }
     }
 

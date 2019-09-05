@@ -12,8 +12,7 @@ public ngOnInit(): void {
 
 ```code
 <form [formGroup]="intermediateForm">
-    <rock-select placeholder="Choose a country" type="select" formControlName="country">
-        <label>Pick your favourite country</label>
+    <rock-select label="Pick your favourite country" placeholder="Choose a country" type="select" formControlName="country">
         <div rockOption *ngFor="let country of countries" [value]="country.value">{{ country.name }}</div>
     </rock-select>
 </form>
