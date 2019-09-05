@@ -39,7 +39,7 @@ To build this library we have benefited from several open source projects these 
 
 ## Features
 
-The following are a list of components that Bedrock provides, full documentation is available at https://bedrock.venzra.io.
+The following are a list of components that Bedrock provides, full documentation is available at https://bedrock.venzra.com.
 
 ### Form Components
 

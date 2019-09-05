@@ -5,6 +5,8 @@
 $input-padding: 0.5rem;
 
 .rock-input {
+    position: relative;
+    margin-bottom: 1.4rem;
 
     label {
         @include bedrock-font(1em, 300, map-deep-get($bedrock, 'font', 'dark'));

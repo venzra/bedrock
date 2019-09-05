@@ -3,6 +3,9 @@
 @import '../core/palette';
 
 :host {
+    display: block;
+    position: absolute;
+    width: 100%;
     @include bedrock-font(0.9em, 400, map-deep-get($bedrock, 'error', 'dark'));
 
     > div {
