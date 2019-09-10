@@ -51,7 +51,7 @@ $input-padding: 0.5rem;
             }
         }
 
-        &.ng-dirty.invalid {
+        &.ng-touched.invalid {
             border-color: map-deep-get($bedrock, 'error', 'dark');
         }
     }

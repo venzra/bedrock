@@ -1,7 +1,7 @@
 <div class="overlay" [ngClass]="{ open: isOpen }"></div>
 <label *ngIf="label" [ngClass]="{ required: isRequired }">{{ label }}</label>
 <div class="select-wrapper" [ngClass]="{ open: isOpen }">
-    <div class="selection" [ngClass]="{ focus: isOpen, disabled: isDisabled }">
+    <div class="selection" [ngClass]="{ focus: isOpen, invalid: hasError, 'ng-touched': hasTouch, disabled: isDisabled }">
         <div>{{ getSelection() }}</div>
         <span [@arrow]="isOpen ? 'closed' : 'open'">
             <fa-icon icon="caret-up" [fixedWidth]="true"></fa-icon>

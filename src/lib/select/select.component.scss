@@ -60,15 +60,19 @@ label {
     border: 1px solid map-deep-get($bedrock, 'brand', 'primary', 'light');
     background-color: lighten(map-deep-get($bedrock, 'background', 'light'), 5);
 
+    &.focus {
+        border-color: map-deep-get($bedrock, 'brand', 'primary', 'dark');
+    }
+
+    &.ng-touched.invalid {
+        border-color: map-deep-get($bedrock, 'error', 'dark');
+    }
+
     &.disabled {
         cursor: default;
         color: lighten(map-deep-get($bedrock, 'font', 'dark'), 30);
         background-color: map-deep-get($bedrock, 'background', 'light');
         border-color: lighten(map-deep-get($bedrock, 'brand', 'primary', 'light'), 10);
-    }
-
-    &.focus {
-        border-color: map-deep-get($bedrock, 'brand', 'primary', 'dark');
     }
 }
 

@@ -53,6 +53,7 @@ export class RockSelectComponent implements AfterContentInit, ControlValueAccess
 
     public isOpen = false;
     public hasError = false;
+    public hasTouch = false;
     public isDisabled = false;
     public isRequired = false;
     public selection: Option;
@@ -95,6 +96,7 @@ export class RockSelectComponent implements AfterContentInit, ControlValueAccess
         }
 
         if (this.error) {
+            this.hasError = !!this.error.control.errors;
             this.error.changes.subscribe((change) => this.hasError = !!change);
         }
 
@@ -128,7 +130,10 @@ export class RockSelectComponent implements AfterContentInit, ControlValueAccess
     }
 
     public registerOnTouched(fn: () => {}): void {
-        this.isTouched = fn;
+        this.isTouched = () => {
+            this.hasTouch = true;
+            fn();
+        };
     }
 
     public setDisabledState(isDisabled: boolean): void {
@@ -145,9 +150,6 @@ export class RockSelectComponent implements AfterContentInit, ControlValueAccess
     public toggleOpen() {
         if (!this.isDisabled) {
             this.isOpen = !this.isOpen;
-            if (!this.isOpen) {
-                this.isTouched();
-            }
         } else {
             this.isOpen = false;
         }

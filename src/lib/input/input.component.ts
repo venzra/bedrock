@@ -1,8 +1,22 @@
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
-import { AfterContentInit, Component, ContentChild, forwardRef, Input, ViewEncapsulation } from '@angular/core';
+import {
+    AfterContentInit,
+    AfterViewInit,
+    Component,
+    ContentChild,
+    forwardRef,
+    Input,
+    OnDestroy,
+    ViewChild,
+    ViewEncapsulation,
+} from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
+
 import { RockErrorComponent } from '../error/error.component';
+import { RockInputDirective } from './input.directive';
 
 let uniqueId = 0;
 
@@ -19,12 +33,14 @@ let uniqueId = 0;
     ],
     encapsulation: ViewEncapsulation.None,
 })
-export class RockInputComponent implements AfterContentInit, ControlValueAccessor {
+export class RockInputComponent implements AfterContentInit, AfterViewInit, ControlValueAccessor, OnDestroy {
 
     public hasError = false;
     public isDisabled = false;
     public isRequired = false;
     public currentValue: string;
+
+    private destroyed = new Subject();
 
     @Input()
     public id = `rock-input-${ ++uniqueId }`;
@@ -49,6 +65,9 @@ export class RockInputComponent implements AfterContentInit, ControlValueAccesso
     @ContentChild(RockErrorComponent, { static: false })
     private error: RockErrorComponent;
 
+    @ViewChild(RockInputDirective, { static: false })
+    private input: RockInputDirective;
+
     private hasChange: (value: string) => void = () => { };
     private isTouched = () => { };
 
@@ -57,15 +76,28 @@ export class RockInputComponent implements AfterContentInit, ControlValueAccesso
         this.hasChange(this.currentValue);
         this.isTouched();
     }
-
     get value(): string {
         return this.currentValue;
     }
 
     public ngAfterContentInit(): void {
         if (this.error) {
-            this.error.changes.subscribe((change) => this.hasError = !!change);
+            this.hasError = !!this.error.control.errors;
+            this.error.changes
+                .pipe(takeUntil(this.destroyed))
+                .subscribe((change) => this.hasError = !!change);
         }
+    }
+
+    public ngAfterViewInit(): void {
+        this.input.changes
+            .pipe(takeUntil(this.destroyed))
+            .subscribe(() => this.isTouched());
+    }
+
+    public ngOnDestroy(): void {
+        this.destroyed.next();
+        this.destroyed.complete();
     }
 
     public registerOnChange(fn: (value: string) => void): void {

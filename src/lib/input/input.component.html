@@ -1,10 +1,10 @@
 <div class="rock-input">
     <label *ngIf="label" [ngClass]="{ required: isRequired }" [for]="id">{{ label }}</label>
     <ng-container *ngIf="type !== 'textarea'">
-        <input [(ngModel)]="value" [ngClass]="{ invalid: hasError }" [id]="id" [name]="name" [disabled]="isDisabled">
+        <input rockInput [(ngModel)]="value" [ngClass]="{ invalid: hasError }" [id]="id" [name]="name" [disabled]="isDisabled">
     </ng-container>
     <ng-container *ngIf="type === 'textarea'">
-        <textarea [(ngModel)]="value" [ngClass]="{ invalid: hasError }" [id]="id" [name]="name" rows="6" [disabled]="isDisabled"></textarea>
+        <textarea rockInput [(ngModel)]="value" [ngClass]="{ invalid: hasError }" [id]="id" [name]="name" rows="6" [disabled]="isDisabled"></textarea>
     </ng-container>
     <ng-content></ng-content>
 </div>
