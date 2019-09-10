@@ -1,4 +1,5 @@
 @import '../core/functions';
+@import '../core/mixins';
 @import '../core/palette';
 
 .rock-checkbox {
@@ -36,6 +37,22 @@
 
         .icon {
             color: lighten(map-deep-get($bedrock, 'brand', 'primary', 'dark'), 20);
+        }
+    }
+
+    label {
+        @include bedrock-font(1em, 300, map-deep-get($bedrock, 'font', 'dark'));
+        display: block;
+        margin: 0.375rem 0;
+        pointer-events: none;
+
+        &.required {
+            &::after {
+                display: inline-block;
+                content: '*';
+                margin-left: 0.2em;
+                font-size: 1.2em;
+            }
         }
     }
 }

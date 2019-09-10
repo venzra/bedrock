@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
     templateUrl: './image.component.html',
@@ -21,7 +21,7 @@ export class ImageComponent implements OnInit {
         });
 
         this.extendedForm = this.forms.group({
-            exampleImage: [ undefined, [] ],
+            exampleImage: [ undefined, [ Validators.required ] ],
         });
 
         this.populatedForm = this.forms.group({

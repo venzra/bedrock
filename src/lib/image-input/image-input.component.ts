@@ -1,3 +1,4 @@
+import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import {
     ChangeDetectorRef,
     Component,
@@ -23,7 +24,7 @@ let uniqueId = 0;
             multi: true,
             useExisting: forwardRef(() => ImageInputComponent),
         },
-        ImageInputService
+        ImageInputService,
     ],
 })
 export class ImageInputComponent implements ControlValueAccessor {
@@ -32,12 +33,21 @@ export class ImageInputComponent implements ControlValueAccessor {
     public background: SafeStyle;
     public imageData: string;
     public isDisabled = false;
+    public isRequired = false;
 
     @Input()
-    public id = `rock-image-${++uniqueId}`;
+    public id = `rock-image-${ ++uniqueId }`;
 
     @Input()
     public label: string;
+
+    @Input()
+    set required(required: boolean) {
+        this.isRequired = coerceBooleanProperty(required);
+    }
+    get required(): boolean {
+        return true;
+    }
 
     @Input()
     public format: 'image/jpeg' | 'image/png' = 'image/jpeg';
@@ -82,7 +92,7 @@ export class ImageInputComponent implements ControlValueAccessor {
         this.imageService.loadImageOnCanvas(value).subscribe((canvas) => {
             const name = value;
             this.imageData = canvas.toDataURL();
-            this.background = this.sanitizer.bypassSecurityTrustStyle(`url(${this.imageData})`);
+            this.background = this.sanitizer.bypassSecurityTrustStyle(`url(${ this.imageData })`);
             canvas.toBlob((data: Blob) => this.setValue({ name, data }), this.format);
         });
     }
@@ -132,7 +142,7 @@ export class ImageInputComponent implements ControlValueAccessor {
             const name = file.name.replace(/\.[^/.]+$/, '');
             this.imageService.optimiseOnCanvas(<string> reader.result, this.width, this.height).subscribe((canvas) => {
                 this.imageData = canvas.toDataURL();
-                this.background = this.sanitizer.bypassSecurityTrustStyle(`url(${this.imageData})`);
+                this.background = this.sanitizer.bypassSecurityTrustStyle(`url(${ this.imageData })`);
                 canvas.toBlob((data: Blob) => this.setValue({ name, data }), this.format);
             });
         });

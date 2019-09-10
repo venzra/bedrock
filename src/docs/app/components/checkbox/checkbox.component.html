@@ -14,9 +14,9 @@
     <docs-code content="components/checkbox/example-one.md"></docs-code>
 
     <form [formGroup]="exampleOne">
-        <rock-checkbox label="This is not yet checked" type="checkbox" formControlName="first"></rock-checkbox>
+        <rock-checkbox label="This is not yet checked" type="checkbox" name="first" formControlName="first" [required]="true"></rock-checkbox>
 
-        <rock-checkbox label="This has been checked" type="checkbox" formControlName="second"></rock-checkbox>
+        <rock-checkbox label="This has been checked" type="checkbox" name="second" formControlName="second"></rock-checkbox>
     </form>
 </section>
 
@@ -26,8 +26,8 @@
     <docs-code content="components/checkbox/example-two.md"></docs-code>
 
     <form [formGroup]="exampleTwo">
-        <rock-checkbox label="This is disabled" type="checkbox" formControlName="first"></rock-checkbox>
+        <rock-checkbox label="This is disabled" type="checkbox" name="first" formControlName="first"></rock-checkbox>
 
-        <rock-checkbox label="This is disabled and checked" type="checkbox" formControlName="second"></rock-checkbox>
+        <rock-checkbox label="This is disabled and checked" type="checkbox" name="second" formControlName="second"></rock-checkbox>
     </form>
 </section>

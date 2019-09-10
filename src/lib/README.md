@@ -52,6 +52,9 @@ The following are a list of components that Bedrock provides, full documentation
 - Images  
   This provides a drag and drop capable image form field with preview and uses canvas to resize the image on the browser.
 
+- Select  
+  Support for select input boxes with custom styling.
+
 ### Action Components
 
 - Button  

@@ -1,6 +1,6 @@
 ```code
 this.extendedForm = this.forms.group({
-    exampleImage: [ undefined, [] ],
+    exampleImage: [ undefined, [ Validators.required ] ],
 });
 ```
 
@@ -12,7 +12,8 @@ this.extendedForm = this.forms.group({
         [width]="500"
         format="image/png"
         type="image"
-        formControlName="exampleImage">
+        formControlName="exampleImage"
+        [required]="true">
     </rock-image-input>
 </form>
 ```

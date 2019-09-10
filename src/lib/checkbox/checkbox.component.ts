@@ -1,3 +1,4 @@
+import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import {
     AfterContentInit,
     ChangeDetectionStrategy,
@@ -9,7 +10,8 @@ import {
 } from '@angular/core';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { coerceBooleanProperty } from '@angular/cdk/coercion';
+
+let uniqueId = 0;
 
 @Component({
     selector: 'rock-checkbox',
@@ -43,9 +45,24 @@ export class RockCheckboxComponent implements AfterContentInit, ControlValueAcce
 
     public isChecked = false;
     public isDisabled = false;
+    public isRequired = false;
+
+    @Input()
+    public id = `rock-checkbox-${ ++uniqueId }`;
 
     @Input()
     public label: string;
+
+    @Input()
+    public name: string;
+
+    @Input()
+    set required(required: boolean) {
+        this.isRequired = coerceBooleanProperty(required);
+    }
+    get required(): boolean {
+        return true;
+    }
 
     private hasChange: (value: boolean) => void = () => {};
     private isTouched = () => {};

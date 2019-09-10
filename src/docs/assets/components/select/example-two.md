@@ -5,7 +5,7 @@ constructor(
 
 public ngOnInit(): void {
     this.disabledForm = this.forms.group({
-        country: [ { value: 'GBR', disabled: true }, [ Validators.required ] ],
+        country: [ { value: 'GBR', disabled: true }, [] ],
     });
 }
 ```

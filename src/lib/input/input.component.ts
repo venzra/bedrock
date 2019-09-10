@@ -1,14 +1,10 @@
-import {
-    AfterContentInit,
-    Component,
-    ContentChild,
-    forwardRef,
-    Input,
-    ViewEncapsulation,
-} from '@angular/core';
+import { coerceBooleanProperty } from '@angular/cdk/coercion';
+import { AfterContentInit, Component, ContentChild, forwardRef, Input, ViewEncapsulation } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 import { RockErrorComponent } from '../error/error.component';
+
+let uniqueId = 0;
 
 @Component({
     selector: 'rock-input',
@@ -27,7 +23,11 @@ export class RockInputComponent implements AfterContentInit, ControlValueAccesso
 
     public hasError = false;
     public isDisabled = false;
+    public isRequired = false;
     public currentValue: string;
+
+    @Input()
+    public id = `rock-input-${ ++uniqueId }`;
 
     @Input()
     public label: string;
@@ -37,6 +37,14 @@ export class RockInputComponent implements AfterContentInit, ControlValueAccesso
 
     @Input()
     public name: string;
+
+    @Input()
+    set required(required: boolean) {
+        this.isRequired = coerceBooleanProperty(required);
+    }
+    get required(): boolean {
+        return true;
+    }
 
     @ContentChild(RockErrorComponent, { static: false })
     private error: RockErrorComponent;
@@ -49,11 +57,10 @@ export class RockInputComponent implements AfterContentInit, ControlValueAccesso
         this.hasChange(this.currentValue);
         this.isTouched();
     }
+
     get value(): string {
         return this.currentValue;
     }
-
-    constructor() { }
 
     public ngAfterContentInit(): void {
         if (this.error) {

@@ -12,6 +12,7 @@ this.textForm = this.form.group({
         name="alias"
         type="text"
         formControlName="alias"
+        [required]="true"
     >
         <rock-error [control]="textForm.get('alias')"></rock-error>
     </rock-input>
@@ -21,6 +22,7 @@ this.textForm = this.form.group({
         name="feedback"
         type="textarea"
         formControlName="feedback"
+        [required]="true"
     >
         <rock-error [control]="textForm.get('feedback')"></rock-error>
     </rock-input>

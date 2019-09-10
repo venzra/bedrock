@@ -1,5 +1,5 @@
 <div class="overlay" [ngClass]="{ open: isOpen }"></div>
-<label>{{ label }}</label>
+<label *ngIf="label" [ngClass]="{ required: isRequired }">{{ label }}</label>
 <div class="select-wrapper" [ngClass]="{ open: isOpen }">
     <div class="selection" [ngClass]="{ focus: isOpen, disabled: isDisabled }">
         <div>{{ getSelection() }}</div>

@@ -1,5 +1,5 @@
 <div class="rock-image-input" [ngClass]="{ disabled: isDisabled }">
-    <p>{{ label }}</p>
+    <label *ngIf="label" [ngClass]="{ required: isRequired }" [for]="name">{{ label }}</label>
     <div class="dropzone" [ngClass]="{ accent: state === 'accent', error: state === 'error' }">
         <div *ngIf="imageData">
             <div class="background" [style.background-image]="background"></div>

@@ -47,15 +47,15 @@ export class SelectComponent implements OnInit {
 
     public ngOnInit(): void {
         this.basicForm = this.forms.group({
-            country: [ undefined, [] ],
+            country: [ 'DEU', [ Validators.required ] ],
         });
 
         this.disabledForm = this.forms.group({
-            country: [ { value: 'GBR', disabled: true }, [ Validators.required ] ],
+            country: [ { value: 'GBR', disabled: true } ],
         });
 
         this.intermediateForm = this.forms.group({
-            country: ['DEU', [] ],
+            country: [ undefined, [ Validators.required ] ],
         });
 
         this.changeForm = this.forms.group({

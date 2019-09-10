@@ -35,6 +35,7 @@ export class RockErrorComponent implements AfterContentInit, OnDestroy {
     public control: AbstractControl;
 
     public ngAfterContentInit(): void {
+        console.log(this.control);
         this.control.valueChanges
             .pipe(takeUntil(this.destroyed))
             .subscribe(() => this.changes.next(this.control.errors));

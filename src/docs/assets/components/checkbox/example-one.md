@@ -1,6 +1,6 @@
 ```code
 this.exampleForm = this.form.group({
-    first: [ undefined, [] ],
+    first: [ undefined, [ Validators.required ] ],
     second: [ true, [] ],
 });
 ```
@@ -10,7 +10,8 @@ this.exampleForm = this.form.group({
     <rock-checkbox
         label="This is not yet checked"
         type="checkbox"
-        formControlName="first">
+        formControlName="first"
+        [required]="true">
     </rock-checkbox>
     
     <rock-checkbox

@@ -1,3 +1,5 @@
+import { animate, state, style, transition, trigger } from '@angular/animations';
+import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import {
     AfterContentInit,
     ChangeDetectionStrategy,
@@ -13,12 +15,11 @@ import {
     QueryList,
     ViewEncapsulation,
 } from '@angular/core';
-import { animate, state, style, transition, trigger } from '@angular/animations';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 import { Option } from './option';
-
 import { RockOptionDirective } from './option.directive';
+
 import { RockErrorComponent } from '../error/error.component';
 
 @Component({
@@ -50,22 +51,31 @@ import { RockErrorComponent } from '../error/error.component';
 })
 export class RockSelectComponent implements AfterContentInit, ControlValueAccessor {
 
-    public hasError = false;
     public isOpen = false;
+    public hasError = false;
     public isDisabled = false;
+    public isRequired = false;
     public selection: Option;
-
-    @ContentChildren(RockOptionDirective)
-    public options: QueryList<RockOptionDirective>;
 
     @ContentChild(RockErrorComponent, { static: false })
     private error: RockErrorComponent;
+
+    @ContentChildren(RockOptionDirective)
+    public options: QueryList<RockOptionDirective>;
 
     @Input()
     public label: string;
 
     @Input()
     public placeholder = 'Please choose an option';
+
+    @Input()
+    set required(required: boolean) {
+        this.isRequired = coerceBooleanProperty(required);
+    }
+    get required(): boolean {
+        return true;
+    }
 
     @Output()
     public selectionChange: EventEmitter<Option> = new EventEmitter();
@@ -135,6 +145,9 @@ export class RockSelectComponent implements AfterContentInit, ControlValueAccess
     public toggleOpen() {
         if (!this.isDisabled) {
             this.isOpen = !this.isOpen;
+            if (!this.isOpen) {
+                this.isTouched();
+            }
         } else {
             this.isOpen = false;
         }

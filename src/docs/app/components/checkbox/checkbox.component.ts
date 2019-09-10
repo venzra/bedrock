@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
     templateUrl: './checkbox.component.html',
@@ -15,7 +15,7 @@ export class CheckboxComponent implements OnInit {
 
     public ngOnInit(): void {
         this.exampleOne = this.form.group({
-            first: [ undefined, [] ],
+            first: [ undefined, [ Validators.requiredTrue ] ],
             second: [ true, [] ],
         });
 

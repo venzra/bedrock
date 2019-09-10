@@ -18,7 +18,7 @@ constructor(
 
 public ngOnInit(): void {
     this.basicForm = this.forms.group({
-        country: [ undefined, [] ],
+        country: [ 'DEU', [] ],
     });
 }
 ```

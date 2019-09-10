@@ -4,7 +4,7 @@
         <fa-icon [@check]="isChecked ? 'on' : 'off'" [icon]="['fas', 'check-square']" size="lg"></fa-icon>
     </div>
     <div class="input">
-        <input [(ngModel)]="value" type="checkbox">
+        <input [(ngModel)]="value" type="checkbox" [id]="id" [name]="name">
     </div>
-    {{ label }}
+    <label [for]="id" [ngClass]="{ required: isRequired }">{{ label }}</label>
 </div>

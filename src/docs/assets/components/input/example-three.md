@@ -12,6 +12,7 @@ this.intermediateForm = this.form.group({
         name="email"
         type="text"
         formControlName="email"
+        [required]="true"
     >
         <rock-error [control]="intermediateForm.get('email')"></rock-error>
     </rock-input>
@@ -21,6 +22,7 @@ this.intermediateForm = this.form.group({
         name="password"
         type="password"
         formControlName="password"
+        [required]="true"
     >
         <rock-error [control]="intermediateForm.get('password')"></rock-error>
     </rock-input>
