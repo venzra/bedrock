@@ -7,6 +7,7 @@ import {
     RockButtonModule,
     RockCardModule,
     RockCheckboxModule,
+    RockDatepickerModule,
     RockErrorModule,
     RockExpansionModule,
     RockInputModule,
@@ -23,6 +24,7 @@ import { AlertComponent } from './alert/alert.component';
 import { ButtonComponent } from './button/button.component';
 import { CardComponent } from './card/card.component';
 import { CheckboxComponent } from './checkbox/checkbox.component';
+import { DatepickerComponent } from './datepicker/datepicker.component';
 import { ExpansionComponent } from './expansion/expansion.component';
 import { ImageComponent } from './image/image.component';
 import { InputComponent } from './input/input.component';
@@ -39,6 +41,7 @@ import { ComponentsRoutingModule } from './components-routing.module';
         ButtonComponent,
         CardComponent,
         CheckboxComponent,
+        DatepickerComponent,
         ExpansionComponent,
         ImageComponent,
         InputComponent,
@@ -55,6 +58,7 @@ import { ComponentsRoutingModule } from './components-routing.module';
         RockButtonModule,
         RockCardModule,
         RockCheckboxModule,
+        RockDatepickerModule,
         RockErrorModule,
         RockExpansionModule,
         RockImageInputModule,

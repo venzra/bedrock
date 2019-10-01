@@ -8,15 +8,14 @@ import {
     Input,
     OnDestroy,
     ViewChild,
-    ViewEncapsulation,
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
+import { RockInputDirective } from '../core/directives/input.directive';
 import { RockErrorComponent } from '../error/error.component';
-import { RockInputDirective } from './input.directive';
 
 let uniqueId = 0;
 
@@ -31,7 +30,6 @@ let uniqueId = 0;
             useExisting: forwardRef(() => RockInputComponent),
         },
     ],
-    encapsulation: ViewEncapsulation.None,
 })
 export class RockInputComponent implements AfterContentInit, AfterViewInit, ControlValueAccessor, OnDestroy {
 
@@ -62,15 +60,6 @@ export class RockInputComponent implements AfterContentInit, AfterViewInit, Cont
         return true;
     }
 
-    @ContentChild(RockErrorComponent, { static: false })
-    private error: RockErrorComponent;
-
-    @ViewChild(RockInputDirective, { static: false })
-    private input: RockInputDirective;
-
-    private hasChange: (value: string) => void = () => { };
-    private isTouched = () => { };
-
     set value(value: string) {
         this.currentValue = value;
         this.hasChange(this.currentValue);
@@ -79,6 +68,15 @@ export class RockInputComponent implements AfterContentInit, AfterViewInit, Cont
     get value(): string {
         return this.currentValue;
     }
+
+    @ContentChild(RockErrorComponent, { static: false })
+    private error: RockErrorComponent;
+
+    @ViewChild(RockInputDirective, { static: false })
+    private input: RockInputDirective;
+
+    private hasChange: (value: string) => void = () => { };
+    private isTouched = () => { };
 
     public ngAfterContentInit(): void {
         if (this.error) {

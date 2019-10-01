@@ -8,6 +8,7 @@ import { AlertComponent } from './alert/alert.component';
 import { ButtonComponent } from './button/button.component';
 import { CardComponent } from './card/card.component';
 import { CheckboxComponent } from './checkbox/checkbox.component';
+import { DatepickerComponent } from './datepicker/datepicker.component';
 import { ExpansionComponent } from './expansion/expansion.component';
 import { ImageComponent } from './image/image.component';
 import { InputComponent } from './input/input.component';
@@ -34,6 +35,10 @@ const routes: Routes = [
             {
                 path: 'checkbox',
                 component: CheckboxComponent,
+            },
+            {
+                path: 'datepicker',
+                component: DatepickerComponent,
             },
             {
                 path: 'expansion',

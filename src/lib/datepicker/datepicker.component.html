@@ -1,0 +1,33 @@
+<div class="overlay" [ngClass]="{ open: isOpen }"></div>
+<label *ngIf="label" [ngClass]="{ required: isRequired }" [for]="id">{{ label }}</label>
+<div class="date-wrapper">
+    <div class="choice">
+        <input rockInput placeholder="Choose a date" [ngModel]="value | date: 'dd LLLL yyyy'" (ngModelChange)="value = $event" [ngClass]="{ invalid: hasError }" [id]="id" [name]="name" [readOnly]="true" [disabled]="isDisabled">
+        <fa-icon [icon]="['far', 'calendar-alt']"></fa-icon>
+    </div>
+    <div rockPicker class="picker" [ngClass]="{ open: isOpen }">
+        <div class="month">
+            <span><strong>{{ displayValue | date: 'LLLL' }}</strong> {{ displayValue | date: 'yyyy' }}</span>
+            <button type="button" (click)="showMonth(-1, $event)"><fa-icon [icon]="['fas', 'chevron-left']"></fa-icon></button>
+            <button type="button" (click)="showToday($event)">Today</button>
+            <button type="button" (click)="showMonth(1, $event)"><fa-icon [icon]="['fas', 'chevron-right']"></fa-icon></button>
+        </div>
+        <div class="day">
+            <div class="day-header">
+                <span>Mon</span>
+                <span>Tue</span>
+                <span>Wed</span>
+                <span>Thu</span>
+                <span>Fri</span>
+                <span>Sat</span>
+                <span>Sun</span>
+            </div>
+            <div class="day-grid day-offset-{{ getDayOffset() }}">
+                <ng-container *ngFor="let x of getDaysInMonth(); let i = index">
+                    <button [ngClass]="{ active: isSelected(i + 1), today: isToday(i + 1) }" type="button" (click)="setSelection(i + 1)" [disabled]="outsideRange(i + 1)">{{ i + 1 }}</button>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+    <ng-content select="rock-error"></ng-content>
+</div>

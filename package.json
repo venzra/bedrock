@@ -5,6 +5,7 @@
     "license": "MIT",
     "scripts": {
         "start": "ng serve --host 0.0.0.0 --port 4200 --disable-host-check --open",
+        "develop": "ng build lib --watch",
         "build:lib": "ng lint lib && ng build lib",
         "build:docs": "ng lint bedrock && ng build bedrock --prod",
         "test:start": "serve -s -p 8080 dist/bedrock",

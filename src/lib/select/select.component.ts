@@ -13,7 +13,6 @@ import {
     Input,
     Output,
     QueryList,
-    ViewEncapsulation,
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
@@ -46,7 +45,6 @@ import { RockErrorComponent } from '../error/error.component';
             useExisting: forwardRef(() => RockSelectComponent),
         },
     ],
-    encapsulation: ViewEncapsulation.None,
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class RockSelectComponent implements AfterContentInit, ControlValueAccessor {
