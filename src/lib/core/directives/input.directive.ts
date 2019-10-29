@@ -1,4 +1,4 @@
-import { Directive, HostListener } from '@angular/core';
+import { Directive, ElementRef, HostListener } from '@angular/core';
 
 import { Subject } from 'rxjs';
 
@@ -8,11 +8,26 @@ import { Subject } from 'rxjs';
 })
 export class RockInputDirective {
 
-    public changes: Subject<boolean> = new Subject<boolean>();
+    public changes: Subject<void> = new Subject<void>();
+
+    public hasFocus: Subject<void> = new Subject<void>();
+
+    constructor(
+        private element: ElementRef
+    ) { }
+
+    public clearFocus(): void {
+        this.element.nativeElement.blur();
+    }
 
     @HostListener('blur')
     public triggerBlur(): void {
-        this.changes.next(true);
+        this.changes.next();
+    }
+
+    @HostListener('focus')
+    public setFocus(): void {
+        this.hasFocus.next();
     }
 
 }

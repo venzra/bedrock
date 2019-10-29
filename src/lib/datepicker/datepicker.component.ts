@@ -68,6 +68,7 @@ export class RockDatepickerComponent implements AfterContentInit, AfterViewInit,
 
     @Input()
     set minimum(date: Date) {
+        if (!date) { return; }
         const day = date.getDate();
         const month = date.getMonth();
         const year = date.getFullYear();
@@ -79,6 +80,7 @@ export class RockDatepickerComponent implements AfterContentInit, AfterViewInit,
 
     @Input()
     set maximum(date: Date) {
+        if (!date) { return; }
         const day = date.getDate();
         const month = date.getMonth();
         const year = date.getFullYear();

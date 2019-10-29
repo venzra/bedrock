@@ -4,6 +4,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import {
     RockAlertModule,
+    RockAutocompleteModule,
     RockButtonModule,
     RockCardModule,
     RockCheckboxModule,
@@ -21,6 +22,7 @@ import { CodeModule } from '../../components/code/code.module';
 
 import { ComponentsComponent } from './components.component';
 import { AlertComponent } from './alert/alert.component';
+import { AutocompleteComponent } from './autocomplete/autocomplete.component';
 import { ButtonComponent } from './button/button.component';
 import { CardComponent } from './card/card.component';
 import { CheckboxComponent } from './checkbox/checkbox.component';
@@ -38,6 +40,7 @@ import { ComponentsRoutingModule } from './components-routing.module';
     declarations: [
         ComponentsComponent,
         AlertComponent,
+        AutocompleteComponent,
         ButtonComponent,
         CardComponent,
         CheckboxComponent,
@@ -55,6 +58,7 @@ import { ComponentsRoutingModule } from './components-routing.module';
         ReactiveFormsModule,
         CodeModule,
         RockAlertModule,
+        RockAutocompleteModule,
         RockButtonModule,
         RockCardModule,
         RockCheckboxModule,

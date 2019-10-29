@@ -16,11 +16,11 @@ export class RockButtonComponent {
 
     @HostBinding('attr.disabled')
     @Input()
-    get disabled(): string | null {
-        return this.$disabled ? 'disabled' : null;
-    }
     set disabled(value: string) {
         this.$disabled = coerceBooleanProperty(value);
+    }
+    get disabled(): string | null {
+        return this.$disabled ? 'disabled' : null;
     }
 
 }

@@ -5,6 +5,7 @@ import { ComponentsComponent } from './components.component';
 import { LandingComponent } from './landing.component';
 
 import { AlertComponent } from './alert/alert.component';
+import { AutocompleteComponent } from './autocomplete/autocomplete.component';
 import { ButtonComponent } from './button/button.component';
 import { CardComponent } from './card/card.component';
 import { CheckboxComponent } from './checkbox/checkbox.component';
@@ -23,6 +24,10 @@ const routes: Routes = [
             {
                 path: 'alert',
                 component: AlertComponent,
+            },
+            {
+                path: 'autocomplete',
+                component: AutocompleteComponent,
             },
             {
                 path: 'button',
