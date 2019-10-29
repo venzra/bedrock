@@ -1,0 +1,37 @@
+<h2>Autocomplete</h2>
+<p>This is a more advanced input which can offer potential results from a datasource that can be selected.</p>
+
+<section>
+    <h3>Import Module</h3>
+    <p>To use the components here you first need to include this module in your application @NgModule</p>
+
+    <docs-code content="components/autocomplete/import.md"></docs-code>
+</section>
+
+<section>
+    <h4>Basic autocomplete</h4>
+
+    <p>There are two key attributes to using this component. The <span class="code">search</span> and <span class="code">selection</span> attributes should be methods which return observables. To ensure these return the correct format of data the <span class="code">RockAutocompleteList</span> and <span class="code">RockAutocompleteValue</span> types should be returned.</p>
+
+    <p>The following example shows a potential implementation of the methods you could use to manage the autocomplete data, more typically however you may want to use a service and httpClient to load the data via an API.</p>
+
+    <docs-code content="components/autocomplete/example-one.md"></docs-code>
+
+    <form [formGroup]="exampleOne">
+        <rock-autocomplete label="Example One" type="text" name="fieldOne" formControlName="fieldOne" [search]="findResult.bind(this)" [selection]="chooseResult.bind(this)"></rock-autocomplete>
+    </form>
+</section>
+
+<section>
+    <h4>Display error messages</h4>
+
+    <p>To display an error works the same as with all other components, no change is required in the javascript code, just add the error component and reference the form control accordingly.</p>
+
+    <docs-code content="components/autocomplete/example-two.md"></docs-code>
+
+    <form [formGroup]="exampleTwo">
+        <rock-autocomplete label="Example Two" type="text" name="fieldOne" formControlName="fieldOne" [search]="findResult.bind(this)" [selection]="chooseResult.bind(this)" [required]="true">
+            <rock-error [control]="exampleTwo.get('fieldOne')"></rock-error>
+        </rock-autocomplete>
+    </form>
+</section>

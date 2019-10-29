@@ -1,0 +1,20 @@
+<div rockOverlay class="overlay" [ngClass]="{ open: isOpen }"></div>
+<label *ngIf="label" [ngClass]="{ required: isRequired }" [for]="id">{{ label }}</label>
+<div class="autocomplete-wrapper">
+    <div class="input" [ngClass]="{ open: isOpen }">
+        <input rockInput type="text" autocomplete="off" [ngModel]="displayValue" (ngModelChange)="loadOptions($event)" [ngClass]="{ invalid: hasError }" [id]="id" [name]="name" [disabled]="isDisabled">
+    </div>
+    <div class="options" [ngClass]="{ open: isOpen && options.length }">
+        <cdk-virtual-scroll-viewport class="option-list" [itemSize]="options.length">
+            <div *cdkVirtualFor="let option of options">
+                <button type="button" class="option" (click)="changeSelection(option)">{{ option.text }}</button>
+            </div>
+        </cdk-virtual-scroll-viewport>
+    </div>
+    <div class="options" [ngClass]="{ open: isOpen && !options.length }">
+        <cdk-virtual-scroll-viewport class="option-list" [itemSize]="3">
+            <div class="none">No results found, try another value</div>
+        </cdk-virtual-scroll-viewport>
+    </div>
+    <ng-content></ng-content>
+</div>

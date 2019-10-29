@@ -77,7 +77,7 @@ export class RockSelectComponent implements AfterContentInit, ControlValueAccess
     }
 
     @Output()
-    public selectionChange: EventEmitter<Option> = new EventEmitter();
+    private selectionChange: EventEmitter<Option> = new EventEmitter();
 
     private value: string;
     private hasChange: (value: any) => void = () => {};

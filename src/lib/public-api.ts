@@ -4,6 +4,7 @@
 
 // Components
 export * from './alert/alert.module';
+export * from './autocomplete/autocomplete.module';
 export * from './button/button.module';
 export * from './card/card.module';
 export * from './checkbox/checkbox.module';
@@ -22,4 +23,6 @@ export * from './markdown/markdown.module';
 export * from './error/validators';
 
 // Models
+export * from './autocomplete/autocomplete-list';
+export * from './autocomplete/autocomplete-value';
 export * from './pagination/pagination-event';
