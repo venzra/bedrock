@@ -3,7 +3,6 @@ import {
     AfterContentInit,
     AfterViewInit,
     ChangeDetectionStrategy,
-    ChangeDetectorRef,
     Component,
     ContentChild,
     forwardRef,
@@ -23,19 +22,19 @@ import { RockErrorComponent } from '../error/error.component';
 let uniqueId = 0;
 
 @Component({
-    selector: 'rock-datepicker',
-    templateUrl: './datepicker.component.html',
-    styleUrls: [ './datepicker.component.scss' ],
+    selector: 'rock-date-picker',
+    templateUrl: './date-picker.component.html',
+    styleUrls: [ './date-picker.component.scss' ],
     providers: [
         {
             provide: NG_VALUE_ACCESSOR,
             multi: true,
-            useExisting: forwardRef(() => RockDatepickerComponent),
+            useExisting: forwardRef(() => RockDatePickerComponent),
         },
     ],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class RockDatepickerComponent implements AfterContentInit, AfterViewInit, ControlValueAccessor, OnDestroy {
+export class RockDatePickerComponent implements AfterContentInit, AfterViewInit, ControlValueAccessor, OnDestroy {
 
     public isOpen = false;
     public hasError = false;
@@ -50,7 +49,7 @@ export class RockDatepickerComponent implements AfterContentInit, AfterViewInit,
     private destroyed = new Subject();
 
     @Input()
-    public id = `rock-datepicker-${ ++uniqueId }`;
+    public id = `rock-date-picker-${ ++uniqueId }`;
 
     @Input()
     public label: string;
@@ -107,10 +106,6 @@ export class RockDatepickerComponent implements AfterContentInit, AfterViewInit,
 
     private hasChange: (value: Date) => void = () => { };
     private isTouched = () => { };
-
-    constructor(
-        private changes: ChangeDetectorRef,
-    ) { }
 
     public ngAfterContentInit(): void {
         if (this.error) {

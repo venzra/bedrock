@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
-    templateUrl: './datepicker.component.html',
+    templateUrl: './date-picker.component.html',
 })
-export class DatepickerComponent implements OnInit {
+export class DatePickerComponent implements OnInit {
 
     public exampleOne: FormGroup;
     public exampleTwo: FormGroup;

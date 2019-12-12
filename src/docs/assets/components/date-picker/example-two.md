@@ -8,10 +8,10 @@ this.exampleTwo = this.form.group({
 
 ```code
 <form [formGroup]="exampleTwo">
-    <rock-datepicker
+    <rock-date-picker
         label="This will expire in 7 days"
         name="expiryDate"
         formControlName="expiryDate">
-    </rock-datepicker>
+    </rock-date-picker>
 </form>
 ```

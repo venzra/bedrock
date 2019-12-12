@@ -1,0 +1,51 @@
+<h2>Time Picker</h2>
+<p>Select a time of day close to the nearest 15 minutes, via a simple dropdown.</p>
+
+<section>
+    <h3>Import Module</h3>
+    <p>To use the components here you first need to include this module in your application @NgModule</p>
+
+    <docs-code content="components/time-picker/import.md"></docs-code>
+</section>
+
+<section>
+    <h4>Basic time picker</h4>
+
+    <docs-code content="components/time-picker/example-one.md"></docs-code>
+
+    <form [formGroup]="exampleOne">
+        <rock-time-picker
+            label="What time will it start?"
+            name="startTime"
+            formControlName="startTime">
+        </rock-time-picker>
+    </form>
+</section>
+
+<section>
+    <h4>Populated time picker</h4>
+
+    <docs-code content="components/time-picker/example-two.md"></docs-code>
+
+    <form [formGroup]="exampleTwo">
+        <rock-time-picker
+            label="What time will it end?"
+            name="endTime"
+            formControlName="endTime">
+        </rock-time-picker>
+    </form>
+</section>
+
+<section>
+    <h4>Disabled time picker</h4>
+
+    <docs-code content="components/time-picker/example-three.md"></docs-code>
+
+    <form [formGroup]="exampleThree">
+        <rock-time-picker
+            label="The time is set to..."
+            name="savedTime"
+            formControlName="savedTime">
+        </rock-time-picker>
+    </form>
+</section>

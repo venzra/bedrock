@@ -9,13 +9,13 @@ this.exampleFour = this.form.group({
 
 ```code
 <form [formGroup]="exampleFour">
-    <rock-datepicker
+    <rock-date-picker
         label="Choose a date for your next lesson"
         name="lessonDate"
         [minimum]="lessonStart"
         [maximum]="lessonEnd"
         formControlName="lessonDate">
         <rock-error [control]="exampleFour.get('lessonDate')"></rock-error>
-    </rock-datepicker>
+    </rock-date-picker>
 </form>
 ```

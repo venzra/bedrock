@@ -1,0 +1,30 @@
+<div class="overlay" [ngClass]="{ open: isOpen }"></div>
+<label *ngIf="label" [ngClass]="{ required: isRequired }" [for]="id">{{ label }}</label>
+<div class="date-wrapper">
+    <div class="choice">
+        <input rockInput placeholder="Pick a time" [ngModel]="value | date: 'HH:mm'" (ngModelChange)="value = $event" [ngClass]="{ invalid: hasError }" [id]="id" [name]="name" [readOnly]="true" [disabled]="isDisabled">
+        <fa-icon [icon]="['far', 'clock']"></fa-icon>
+    </div>
+    <div rockPicker class="picker" [ngClass]="{ open: isOpen }">
+        <div class="time">
+            <span><strong>{{ displayValue | date: 'HH:mm' }}</strong> {{ displayValue | date: 'a' }}</span>
+            <button type="button" (click)="changePeriod('am')" [ngClass]="{ active: checkTime('a', 'am') }">AM</button>
+            <button type="button" (click)="changePeriod('pm')" [ngClass]="{ active: checkTime('a', 'pm') }">PM</button>
+        </div>
+
+        <div class="label">Hour (24hr clock)</div>
+        <div class="choices">
+            <ng-container *ngFor="let x of hourRange">
+                <button type="button" (click)="setHours(x)" [ngClass]="{ active: checkTime('H', x) }">{{ x }}</button>
+            </ng-container>
+        </div>
+
+        <div class="label">Minute (5min intervals)</div>
+        <div class="choices">
+            <ng-container *ngFor="let x of [0,5,10,15,20,25,30,35,40,45,50,55]">
+                <button type="button" (click)="setMinutes(x)" [ngClass]="{ active: checkTime('m', x) }">{{ x }}</button>
+            </ng-container>
+        </div>
+    </div>
+    <ng-content select="rock-error"></ng-content>
+</div>

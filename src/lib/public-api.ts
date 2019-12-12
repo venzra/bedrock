@@ -8,13 +8,14 @@ export * from './autocomplete/autocomplete.module';
 export * from './button/button.module';
 export * from './card/card.module';
 export * from './checkbox/checkbox.module';
-export * from './datepicker/datepicker.module';
+export * from './date-picker/date-picker.module';
 export * from './error/error.module';
 export * from './expansion/expansion.module';
 export * from './image-input/image-input.module';
 export * from './input/input.module';
 export * from './pagination/pagination.module';
 export * from './select/select.module';
+export * from './time-picker/time-picker.module';
 
 // Directives
 export * from './markdown/markdown.module';

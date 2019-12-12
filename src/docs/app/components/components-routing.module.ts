@@ -9,12 +9,13 @@ import { AutocompleteComponent } from './autocomplete/autocomplete.component';
 import { ButtonComponent } from './button/button.component';
 import { CardComponent } from './card/card.component';
 import { CheckboxComponent } from './checkbox/checkbox.component';
-import { DatepickerComponent } from './datepicker/datepicker.component';
+import { DatePickerComponent } from './date-picker/date-picker.component';
 import { ExpansionComponent } from './expansion/expansion.component';
 import { ImageComponent } from './image/image.component';
 import { InputComponent } from './input/input.component';
 import { PaginationComponent } from './pagination/pagination.component';
 import { SelectComponent } from './select/select.component';
+import { TimePickerComponent } from './time-picker/time-picker.component';
 
 const routes: Routes = [
     {
@@ -42,8 +43,8 @@ const routes: Routes = [
                 component: CheckboxComponent,
             },
             {
-                path: 'datepicker',
-                component: DatepickerComponent,
+                path: 'date-picker',
+                component: DatePickerComponent,
             },
             {
                 path: 'expansion',
@@ -64,6 +65,10 @@ const routes: Routes = [
             {
                 path: 'select',
                 component: SelectComponent,
+            },
+            {
+                path: 'time-picker',
+                component: TimePickerComponent,
             },
             {
                 path: '',
