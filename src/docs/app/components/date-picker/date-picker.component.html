@@ -5,65 +5,65 @@
     <h3>Import Module</h3>
     <p>To use the components here you first need to include this module in your application @NgModule</p>
 
-    <docs-code content="components/datepicker/import.md"></docs-code>
+    <docs-code content="components/date-picker/import.md"></docs-code>
 </section>
 
 <section>
     <h4>Basic date picker</h4>
 
-    <docs-code content="components/datepicker/example-one.md"></docs-code>
+    <docs-code content="components/date-picker/example-one.md"></docs-code>
 
     <form [formGroup]="exampleOne">
-        <rock-datepicker
+        <rock-date-picker
             label="When where you born?"
             name="birthDate"
             formControlName="birthDate">
-        </rock-datepicker>
+        </rock-date-picker>
     </form>
 </section>
 
 <section>
     <h4>Disabled date picker</h4>
 
-    <docs-code content="components/datepicker/example-two.md"></docs-code>
+    <docs-code content="components/date-picker/example-two.md"></docs-code>
 
     <form [formGroup]="exampleTwo">
-        <rock-datepicker
+        <rock-date-picker
             label="This will expire in 7 days"
             name="expiryDate"
             formControlName="expiryDate">
-        </rock-datepicker>
+        </rock-date-picker>
     </form>
 </section>
 
 <section>
     <h4>Date picker with error message</h4>
 
-    <docs-code content="components/datepicker/example-three.md"></docs-code>
+    <docs-code content="components/date-picker/example-three.md"></docs-code>
 
     <form [formGroup]="exampleThree">
-        <rock-datepicker
+        <rock-date-picker
             label="When does this event start?"
             name="startDate"
             formControlName="startDate">
             <rock-error [control]="exampleThree.get('startDate')"></rock-error>
-        </rock-datepicker>
+        </rock-date-picker>
     </form>
 </section>
 
 <section>
     <h4>Date picker with minimum and maximum values</h4>
 
-    <docs-code content="components/datepicker/example-four.md"></docs-code>
+    <docs-code content="components/date-picker/example-four.md"></docs-code>
 
     <form [formGroup]="exampleFour">
-        <rock-datepicker
+        <rock-date-picker
             label="Choose a date for your next lesson"
             name="lessonDate"
             [minimum]="lessonStart"
             [maximum]="lessonEnd"
             formControlName="lessonDate">
             <rock-error [control]="exampleFour.get('lessonDate')"></rock-error>
-        </rock-datepicker>
+        </rock-date-picker>
     </form>
 </section>

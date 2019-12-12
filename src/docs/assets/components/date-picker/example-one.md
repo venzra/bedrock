@@ -6,10 +6,10 @@ this.exampleOne = this.form.group({
 
 ```code
 <form [formGroup]="exampleOne">
-    <rock-datepicker
+    <rock-date-picker
         label="When where you born?"
         name="birthDate"
         formControlName="birthDate">
-    </rock-datepicker>
+    </rock-date-picker>
 </form>
 ```

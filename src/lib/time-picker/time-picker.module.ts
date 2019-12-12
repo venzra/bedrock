@@ -5,40 +5,32 @@ import { FormsModule } from '@angular/forms';
 import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import {
-    fas,
-    faChevronLeft,
-    faChevronRight,
-} from '@fortawesome/free-solid-svg-icons';
-
-import {
     far,
-    faCalendarAlt,
+    faClock,
 } from '@fortawesome/free-regular-svg-icons';
 
 import { RockCoreModule } from '../core/core.module';
-import { RockDatepickerComponent } from './datepicker.component';
+import { RockTimePickerComponent } from './time-picker.component';
 
 @NgModule({
     declarations: [
-        RockDatepickerComponent,
+        RockTimePickerComponent,
     ],
     imports: [
         CommonModule,
         FontAwesomeModule,
         FormsModule,
-        RockCoreModule,
+        RockCoreModule
     ],
     exports: [
-        RockDatepickerComponent,
+        RockTimePickerComponent,
     ],
 })
-export class RockDatepickerModule {
+export class RockTimePickerModule {
     constructor(library: FaIconLibrary) {
-        library.addIconPacks(far, fas);
+        library.addIconPacks(far);
         library.addIcons(
-            faCalendarAlt,
-            faChevronLeft,
-            faChevronRight,
+            faClock,
         );
     }
 }

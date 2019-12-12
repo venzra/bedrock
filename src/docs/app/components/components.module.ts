@@ -8,7 +8,7 @@ import {
     RockButtonModule,
     RockCardModule,
     RockCheckboxModule,
-    RockDatepickerModule,
+    RockDatePickerModule,
     RockErrorModule,
     RockExpansionModule,
     RockInputModule,
@@ -16,6 +16,7 @@ import {
     RockMarkdownModule,
     RockPaginationModule,
     RockSelectModule,
+    RockTimePickerModule,
 } from '@bedrock';
 
 import { CodeModule } from '../../components/code/code.module';
@@ -26,13 +27,14 @@ import { AutocompleteComponent } from './autocomplete/autocomplete.component';
 import { ButtonComponent } from './button/button.component';
 import { CardComponent } from './card/card.component';
 import { CheckboxComponent } from './checkbox/checkbox.component';
-import { DatepickerComponent } from './datepicker/datepicker.component';
+import { DatePickerComponent } from './date-picker/date-picker.component';
 import { ExpansionComponent } from './expansion/expansion.component';
 import { ImageComponent } from './image/image.component';
 import { InputComponent } from './input/input.component';
 import { LandingComponent } from './landing.component';
 import { PaginationComponent } from './pagination/pagination.component';
 import { SelectComponent } from './select/select.component';
+import { TimePickerComponent } from './time-picker/time-picker.component';
 
 import { ComponentsRoutingModule } from './components-routing.module';
 
@@ -44,13 +46,14 @@ import { ComponentsRoutingModule } from './components-routing.module';
         ButtonComponent,
         CardComponent,
         CheckboxComponent,
-        DatepickerComponent,
+        DatePickerComponent,
         ExpansionComponent,
         ImageComponent,
         InputComponent,
         LandingComponent,
         PaginationComponent,
         SelectComponent,
+        TimePickerComponent,
     ],
     imports: [
         CommonModule,
@@ -62,7 +65,7 @@ import { ComponentsRoutingModule } from './components-routing.module';
         RockButtonModule,
         RockCardModule,
         RockCheckboxModule,
-        RockDatepickerModule,
+        RockDatePickerModule,
         RockErrorModule,
         RockExpansionModule,
         RockImageInputModule,
@@ -70,6 +73,7 @@ import { ComponentsRoutingModule } from './components-routing.module';
         RockMarkdownModule,
         RockPaginationModule,
         RockSelectModule,
+        RockTimePickerModule,
     ],
     exports: [
         ComponentsComponent,

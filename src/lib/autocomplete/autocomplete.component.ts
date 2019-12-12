@@ -57,6 +57,9 @@ export class RockAutocompleteComponent implements OnInit, AfterContentInit, Afte
     public name: string;
 
     @Input()
+    public field: string;
+
+    @Input()
     set required(required: boolean) {
         this.isRequired = coerceBooleanProperty(required);
     }
@@ -166,9 +169,9 @@ export class RockAutocompleteComponent implements OnInit, AfterContentInit, Afte
         this.isDisabled = isDisabled;
     }
 
-    public writeValue(value: RockAutocompleteValue): void {
+    public writeValue(value: any): void {
         if (value) {
-            this.displayValue = value.display;
+            this.displayValue = this.field ? value[this.field] : value;
         }
     }
 
