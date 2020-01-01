@@ -34,7 +34,7 @@
         "core-js": "3.6.1",
         "exif-js": "2.3.0",
         "highlight.js": "9.17.1",
-        "marked": "0.5.2",
+        "marked": "0.6.1",
         "rxjs": "6.5.4",
         "tslib": "1.10.0",
         "zone.js": "0.10.2"
