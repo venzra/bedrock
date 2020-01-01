@@ -6,7 +6,7 @@ $input-padding: 0.5rem;
 
 .rock-input {
     position: relative;
-    margin-bottom: 1.4rem;
+    margin-bottom: 1.8em;
 
     label {
         @include bedrock-font(1em, 300, map-deep-get($bedrock, 'font', 'dark'));
@@ -57,9 +57,11 @@ $input-padding: 0.5rem;
     }
 
     textarea {
-        min-height: 5em;
         overflow: auto;
+        min-height: 5em;
+        max-height: 20em;
         line-height: 1.1rem;
+        resize: vertical;
     }
 
 }
