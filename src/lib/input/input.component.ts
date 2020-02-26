@@ -69,10 +69,10 @@ export class RockInputComponent implements AfterContentInit, AfterViewInit, Cont
         return this.currentValue;
     }
 
-    @ContentChild(RockErrorComponent, { static: false })
+    @ContentChild(RockErrorComponent)
     private error: RockErrorComponent;
 
-    @ViewChild(RockInputDirective, { static: false })
+    @ViewChild(RockInputDirective)
     private input: RockInputDirective;
 
     private hasChange: (value: string) => void = () => { };

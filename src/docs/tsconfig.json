@@ -10,5 +10,12 @@
                 "../lib/*"
             ]
         }
-    }
+    },
+    "files": [
+        "main.ts",
+        "polyfills.ts"
+    ],
+    "include": [
+        "src/docs/**/*.d.ts"
+    ]
 }

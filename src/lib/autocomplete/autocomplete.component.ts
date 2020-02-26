@@ -73,13 +73,13 @@ export class RockAutocompleteComponent implements OnInit, AfterContentInit, Afte
     @Input()
     private selection: (placeId: string) => Observable<RockAutocompleteValue>;
 
-    @ContentChild(RockErrorComponent, { static: false })
+    @ContentChild(RockErrorComponent)
     private error: RockErrorComponent;
 
-    @ViewChild(RockOverlayDirective, { static: false })
+    @ViewChild(RockOverlayDirective)
     private overlay: RockOverlayDirective;
 
-    @ViewChild(RockInputDirective, { static: false })
+    @ViewChild(RockInputDirective)
     private input: RockInputDirective;
 
     private hasChange: (value: any) => void = () => {};
@@ -91,8 +91,8 @@ export class RockAutocompleteComponent implements OnInit, AfterContentInit, Afte
             .pipe(
                 takeUntil(this.destroyed),
                 debounceTime(500),
-                tap((value) => text = value),
-                mergeMap((value) => this.search(value)),
+                tap((value: string) => text = value),
+                mergeMap((value: string) => this.search(value)),
                 tap(() => this.isOpen = text.length > 0),
             )
             .subscribe((res) => this.options = res);

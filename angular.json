@@ -17,6 +17,7 @@
                 "build": {
                     "builder": "@angular-devkit/build-angular:browser",
                     "options": {
+                        "aot": true,
                         "outputPath": "dist/bedrock",
                         "index": "src/docs/index.html",
                         "main": "src/docs/main.ts",
@@ -56,6 +57,10 @@
                                     "type": "initial",
                                     "maximumWarning": "2mb",
                                     "maximumError": "5mb"
+                                },
+                                {
+                                    "type": "anyComponentStyle",
+                                    "maximumWarning": "6kb"
                                 }
                             ]
                         }
@@ -95,13 +100,18 @@
             "root": "src/lib",
             "sourceRoot": "src/lib",
             "projectType": "library",
-            "prefix": "vza",
+            "prefix": "rock",
             "architect": {
                 "build": {
                     "builder": "@angular-devkit/build-ng-packagr:build",
                     "options": {
                         "tsConfig": "src/lib/tsconfig.json",
                         "project": "src/lib/ng-package.json"
+                    },
+                    "configurations": {
+                        "production": {
+                            "tsConfig": "src/lib/tsconfig.prod.json"
+                        }
                     }
                 },
                 "lint": {

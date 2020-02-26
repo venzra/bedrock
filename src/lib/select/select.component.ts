@@ -56,7 +56,7 @@ export class RockSelectComponent implements AfterContentInit, ControlValueAccess
     public isRequired = false;
     public selection: Option;
 
-    @ContentChild(RockErrorComponent, { static: false })
+    @ContentChild(RockErrorComponent)
     private error: RockErrorComponent;
 
     @ContentChildren(RockOptionDirective)

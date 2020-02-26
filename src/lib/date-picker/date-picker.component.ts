@@ -98,10 +98,10 @@ export class RockDatePickerComponent implements AfterContentInit, AfterViewInit,
         return this.currentValue;
     }
 
-    @ContentChild(RockErrorComponent, { static: false })
+    @ContentChild(RockErrorComponent)
     private error: RockErrorComponent;
 
-    @ViewChild(RockInputDirective, { static: false })
+    @ViewChild(RockInputDirective)
     private input: RockInputDirective;
 
     private hasChange: (value: Date) => void = () => { };

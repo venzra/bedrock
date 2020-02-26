@@ -22,9 +22,9 @@ export class MarkdownComponent implements OnInit {
             .subscribe((content) => this.markdownContent = content);
     }
 
-    public highlight(text, lang = 'typescript'): string {
+    public highlight(text: string, lang: string): string {
         hljs.registerLanguage('typescript', typescript);
-        return hljs.highlight(lang, text).value;
+        return hljs.highlight(lang || 'typescript', text).value;
     }
 
 }
