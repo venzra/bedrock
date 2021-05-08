@@ -46,7 +46,7 @@
         "@angular/language-service": "9.0.2",
         "@types/node": "12.12.28",
         "codelyzer": "5.2.1",
-        "ng-packagr": "9.0.2",
+        "ng-packagr": "10.1.1",
         "serve": "11.3.0",
         "ts-node": "8.6.2",
         "tslib": "1.11.0",
