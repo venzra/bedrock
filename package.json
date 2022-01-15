@@ -34,7 +34,7 @@
         "core-js": "3.6.4",
         "exif-js": "2.3.0",
         "highlight.js": "9.18.1",
-        "marked": "0.8.0",
+        "marked": "4.0.10",
         "rxjs": "6.5.4",
         "zone.js": "0.10.2"
     },
